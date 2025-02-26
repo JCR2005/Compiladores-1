@@ -1,0 +1,253 @@
+    package com.compiladores_1.notebookmovil.Backend;
+
+    import java_cup.runtime.Symbol;
+
+action code
+{:
+    public static boolean instruccionValida = false;
+    public static boolean encabezado= false;
+    public static boolean lista_numerica = false;
+    public static boolean parrafo = false;
+    public static boolean lista = false;
+    public static boolean tipoFormsto = false;
+    public static boolean print = false;
+    public static String mensaje="";
+    String instruccion="";
+:}
+
+    terminal String TEXTO, ENCABEZADO,NUMERO, TEXTOCONFORMATO,INDICE,TEXTO_PARRAFO;
+    terminal SUMA, MENOS, MUL, DIV,INICIOCADENA,PRINT;
+    terminal PAR1, PAR2;
+    terminal Double DECIMAL;
+
+
+    nonterminal INICIO;
+    non terminal expr;
+    nonterminal INSTRUCCION;
+    nonterminal String cadena,elemento1,elementolista,elementolista2;
+
+    precedence left SUMA, MENOS;
+    precedence left MUL, DIV;
+    start with INICIO;
+
+    INICIO ::= INSTRUCCION{:
+                          RESULT = instruccion;
+                      :}
+             ;
+
+ expr ::= expr SUMA expr
+         | expr MENOS expr
+         | expr MUL expr
+         | expr:e1 DIV expr:e2
+         | PAR1 expr PAR2
+         | NUMERO:n         {: RESULT= n+1;:}
+         | DECIMAL:d        {: RESULT= d;:};
+
+INSTRUCCION ::= expr;
+
+
+INSTRUCCION ::= PRINT:p PAR1:p1 INICIOCADENA:ic cadena:c INICIOCADENA:fc PAR2:p2
+                {:
+                    instruccion =c;
+                    mensaje="✔ COMPILACION EXITOSA: PRINT EJECUTADO";
+                    System.out.println("✔ Instrucción reconocida: "+instruccion+"\n");
+                    instruccionValida=true;
+                    print = true;
+
+                :}
+            ;
+
+
+INSTRUCCION ::= ENCABEZADO:E cadena:e2
+                {:
+                    instruccion= E+e2;
+                    mensaje="✔ COMPILACION EXITOSA: ENCABEZADO EJECUTADO";
+                    System.out.println("✔ Instrucción reconocida: "+instruccion+"\n");
+                    instruccionValida=true;
+                    encabezado = true;
+
+                :}
+                 |  ENCABEZADO:E
+                 {:  System.out.println("❌ Error de sintaxis se esperaba un header");
+                    mensaje="❌ ERROR DE SINTAXIS";
+                    instruccion="❌ Header no definido "+E+" ^^^^^^^^^^^ ";
+                    instruccionValida=false;
+                    encabezado = false;
+                    RESULT = null;
+                :}
+                 ;
+
+
+INSTRUCCION ::= elementolista;
+INSTRUCCION ::= elementolista2;
+
+elementolista ::= INDICE:i cadena:c
+                {:
+                    instruccion = i + c+" ";
+                   mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
+                    System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                    instruccionValida=true;
+                    lista_numerica =true;
+                    RESULT = instruccion;
+                :}
+                |INDICE:i cadena:c elementolista:ed
+                 {:
+                     instruccion = i + c +" "+ ed;
+                     mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
+                     System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                     instruccionValida=true;
+                     lista_numerica =true;
+                     RESULT = instruccion;
+                 :}
+                 |INDICE:i1 INDICE:i2
+                  {:
+                      mensaje="❌ ERROR DE SINTAXIS";
+                      instruccion="❌ Elemento de lista no definido: "+i1+" ^^^^^^^^^^^ "+i2+"^^^^^^^^^^";
+                      instruccionValida=false;
+                      lista_numerica =false;
+                      RESULT = instruccion;
+                  :}
+                  |INDICE:i
+                  {:
+                      mensaje="❌ ERROR DE SINTAXIS";
+                      instruccion="❌ Elemento de lista no definido: "+i+" ^^^^^^^^^^^";
+                      instruccionValida=false;
+                      lista_numerica =false;
+                      RESULT = instruccion;
+                  :}
+                  ;
+
+
+elementolista2 ::= SUMA:i cadena:c
+                {:
+                    instruccion = i + c+" ";
+                    mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
+                    System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                    instruccionValida=true;
+                    lista =true;
+                    RESULT = instruccion;
+                :}
+                |SUMA:i cadena:c elementolista2:ed
+                 {:
+                     instruccion = i + c +" "+ ed;
+
+                     mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
+                     System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                     instruccionValida=true;
+                    lista =true;
+                     RESULT = instruccion;
+                 :}
+                 |SUMA:i1 SUMA:i2
+                  {:
+                      mensaje="❌ ERROR DE SINTAXIS";
+                      instruccion="❌ Elemento de lista no definido: "+i1+" ^^^^^^^^^^^ "+i2+"^^^^^^^^^^";
+                      instruccionValida=false;
+                      lista =false;
+                      RESULT = instruccion;
+                  :}
+                  |SUMA:i
+                  {:
+                      mensaje="❌ ERROR DE SINTAXIS";
+                      instruccion="❌ Elemento de lista no definido: "+i+" ^^^^^^^^^^^";
+                      instruccionValida=false;
+                      lista =false;
+                      RESULT = instruccion;
+                  :}
+                  ;
+
+
+
+
+cadena ::= elemento1:e1   {: RESULT = e1; :}
+        | elemento1:e1 cadena:c   {: RESULT = e1+" "+c; :}
+        ;
+
+ elemento1 ::=TEXTO:t      {: RESULT = t; :}
+           |NUMERO:n     {: RESULT =  n;:}
+           |TEXTO_PARRAFO:tp {: RESULT = tp;:}
+           ;
+
+
+
+INSTRUCCION::=error
+           {:
+                mensaje="❌ ERROR DE SINTAXIS";
+               instruccion="❌ Error de sintaxis es una instrccion imvalida";
+                  instruccionValida=false;
+
+               RESULT = null;
+
+           :}
+            ;
+
+
+    INSTRUCCION ::= TEXTOCONFORMATO:tf1 cadena:t TEXTOCONFORMATO:tf2
+                {:
+                 if (!tf1.equals(tf2)) {
+                     mensaje="❌ ERROR DE SINTAXIS";
+                     instruccion="❌ Cierre no coicide: "+tf1+" "+t+" →"+ tf2+"←, esperado: "+ tf1;
+                     instruccionValida=false;
+                     tipoFormsto = false;
+                     RESULT = null;
+                 }else{
+                    instruccion=tf1+t+tf2;
+                    mensaje="✔ COMPILACION EXITOSA: TEXTO CON FORMATO EJECUTADO";
+                    System.out.println("✔ Instrucción reconocida: "+instruccion+"\n");
+                    instruccionValida=true;
+                    tipoFormsto = true;
+                    RESULT = instruccion;
+                 }
+
+                :}
+                 | TEXTOCONFORMATO:tf1 cadena:t  {:
+                      mensaje="❌ ERROR DE SINTAXIS";
+                      instruccion="❌ Cierre no presente: "+tf1+" "+t+" →^^^←"+", esperado: →"+ tf1;
+                      instruccionValida=false;
+                      tipoFormsto = false;
+                     RESULT = null;
+                 :}
+                 | cadena:t TEXTOCONFORMATO:tf1 {:
+                   mensaje="❌ ERROR DE SINTAXIS";
+                   instruccion="❌ Inicio no presente: "+" →^^^←"+" "+t+tf1+", esperado: →"+ tf1;
+                  instruccionValida=false;
+                  tipoFormsto = false;
+                   RESULT = null;
+               :}
+               |  TEXTOCONFORMATO:tf1 error {:
+                      mensaje="❌ ERROR DE SINTAXIS";
+                      instruccion="❌ Texto no definido, Cierre no definido: "+tf1+" →^^^^^^^^^^^^^^← →^^^←, cierre esperado: "+tf1;
+                      instruccionValida=false;
+                      tipoFormsto = false;
+                     RESULT = null;
+                 :}
+                 ;
+
+
+  INSTRUCCION ::= TEXTO_PARRAFO:p
+                 {:
+                    instruccion = p;
+                      mensaje="✔ COMPILACION EXITOSA: PARRAFO EJECUTADO";
+                    System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                     instruccionValida=true;
+                      parrafo = true;
+                    RESULT = instruccion;
+                :}
+                |TEXTO:t
+                   {:
+                      instruccion+= t;
+                      mensaje="✔ COMPILACION EXITOSA: PARRAFO EJECUTADO";
+                      System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                       instruccionValida=true;
+                       parrafo = true;
+                      RESULT = instruccion;
+                  :}
+  ;
+
+  INSTRUCCION::= NUMERO:n1 SUMA NUMERO:n2 {:
+                  instruccion=n1+n2;
+                  mensaje="✔ COMPILACION EXITOSA: PARRAFO EJECUTADO";
+                  System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                   instruccionValida=true;
+                   parrafo = true;
+                  RESULT = instruccion;
+              :};
