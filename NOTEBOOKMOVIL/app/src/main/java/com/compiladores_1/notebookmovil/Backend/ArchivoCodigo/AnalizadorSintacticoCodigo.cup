@@ -1,0 +1,96 @@
+package com.compiladores_1.notebookmovil.Backend;
+
+import java_cup.runtime.Symbol;
+
+    parser code{:
+      public List<String> errores = new ArrayList<>();
+
+
+      public  boolean instruccionValida = false;
+      public  boolean print= false;
+      public  boolean expresion = false;
+      public  String mensaje="";
+      String instruccion="";
+    :}
+
+action code{:
+    String orde="";
+:}
+
+terminal String ENTERO, DECIMAL, CADENA, SALTO;
+terminal IMPRIMIR;
+terminal MAS, MENOS, MUL, DIV, POT, PAR1, PAR2, UMENOS;
+
+nonterminal INICIO;
+nonterminal INSTRUCCION, INSTRUCCIONES;
+nonterminal Double EXPRESION;
+
+precedence left MAS, MENOS;
+precedence left MUL, DIV;
+precedence left POT;
+precedence right UMENOS;
+
+start with INICIO;
+
+INICIO ::= INSTRUCCIONES {: RESULT = orde; :};
+
+INSTRUCCIONES ::= INSTRUCCIONES INSTRUCCION
+                | INSTRUCCIONES SALTO INSTRUCCION
+                | INSTRUCCION;
+
+
+INSTRUCCION ::= IMPRIMIR PAR1 EXPRESION:e PAR2
+            {: orde += e + "\n";
+            instruccionValida=true;
+            print = false;
+            :}
+
+            |IMPRIMIR PAR1 CADENA:c PAR2
+            {: orde += c + "\n";
+            instruccionValida=true;
+            print = true;
+            :}
+
+            |IMPRIMIR:i PAR1:p1 CADENA:c
+            {: orde += "❌ Falta cerrar el print: " +i+p1+c+"→ ) ←  \n";
+            instruccionValida=false;
+            :}
+            |IMPRIMIR:i PAR1:p1 EXPRESION:c
+            {: orde += "❌ Falta cerrar el print: " +i+p1+c+"→ ) ←  \n";
+            instruccionValida=false;
+            :}
+            |IMPRIMIR:i error
+            {: orde += "❌ Mal intento de instruccion: " +"print"+"→ ( ←"+"→^^^^^^^^← "+"→ ) ←"+"\n";
+            instruccionValida=false;
+            :}
+
+            ;
+
+
+INSTRUCCION::=error
+           {:
+
+               orde="❌ Error de sintaxis es una instrccion invalida";
+                  instruccionValida=false;
+
+               RESULT = null;
+
+           :}
+            ;
+
+
+INSTRUCCION::=  EXPRESION:e
+                          {: orde += e + "\n";
+                          instruccionValida=true;
+                          expresion = true;
+                          :};
+
+EXPRESION ::= MENOS EXPRESION:e {: RESULT = -e; :} %prec UMENOS
+            | EXPRESION:e1 MAS EXPRESION:e2 {: RESULT = e1 + e2; :}
+            | EXPRESION:e1 MENOS EXPRESION:e2 {: RESULT = e1 - e2; :}
+            | EXPRESION:e1 MUL EXPRESION:e2 {: RESULT = e1 * e2; :}
+            | EXPRESION:e1 DIV EXPRESION:e2 {: RESULT = e1 / e2; :}
+            | EXPRESION:e1 POT EXPRESION:e2 {: RESULT = Math.pow(e1, e2); :}
+            | PAR1:p1 EXPRESION:e PAR2:p2 {: RESULT = e; :}
+            | ENTERO:e {: RESULT = new Double(e); :}
+            | DECIMAL:e {: RESULT = new Double(e); :};

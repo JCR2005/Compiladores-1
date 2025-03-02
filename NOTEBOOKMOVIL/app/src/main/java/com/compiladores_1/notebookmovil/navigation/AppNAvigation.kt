@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
-import com.compiladores_1.notebookmovil.screens.paginaPrincipal
-import com.compiladores_1.notebookmovil.screens.agregarTarea
+import com.compiladores_1.notebookmovil.pantllas.paginaPrincipal
+import com.compiladores_1.notebookmovil.pantllas.agregarTarea
 
 @Composable
 fun AppNavigation() {

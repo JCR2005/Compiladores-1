@@ -4,58 +4,29 @@
 
 action code
 {:
-    public static boolean instruccionValida = false;
-    public static boolean encabezado= false;
-    public static boolean lista_numerica = false;
-    public static boolean parrafo = false;
-    public static boolean lista = false;
-    public static boolean tipoFormsto = false;
-    public static boolean print = false;
-    public static String mensaje="";
+    public  boolean instruccionValida = false;
+    public  boolean encabezado= false;
+    public  boolean lista_numerica = false;
+    public  boolean parrafo = false;
+    public  boolean lista = false;
+    public  boolean tipoFormsto = false;
+    public  String mensaje="";
     String instruccion="";
 :}
 
-    terminal String TEXTO, ENCABEZADO,NUMERO, TEXTOCONFORMATO,INDICE,TEXTO_PARRAFO;
-    terminal SUMA, MENOS, MUL, DIV,INICIOCADENA,PRINT;
-    terminal PAR1, PAR2;
-    terminal Double DECIMAL;
+terminal String TEXTO, ENCABEZADO,NUMERO, TEXTOCONFORMATO,INDICE,TEXTO_PARRAFO,SUMA;
+
+nonterminal INICIO;
+
+nonterminal INSTRUCCION;
+nonterminal String cadena,elemento1,elementolista,elementolista2;
+
+start with INICIO;
 
 
-    nonterminal INICIO;
-    non terminal expr;
-    nonterminal INSTRUCCION;
-    nonterminal String cadena,elemento1,elementolista,elementolista2;
-
-    precedence left SUMA, MENOS;
-    precedence left MUL, DIV;
-    start with INICIO;
-
-    INICIO ::= INSTRUCCION{:
-                          RESULT = instruccion;
-                      :}
+INICIO ::= INSTRUCCION{:RESULT = instruccion;:}
              ;
 
- expr ::= expr SUMA expr
-         | expr MENOS expr
-         | expr MUL expr
-         | expr:e1 DIV expr:e2
-         | PAR1 expr PAR2
-         | NUMERO:n         {: RESULT= n+1;:}
-         | DECIMAL:d        {: RESULT= d;:};
-
-INSTRUCCION ::= expr;
-
-
-INSTRUCCION ::= PRINT:p PAR1:p1 INICIOCADENA:ic cadena:c INICIOCADENA:fc PAR2:p2
-                {:
-                    instruccion =c;
-                    mensaje="✔ COMPILACION EXITOSA: PRINT EJECUTADO";
-                    System.out.println("✔ Instrucción reconocida: "+instruccion+"\n");
-                    instruccionValida=true;
-                    print = true;
-
-                :}
-            ;
 
 
 INSTRUCCION ::= ENCABEZADO:E cadena:e2

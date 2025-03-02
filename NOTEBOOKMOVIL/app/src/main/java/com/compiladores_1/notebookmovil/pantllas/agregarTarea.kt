@@ -1,4 +1,4 @@
-package com.compiladores_1.notebookmovil.screens
+package com.compiladores_1.notebookmovil.pantllas
 
 
 import android.annotation.SuppressLint
@@ -31,8 +31,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import android.util.Log
-import androidx.compose.runtime.LaunchedEffect
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -49,7 +47,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.compiladores_1.notebookmovil.Backend.Compilador
+import com.compiladores_1.notebookmovil.Backend.Compilador.Compilador
 import com.compiladores_1.notebookmovil.R
 import com.compiladores_1.notebookmovil.navigation.AppScreens
 

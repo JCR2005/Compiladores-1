@@ -1,7 +1,6 @@
-package com.compiladores_1.notebookmovil.screens
+package com.compiladores_1.notebookmovil.pantllas
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -23,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.compiladores_1.notebookmovil.Backend.Compilador
+import com.compiladores_1.notebookmovil.Backend.Compilador.Compilador
 import kotlin.OptIn
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -65,9 +64,10 @@ fun Correctore(
     mensaje: String,
     respuesta: String,
     compilador: Compilador // Pasar como parámetro
-) {
 
+) {
     Column(
+
         modifier = Modifier
             .padding(16.dp)
             .offset(3.dp, 90.dp)
@@ -88,17 +88,18 @@ fun Correctore(
             fontWeight = FontWeight.W900,
         )
 
-        when {
-            compilador.isEncabezado -> headers(compilador.tamaño, respuesta)
-            compilador.isTextoFormato -> formato(compilador.estilo, respuesta)
-            compilador.isParrafo -> Parrafo(respuesta)
-            compilador.isLista -> lista(compilador.listanormal)
-            compilador.isLista_Numeros -> lista(compilador.listaNumerica)
-            compilador.isPrint -> Parrafo(respuesta)
+     when {
+            compilador.analizadorMarkdown.isEncabezado -> headers(compilador.analizadorMarkdown.tamaño, respuesta)
+            compilador.analizadorMarkdown.isTextoFormato -> formato(compilador.analizadorMarkdown.estilo, respuesta)
+            compilador.analizadorMarkdown.isParrafo -> Parrafo(respuesta)
+            compilador.analizadorMarkdown.isLista -> lista(compilador.analizadorMarkdown.listaNumerica)
+            compilador.analizadorMarkdown.isLista_Numeros -> lista(compilador.analizadorMarkdown.listaNumerica)
+            compilador.analizadorCodigo.analisisExito -> Parrafo(respuesta)
             else -> mesaje(respuesta)
         }
     }
 }
+
 
 @Composable
 fun lista( respuesta: Array<String>){
@@ -201,10 +202,13 @@ fun formato(estilo:  Double, respuesta: String){
 
             .verticalScroll(rememberScrollState()),
     ) {
-        val textStyle = when (estilo) {
-            1.00 -> FontWeight.ExtraBold
-            2.00 -> FontStyle.Italic
-            3.00 -> FontWeight.ExtraBold to FontStyle.Italic
+        val fontWeight = when (estilo) {
+            2.00, 3.00 -> FontWeight.W900
+            else -> null
+        }
+
+        val fontStyle = when (estilo) {
+            1.00, 3.00 -> FontStyle.Italic
             else -> null
         }
 
@@ -212,19 +216,19 @@ fun formato(estilo:  Double, respuesta: String){
             text = respuesta,
             modifier = Modifier.padding(16.dp),
             color = Color(0xFF0A0A0A),
-            fontWeight = if (textStyle is FontWeight) textStyle else null,
-            fontStyle = if (textStyle is FontStyle) textStyle else null
+            fontWeight = fontWeight,
+            fontStyle = fontStyle
         )
 
     }
 }
 
+var AnalizadorEnUso=false;
 
 @Composable
 fun CuerpoPaginaPrincipal(navController: NavController) {
     var paneles by remember { mutableStateOf(listOf<PanelState>()) }
     var botonCrear by remember { mutableStateOf(true) }
-
     Column {
         Row(
             modifier = Modifier
@@ -241,6 +245,7 @@ fun CuerpoPaginaPrincipal(navController: NavController) {
                     enabled = botonCrear,
                 onClick = {
                     paneles = paneles + PanelState(texto = "")
+                    AnalizadorEnUso=true
                     botonCrear = false
                 },
                 colors = ButtonDefaults.elevatedButtonColors(containerColor = Color(0xFF18165D))
@@ -254,6 +259,7 @@ fun CuerpoPaginaPrincipal(navController: NavController) {
                     .padding(5.dp),
                 enabled = botonCrear,
                 onClick = {
+                    AnalizadorEnUso=false
                     paneles = paneles + PanelState(texto = "")
                     botonCrear = false
                 },
@@ -267,6 +273,8 @@ fun CuerpoPaginaPrincipal(navController: NavController) {
         CuerpoPaneles(paneles, onGuardar = { nuevosPaneles ->
             paneles = nuevosPaneles
             botonCrear = true
+
+
         })
     }
 }
@@ -275,7 +283,6 @@ fun CuerpoPaginaPrincipal(navController: NavController) {
 @Composable
 fun CuerpoPaneles(paneles: List<PanelState>, onGuardar: (List<PanelState>) -> Unit) {
     val scrollState = rememberScrollState()
-
     Column (
         modifier = Modifier.verticalScroll(scrollState)
     ){
@@ -291,7 +298,6 @@ fun CuerpoPaneles(paneles: List<PanelState>, onGuardar: (List<PanelState>) -> Un
                 if (panelState.boton) {
                     Button(
                         onClick = {
-
                             val newPaneles = paneles.toMutableList().apply {
                                 this[index] = this[index].copy(
                                     valor = 400.dp,
@@ -299,11 +305,8 @@ fun CuerpoPaneles(paneles: List<PanelState>, onGuardar: (List<PanelState>) -> Un
 
                                 )
                             }
-
-                            panelState.compilador.compilar(panelState.texto)
-
+                            panelState.compilador.compilar(panelState.texto, AnalizadorEnUso)
                             onGuardar(newPaneles)
-
                         },
                         modifier = Modifier
                             .width(90.dp)
@@ -324,17 +327,13 @@ fun CuerpoPaneles(paneles: List<PanelState>, onGuardar: (List<PanelState>) -> Un
                     },
                     enabled = panelState.textFieldEnabled
                 )
-
-
                 if (panelState.corrector) {
                     Correctore(
                         mensaje = panelState.compilador.mesaje,
-                        respuesta = panelState.compilador.intruccio,
+                        respuesta = panelState.compilador.intruccion,
                         panelState.compilador
                     )
                 }
-
-
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -368,7 +367,6 @@ fun CuerpoPaneles(paneles: List<PanelState>, onGuardar: (List<PanelState>) -> Un
                         }
                     }
                 }
-
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -397,7 +395,6 @@ fun CuerpoPaneles(paneles: List<PanelState>, onGuardar: (List<PanelState>) -> Un
                         ) {
                             Text("Editar", color = Color.White, fontSize = 20.sp)
                         }
-
                         Button(
                             modifier = Modifier
                                 .fillMaxWidth(0.5f)
