@@ -52,15 +52,15 @@ INSTRUCCION ::= IMPRIMIR PAR1 EXPRESION:e PAR2
             :}
 
             |IMPRIMIR:i PAR1:p1 CADENA:c
-            {: orde += "❌ Falta cerrar el print: " +i+p1+c+"→ ) ←  \n";
+            {: orde += "x Falta cerrar el print: " +i+p1+c+"→ ) ←  \n";
             instruccionValida=false;
             :}
             |IMPRIMIR:i PAR1:p1 EXPRESION:c
-            {: orde += "❌ Falta cerrar el print: " +i+p1+c+"→ ) ←  \n";
+            {: orde += "x Falta cerrar el print: " +i+p1+c+"→ ) ←  \n";
             instruccionValida=false;
             :}
             |IMPRIMIR:i error
-            {: orde += "❌ Mal intento de instruccion: " +"print"+"→ ( ←"+"→^^^^^^^^← "+"→ ) ←"+"\n";
+            {: orde += "x Mal intento de instruccion: " +"print"+"→ ( ←"+"→^^^^^^^^← "+"→ ) ←"+"\n";
             instruccionValida=false;
             :}
 
@@ -70,7 +70,7 @@ INSTRUCCION ::= IMPRIMIR PAR1 EXPRESION:e PAR2
 INSTRUCCION::=error
            {:
 
-               orde="❌ Error de sintaxis es una instrccion invalida";
+               orde="x Error de sintaxis es una instrccion invalida";
                   instruccionValida=false;
 
                RESULT = null;
