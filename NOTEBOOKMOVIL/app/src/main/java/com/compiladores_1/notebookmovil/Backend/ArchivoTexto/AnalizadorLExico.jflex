@@ -24,22 +24,28 @@ import java_cup.runtime.Symbol;
 %full
 %debug
 
+SALTO = [\n]+
 SUMA = \+
 INDICE = [1-9]*\.[ ]
 NUMERO = [0-9]+
 ENCABEZADO = \#{1,6}[ ]
 TEXTOCONFORMATO = \*{1,3}
 
-LineTerminator = \r|\n|\r\n
-WhiteSpace = [ \t\f]+
+terminadorLinea = \r|\r
+espacionBlanco = [ \t\f]*+++
 TEXTO = [a-zA-Z]+(\s)*
 TEXTO_PARRAFO = ([^\#\*\+0-9]+(\n)?)+
 
 
 %%
+<YYINITIAL> {SALTO} {
+    yyline=yyline+1;
+    yycolumn=0;
+  return new java_cup.runtime.Symbol(sym.SALTO, yyline, yycolumn, yytext().trim());
+}
+<YYINITIAL> {espacionBlanco} { }
 
-<YYINITIAL> {WhiteSpace} { /* Ignorar espacios en blanco */ }
-<YYINITIAL> {LineTerminator} { /* Ignorar saltos de línea */ }
+
 
 <YYINITIAL> {SUMA} { return new Symbol(sym.SUMA, yyline, yycolumn+1, yytext().trim()); }
 

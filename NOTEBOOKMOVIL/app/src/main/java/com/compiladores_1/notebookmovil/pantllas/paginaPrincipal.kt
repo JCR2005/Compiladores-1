@@ -92,7 +92,7 @@ fun Correctore(
             compilador.analizadorMarkdown.isEncabezado -> headers(compilador.analizadorMarkdown.tamaño, respuesta)
             compilador.analizadorMarkdown.isTextoFormato -> formato(compilador.analizadorMarkdown.estilo, respuesta)
             compilador.analizadorMarkdown.isParrafo -> Parrafo(respuesta)
-            compilador.analizadorMarkdown.isLista -> lista(compilador.analizadorMarkdown.listaNumerica)
+            compilador.analizadorMarkdown.isLista -> lista(compilador.analizadorMarkdown.listanormal)
             compilador.analizadorMarkdown.isLista_Numeros -> lista(compilador.analizadorMarkdown.listaNumerica)
             compilador.analizadorCodigo.analisisExito -> Parrafo(respuesta)
             else -> mesaje(respuesta)

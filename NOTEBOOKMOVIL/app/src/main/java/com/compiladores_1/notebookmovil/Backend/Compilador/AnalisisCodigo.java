@@ -41,11 +41,11 @@ public class AnalisisCodigo {
                 intruccion=resultado.toString();
 
                 if (p.instruccionValida){
-
+                    setMesaje(" COMPILACION EXITOSA");
                     setAnalisisExito(true);
                     analisisCodigo(p);
                 }else {
-                    setMesaje("❌ ERROR DE SINTAXIS");
+                    setMesaje(" ERROR DE SINTAXIS");
                 }
 
                 return getAnalisisExito();
@@ -74,11 +74,11 @@ public class AnalisisCodigo {
     public void analisisCodigo( parser p) {
 
         if (p.expresion) {
-            setMesaje("✔ COMPILACION EXITOSA: OPRECION EJECUTADA");
+            setMesaje(" COMPILACION EXITOSA: OPRECION EJECUTADA");
             expresion=true;
         }
         if (p.print) {
-            setMesaje("✔ COMPILACION EXITOSA: PRINT EJECUTADO");
+            setMesaje(" COMPILACION EXITOSA: PRINT EJECUTADO");
             print=true;
         }
     }

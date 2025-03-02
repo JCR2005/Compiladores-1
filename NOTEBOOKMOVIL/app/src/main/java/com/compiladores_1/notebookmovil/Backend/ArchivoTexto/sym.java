@@ -15,6 +15,7 @@ public class sym {
   public static final int INDICE = 6;
   public static final int TEXTOCONFORMATO = 5;
   public static final int NUMERO = 4;
+  public static final int SALTO = 9;
   public static final int error = 1;
   public static final int TEXTO_PARRAFO = 7;
   public static final String[] terminalNames = new String[] {
@@ -26,7 +27,8 @@ public class sym {
   "TEXTOCONFORMATO",
   "INDICE",
   "TEXTO_PARRAFO",
-  "SUMA"
+  "SUMA",
+  "SALTO"
   };
 }
 
