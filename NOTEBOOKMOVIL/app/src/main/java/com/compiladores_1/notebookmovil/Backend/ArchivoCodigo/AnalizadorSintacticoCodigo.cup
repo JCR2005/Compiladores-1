@@ -4,8 +4,6 @@ import java_cup.runtime.Symbol;
 
     parser code{:
       public List<String> errores = new ArrayList<>();
-
-
       public  boolean instruccionValida = false;
       public  boolean print= false;
       public  boolean expresion = false;
