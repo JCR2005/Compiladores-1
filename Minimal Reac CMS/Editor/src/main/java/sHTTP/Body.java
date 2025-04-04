@@ -22,6 +22,8 @@ public class Body {
         this.body = "..." + "\n";
         if (body != null) {
             this.body += (body + "\n");
+        }else{
+             this.body += ("\n");
         }
         this.body += "...";
     }

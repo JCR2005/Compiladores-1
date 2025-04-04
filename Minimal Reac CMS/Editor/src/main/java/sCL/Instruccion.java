@@ -1,3 +1,4 @@
+
 package sCL;
 
 /**
@@ -6,9 +7,9 @@ package sCL;
  */
 public class Instruccion {
 
-    private Accion accion = new Accion();
-    private Objetivo objetivo = new Objetivo();
-    private Parametro parametro = new Parametro();
+    private final Accion accion = new Accion();
+    private final Objetivo objetivo = new Objetivo();
+    private final Parametro parametro = new Parametro();
     private String instruccion="";
     
     public String instruccion_sCl(int accion, int objetivo){

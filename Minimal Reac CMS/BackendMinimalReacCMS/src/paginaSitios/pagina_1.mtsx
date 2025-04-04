@@ -1,0 +1,17 @@
+const NombrePagina = () => {
+	var texto: string = “Hola Mundo”;
+	var variable: number = 10;
+
+	function funcion(): void {
+	variable = variable + 1;
+}
+
+	return (
+	<main>
+		<h1>{texto}</h2>
+		<input value={variable}/>
+		<button onClick={funcion}>Boton</button>
+	</main>
+);
+}
+

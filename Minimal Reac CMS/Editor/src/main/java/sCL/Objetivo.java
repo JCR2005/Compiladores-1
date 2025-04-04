@@ -1,4 +1,3 @@
-
 package sCL;
 
 /**
@@ -6,13 +5,16 @@ package sCL;
  * @author carlos
  */
 public class Objetivo {
-    
-        private final String SITIO="sitio";
-    
-    private final String PAGINA="pagina";
-    
-      public String objetivo(int objetivo){
-        
+
+    private final String SITIO = "sitio";
+
+    private final String PAGINA = "pagina";
+    private final String SITIOS = "sitios";
+    private final String PAGINAS = "paginas";
+    private final String PAGINASITIOS = "paginasitios";
+
+    public String objetivo(int objetivo) {
+
         switch (objetivo) {
             case 1 -> {
                 return SITIO;
@@ -21,23 +23,29 @@ public class Objetivo {
                 return PAGINA;
             }
             case 3 -> {
+                return SITIOS;
             }
-            default -> throw new AssertionError();
+            case 4 -> {
+                return PAGINAS;
+            }
+            case 5 -> {
+                return PAGINASITIOS;
+            }
+            default ->
+                throw new AssertionError();
         }
-    
-        return null;
-    
+
     }
-    
-    public String sitio(){
-    
+
+    public String sitio() {
+
         return null;
-    
+
     }
-    
-     public String pagina(){
-    
+
+    public String pagina() {
+
         return null;
-    
+
     }
 }

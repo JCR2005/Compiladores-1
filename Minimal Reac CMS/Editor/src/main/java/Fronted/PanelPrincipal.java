@@ -9,6 +9,7 @@ import javax.swing.UIManager;
 public class PanelPrincipal extends javax.swing.JPanel {
     
     PanelCreacion panelCreacion;
+    PanelEdicion panelEdicion;
 
     /**
      * Creates new form PanelPrincipal
@@ -17,8 +18,11 @@ public class PanelPrincipal extends javax.swing.JPanel {
         initComponents();
         jPanel3.setBounds(0, 0, ancho, alto);
         panelCreacion = new PanelCreacion(ancho, alto);
+        panelEdicion=new PanelEdicion(ancho, alto);
         add(panelCreacion);
+        add(panelEdicion);
         panelCreacion.setVisible(false);
+       
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
             setBounds(0, 0, ancho, alto);
@@ -162,11 +166,14 @@ public class PanelPrincipal extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        jPanel3.setVisible(false);
+       panelCreacion.panel(jPanel3);
        panelCreacion.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       jPanel3.setVisible(false);
+       panelEdicion.panel(jPanel3);
+       panelEdicion.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -10,6 +10,8 @@ public class Metodo {
     private final String GET="GET";
     
     private final String POST="POST";
+    
+     private final String PATCH="PATCH";
      
      
     public String metodo(int metodo){
@@ -22,11 +24,13 @@ public class Metodo {
                 return POST;
             }
             case 3 -> {
+                
+                return PATCH;
             }
             default -> throw new AssertionError();
         }
     
-        return null;
+            
     
     }
     

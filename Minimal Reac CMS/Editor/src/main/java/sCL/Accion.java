@@ -9,9 +9,10 @@ public class Accion {
     
     
      private final String CREAR="crear";
-    
+    private final String OBTENER="obtener";
     private final String ELIMINAR="eliminar";
-     
+     private final String AGREGAR="agregar";
+    private final String MODIFICAR="modificar";
      
     public String accion(int accion){
         
@@ -20,38 +21,23 @@ public class Accion {
                 return CREAR;
             }
             case 2 -> {
-                return ELIMINAR;
+                return AGREGAR;
             }
             case 3 -> {
+                return  ELIMINAR;
+            }
+            case 4 -> {
+                return  MODIFICAR;
+            }
+            case 5 -> {
+                return  OBTENER;
             }
             default -> throw new AssertionError();
         }
     
-        return null;
+       
     
     }
     
-    public String crear(){
-    
-        return null;
-    
-    }
-    
-    public String agregar(){
-    
-        return null;
-    
-    }
-    
-    public String eliminar(){
-    
-        return null;
-    
-    }
-    
-    public String modificar(){
-    
-        return null;
-    
-    }
+   
 }

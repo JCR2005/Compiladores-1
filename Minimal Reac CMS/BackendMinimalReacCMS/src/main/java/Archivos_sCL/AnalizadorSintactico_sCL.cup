@@ -1,0 +1,156 @@
+package Archivos_sCL;
+
+import java_cup.runtime.Symbol;
+
+parser code {:
+
+    public int accion=0;
+    public int objetivo=0; 
+    public boolean instruccionValida = false;
+    public String mensaje = "";
+    public String orde = "";
+    public String instrccion = "";
+:}
+
+action code {:
+:}
+
+terminal String CREAR, OBTENER, SITIO,AGREGAR, PAGINA,PAGINAS,PAGINASITIOS,SITIOS, PARAMETRO, COMA,DELETE, MODIFICAR  ;
+
+nonterminal INICIO;
+nonterminal INSTRUCCION, INSTRUCCIONES;
+nonterminal PARAMETROS;
+start with INICIO;
+
+INICIO::=INSTRUCCIONES {:RESULT = instrccion;:};
+
+INSTRUCCIONES ::= INSTRUCCIONES INSTRUCCION
+                | INSTRUCCION
+                | error
+                {:
+                 mensaje="❌ ERROR DE SINTAXIS";
+                    instrccion = "Error de sintaxis: instrucción inválida";
+                    instruccionValida = false;
+                    RESULT = null;
+                :};
+
+
+INSTRUCCION ::= CREAR:c SITIO:s PARAMETRO:pa
+  {:
+    orde = c + s + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=1;
+    objetivo=2;
+    mensaje="✔ COMPILACION EXITOSA: crear sitio"; 
+  :}
+  | CREAR:c PAGINA:p PARAMETRO:pa
+  {:
+    orde = c + p + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=1;
+    objetivo=1;
+    mensaje="✔ COMPILACION EXITOSA: crear pagina"; 
+  :}
+  ;
+
+PARAMETROS::=PARAMETRO COMA PARAMETRO
+            |PARAMETRO;
+
+  INSTRUCCION ::= AGREGAR:a PAGINA:s PARAMETROS:pa
+  {:
+    orde = a + s + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=2;
+    objetivo=1;
+    mensaje="✔ COMPILACION EXITOSA: AGREGAR PAGINA"; 
+  :}
+  ;
+
+
+
+  INSTRUCCION ::= MODIFICAR:a PAGINA:s PARAMETROS:pa
+  {:
+    orde = a + s + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=3;
+    objetivo=1;
+    mensaje="✔ COMPILACION EXITOSA: MODIFICAR PAGINA"; 
+  :}
+  ;
+
+
+
+  INSTRUCCION ::= DELETE:a PAGINA:s PARAMETROS:pa
+  {:
+    orde = a + s + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=4;
+    objetivo=1;
+    mensaje="✔ COMPILACION EXITOSA: DELETE PAGINA"; 
+  :}
+  |DELETE:a SITIO:s PARAMETROS:pa
+  {:
+    orde = a + s + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=4;
+    objetivo=2;
+    mensaje="✔ COMPILACION EXITOSA: DELETE PAGINA"; 
+  :}
+  ;
+
+INSTRUCCION ::= OBTENER:o SITIO:s PARAMETRO:pa
+  {:
+    orde= o+s+pa+"\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=5;
+    objetivo=2;
+     mensaje="✔ COMPILACION EXITOSA: OBTENER SITIO"; 
+  :}
+  |
+  OBTENER:o PAGINA:p PARAMETROS:pa
+  {:
+    orde= o+p+pa+"\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=5;
+    objetivo=1;
+     mensaje="✔ COMPILACION EXITOSA: OBTENER PAGINA"; 
+  :}
+  |
+  OBTENER:o PAGINASITIOS:p PARAMETRO:pa
+  {:
+    orde= o+p+"\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=5;
+    objetivo=5;
+     mensaje="✔ COMPILACION EXITOSA: OBTENER PAGINAS"; 
+  :}
+  |
+  OBTENER:o SITIOS:s
+  {:
+    orde= o+s+"\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=5;
+    objetivo=3;
+     mensaje="✔ COMPILACION EXITOSA: OBTENER SITIOS"; 
+  :}
+  |
+  OBTENER:o PAGINAS:p
+  {:
+    orde= o+p+"\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=5;
+    objetivo=4;
+     mensaje="✔ COMPILACION EXITOSA: OBTENER PAGINAS"; 
+  :}
+  ;

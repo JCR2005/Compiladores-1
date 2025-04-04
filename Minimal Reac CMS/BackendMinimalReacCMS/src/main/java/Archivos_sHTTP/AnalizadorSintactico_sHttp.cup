@@ -1,0 +1,128 @@
+package Archivos_sHTTP;
+
+import java_cup.runtime.Symbol;
+
+parser code {:
+
+    public int metodo=0;
+    public int objetivo=0;
+    public boolean instruccionValida = false;
+    public String mensaje = "";
+    public String orde = "";
+    public String instrccion = "";
+:}
+
+action code {:
+:}
+
+terminal String POST, SITIO, SITIOS, PAGINA,PAGINAS,PAGINASITIOS , GET, PATCH;
+
+nonterminal INICIO;
+nonterminal INSTRUCCION;
+
+start with INICIO;
+
+INICIO ::= INSTRUCCION
+        {:
+            RESULT = instrccion;
+        :}
+        |error
+        {:
+            mensaje="❌ ERROR DE SINTAXIS";
+            instrccion = "Error de sintaxis: instrucción inválida";
+            instruccionValida = false;
+            RESULT = null;
+        :};
+
+INSTRUCCION ::= POST:p SITIO:s
+  {:
+    orde = p + s + "\n";
+    instruccionValida = true;
+    metodo=1;
+    objetivo=2;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: POST SITIO"; 
+  :}
+  | POST:p PAGINA:pa
+  {:
+    orde = p + pa + "\n";
+    instruccionValida = true;
+    metodo=1;
+    objetivo=1;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: POST PAGINA"; 
+  :}
+  ;
+
+
+INSTRUCCION ::= GET:p SITIO:s
+  {:
+    orde = p + s + "\n";
+    instruccionValida = true;
+    metodo=2;
+    objetivo=2;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: GET SITIO"; 
+  :}
+  | GET:p PAGINA:pa
+  {:
+    orde = p + pa + "\n";
+    instruccionValida = true;
+    metodo=2;
+    objetivo=1;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: GET PAGINA"; 
+  :}
+  ;
+
+INSTRUCCION ::= PATCH:p SITIO:s
+  {:
+    orde = p + s + "\n";
+    instruccionValida = true;
+    metodo=3;
+    objetivo=2;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: PATCH SITIO"; 
+  :}
+  | PATCH:p PAGINA:pa
+  {:
+    orde = p + pa + "\n";
+    instruccionValida = true;
+    metodo=3;
+    objetivo=1;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: PATCH PAGINA"; 
+  :}
+  ;
+
+
+INSTRUCCION ::= GET:p SITIOS:s
+  {:
+    orde = p + s + "\n";
+    instruccionValida = true;
+    metodo=2;
+    objetivo=3;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: GET SITIOS"; 
+  :}
+  |
+  GET:g PAGINAS:p
+  {:
+    orde = g + p + "\n";
+    instruccionValida = true;
+    metodo=2;
+    objetivo=4;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: GET PAGINAS"; 
+  :}
+   |
+    GET:g PAGINASITIOS:p
+  {:
+    orde = g + p + "\n";
+    instruccionValida = true;
+    metodo=2;
+    objetivo=5;
+    instrccion = orde;
+    mensaje="✔ COMPILACION EXITOSA: GET PAGINASITIO"; 
+  :}
+  ;
