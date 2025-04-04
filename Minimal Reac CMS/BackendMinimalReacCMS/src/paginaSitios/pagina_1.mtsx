@@ -1,17 +1,10 @@
-const NombrePagina = () => {
-	var texto: string = “Hola Mundo”;
-	var variable: number = 10;
+const PaginaSimple = () => {
+  var mensaaje: string = "Hola Mundo";
 
-	function funcion(): void {
-	variable = variable + 1;
+  return (
+    <main>
+      <h1>{mensaaje}</h1>
+      <p>"Bienvenido a una página web simple desarrollada con Minimal React."</p>
+    </main>
+  );
 }
-
-	return (
-	<main>
-		<h1>{texto}</h2>
-		<input value={variable}/>
-		<button onClick={funcion}>Boton</button>
-	</main>
-);
-}
-

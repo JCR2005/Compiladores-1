@@ -8,6 +8,7 @@ package Archivos_sCL;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
+  public static final int TRANPILAR = 14;
   public static final int SITIOS = 9;
   public static final int AGREGAR = 5;
   public static final int COMA = 11;
@@ -36,7 +37,8 @@ public class sym {
   "PARAMETRO",
   "COMA",
   "DELETE",
-  "MODIFICAR"
+  "MODIFICAR",
+  "TRANPILAR"
   };
 }
 

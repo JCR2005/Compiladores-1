@@ -4,6 +4,7 @@ carlosrodriguez/backendminimalreaccms/ChatServerEndpoint.class
 Compilador/TipeScriptParser$Bloque_declaracion_paginaContext.class
 Compilador/TipeScriptParser$Tipos_impresionContext.class
 Compilador/CustomListener.class
+AnalisisInstrucciones/Modificar.class
 Compilador/TipeScriptParser$Bloque_instrucciones_primaContext.class
 Compilador/TipeScriptParser$TerminoN3Context.class
 Traductor/transpiladorHtml.class
@@ -32,6 +33,7 @@ Compilador/TipeScriptParser$TipoBoleanoContext.class
 Compilador/TipeScriptParser.class
 Compilador/TipeScriptParser$Declaracion_funcionContext.class
 Compilador/MyVisitor.class
+RESPONSES/RespuestaErroresDeCompilacion.class
 Compilador/Compilador_sHTTP.class
 ArchivosMTSX/Creacion.class
 Compilador/TipeScriptParser$Declaracion_paginaContext.class

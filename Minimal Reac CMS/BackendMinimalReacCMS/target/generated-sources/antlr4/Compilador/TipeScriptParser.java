@@ -23,11 +23,11 @@ public class TipeScriptParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, MAS=5, MENOS=6, MUL=7, DIV=8, POT=9, CONST=10, 
 		REGRESO=11, COMA=12, PAR1=13, PAR2=14, ASIGNACIO=15, ASIGNACIO_PAGINA=16, 
-		CORCH1=17, CORCH2=18, MAYOR_QUE=19, MENOR_QUE=20, FINI_NSTRUCCION=21, 
-		DECIMAL=22, ENTERO=23, DOS_PUNTOS=24, CADENA=25, CARACTER=26, MAIN=27, 
-		HEADERS=28, PARRAFO=29, BOTON=30, ONCLICK=31, INPUT=32, IF=33, ELSE=34, 
-		VAR=35, CONSOLE=36, LOG=37, FUNCTION=38, NUMBER=39, STRING=40, CHAR=41, 
-		BOOLEAN=42, VOID=43, TRUE=44, FALSE=45, IDENTIFICADOR=46, WS=47;
+		CORCH1=17, CORCH2=18, MAYOR_QUE=19, MENOR_QUE=20, DIFERENTE=21, FINI_NSTRUCCION=22, 
+		DECIMAL=23, ENTERO=24, DOS_PUNTOS=25, CADENA=26, CARACTER=27, MAIN=28, 
+		HEADERS=29, PARRAFO=30, BOTON=31, ONCLICK=32, INPUT=33, IF=34, ELSE=35, 
+		VAR=36, CONSOLE=37, LOG=38, FUNCTION=39, NUMBER=40, STRING=41, CHAR=42, 
+		BOOLEAN=43, VOID=44, TRUE=45, FALSE=46, IDENTIFICADOR=47, WS=48;
 	public static final int
 		RULE_inicio = 0, RULE_declaracion_pagina = 1, RULE_bloque_declaracion_pagina = 2, 
 		RULE_bloque_declaracion_pagina_prima = 3, RULE_intrucciones_tipe_scrip = 4, 
@@ -66,10 +66,10 @@ public class TipeScriptParser extends Parser {
 		return new String[] {
 			null, "'.'", "'</'", "'value'", "'/>'", "'+'", "'-'", "'*'", "'/'", "'^'", 
 			"'const'", "'return'", "','", "'('", "')'", "'='", "'=>'", "'{'", "'}'", 
-			"'>'", "'<'", "';'", null, null, "':'", null, null, "'main'", null, "'p'", 
-			"'button'", "'onClick'", "'input'", "'if'", "'else'", "'var'", "'console'", 
-			"'log'", "'function'", "'number'", "'string'", "'char'", "'boolean'", 
-			"'void'", "'true'", "'false'"
+			"'>'", "'<'", "'!='", "';'", null, null, "':'", null, null, "'main'", 
+			null, "'p'", "'button'", "'onClick'", "'input'", "'if'", "'else'", "'var'", 
+			"'console'", "'log'", "'function'", "'number'", "'string'", "'char'", 
+			"'boolean'", "'void'", "'true'", "'false'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -77,9 +77,9 @@ public class TipeScriptParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, "MAS", "MENOS", "MUL", "DIV", "POT", "CONST", 
 			"REGRESO", "COMA", "PAR1", "PAR2", "ASIGNACIO", "ASIGNACIO_PAGINA", "CORCH1", 
-			"CORCH2", "MAYOR_QUE", "MENOR_QUE", "FINI_NSTRUCCION", "DECIMAL", "ENTERO", 
-			"DOS_PUNTOS", "CADENA", "CARACTER", "MAIN", "HEADERS", "PARRAFO", "BOTON", 
-			"ONCLICK", "INPUT", "IF", "ELSE", "VAR", "CONSOLE", "LOG", "FUNCTION", 
+			"CORCH2", "MAYOR_QUE", "MENOR_QUE", "DIFERENTE", "FINI_NSTRUCCION", "DECIMAL", 
+			"ENTERO", "DOS_PUNTOS", "CADENA", "CARACTER", "MAIN", "HEADERS", "PARRAFO", 
+			"BOTON", "ONCLICK", "INPUT", "IF", "ELSE", "VAR", "CONSOLE", "LOG", "FUNCTION", 
 			"NUMBER", "STRING", "CHAR", "BOOLEAN", "VOID", "TRUE", "FALSE", "IDENTIFICADOR", 
 			"WS"
 		};
@@ -301,7 +301,7 @@ public class TipeScriptParser extends Parser {
 				setState(96);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 70755291234304L) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 141510582468608L) != 0)) {
 					{
 					setState(95);
 					bloque_declaracion_pagina();
@@ -514,12 +514,10 @@ public class TipeScriptParser extends Parser {
 			                                }
 			                        }
 			                
-			                
 			{
 			setState(122);
 			intrucciones_tipe_scrip_prima();
 			       
-			                                 
 			                               if(((Intrucciones_tipe_scripContext)_localctx).instruccion_tipo_script.value==null)
 			                                {       ((Intrucciones_tipe_scripContext)_localctx).value =  new Resultado();
 			                                        _localctx.value.setBandera0(true);
@@ -530,8 +528,6 @@ public class TipeScriptParser extends Parser {
 			                                                _localctx.value.setBandera0(true);  
 			                                        }
 			                                }
-			                                
-			                
 			                        
 			}
 			}
@@ -595,12 +591,10 @@ public class TipeScriptParser extends Parser {
 				                                }
 				                        }
 				                
-				                
 				{
 				setState(127);
 				intrucciones_tipe_scrip_prima();
 				       
-				                                
 				                               if(((Intrucciones_tipe_scrip_primaContext)_localctx).instruccion_tipo_script.value==null)
 				                                {       ((Intrucciones_tipe_scrip_primaContext)_localctx).value =  new Resultado();
 				                                        _localctx.value.setBandera0(true);
@@ -611,8 +605,6 @@ public class TipeScriptParser extends Parser {
 				                                                _localctx.value.setBandera0(true);  
 				                                        }
 				                                }
-				                                
-				                
 				                        
 				}
 				}
@@ -690,33 +682,20 @@ public class TipeScriptParser extends Parser {
 				setState(133);
 				((Instruccion_tipo_scriptContext)_localctx).creacionVariable = creacionVariable();
 				  
-				                        
-				                       
 				                        if(((Instruccion_tipo_scriptContext)_localctx).creacionVariable.value==null){
 				                                
 				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
 				                                _localctx.value.setBandera0(true);
 
-				                                         errorif=true;
-				                                        errorEnFuncion=true;   
-				                                      
-				                                
-				                                 
+				                                         errorif=true; errorEnFuncion=true;     
 				                        }else{
 				                               
 				                                if(((Instruccion_tipo_scriptContext)_localctx).creacionVariable.value.isBandera0() )
 				                                {      
-				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                        _localctx.value.setBandera0(true);  
-				                                       
-				                                        errorEnFuncion=true;   
-				                                           errorif=true;
-				                             
-				                                        
+				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true);   errorEnFuncion=true;   errorif=true;
+				                                 
 				                                }else{ ((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso;  ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;}
-
 				                        }
-				                         
 				                        an(((Instruccion_tipo_scriptContext)_localctx).creacionVariable,5);
 				                
 				}
@@ -729,22 +708,12 @@ public class TipeScriptParser extends Parser {
 				  
 				                        if(((Instruccion_tipo_scriptContext)_localctx).asignacionVariable.value==null){
 				                                
-				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                     _localctx.value.setBandera0(true);
-				                                           errorif=true;
-
-				                                        errorEnFuncion=true;   
-				                                        
+				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true);  errorif=true; errorEnFuncion=true;   
 				                        }
 				                        else{
-
 				                                if(((Instruccion_tipo_scriptContext)_localctx).asignacionVariable.value.isBandera0() )
 				                                {      
-				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                        _localctx.value.setBandera0(true);  
-				                                    
-				                                           errorif=true;
-				                                        errorEnFuncion=true;   
+				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true);  errorif=true; errorEnFuncion=true;   
 				                                        
 				                                }else{ ((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso; ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;}
 				                        }
@@ -758,27 +727,15 @@ public class TipeScriptParser extends Parser {
 				setState(139);
 				((Instruccion_tipo_scriptContext)_localctx).impresion_consola = impresion_consola();
 				  
-
-				                       
-				                
 				                        if(((Instruccion_tipo_scriptContext)_localctx).impresion_consola.value==null){
 				                                        
-				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                    _localctx.value.setBandera0(true);
-				                                           errorif=true;
-				                                        errorEnFuncion=true;   
-				                                      
+				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true);errorif=true;  errorEnFuncion=true;   
 				                        }else{
 				                                if(((Instruccion_tipo_scriptContext)_localctx).impresion_consola.value.isBandera1() ||((Instruccion_tipo_scriptContext)_localctx).impresion_consola.value.isBandera2() )
 				                                {      
-				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                             _localctx.value.setBandera0(true);  
-				                                              errorif=true;
-				                                        errorEnFuncion=true;   
+				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");_localctx.value.setBandera0(true);   errorif=true; errorEnFuncion=true;   
 				                                      
-				                                        
-				                                }else{ ((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso; ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;}
-				                                        
+				                                }else{ ((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso; ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;}                                       
 				                        }
 				                        an(((Instruccion_tipo_scriptContext)_localctx).impresion_consola,7);
 				                
@@ -791,34 +748,19 @@ public class TipeScriptParser extends Parser {
 				((Instruccion_tipo_scriptContext)_localctx).condicional = condicional();
 				  
 				                         ((Instruccion_tipo_scriptContext)_localctx).error = false; 
-				                                  System.out.println("0");
 				                        if(((Instruccion_tipo_scriptContext)_localctx).condicional.value==null){
-				                                         System.out.println("1");
-				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                    _localctx.value.setBandera0(true);
-				                                  
-				                                        errorif=true;
-				                                        errorEnFuncion=true;   
+				                                       
+				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");_localctx.value.setBandera0(true);  errorif=true; errorEnFuncion=true;   
 				                                       
 				                        }else{   System.out.println("3");
 				                                
 				                                if(errorif )
-				                                {       System.out.println("2");
-				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                        _localctx.value.setBandera0(true);  
-				                                         errorif=true;
-				                                        errorEnFuncion=true;   
-
-				                             
-				                                        
+				                                {      
+				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true); errorif=true;errorEnFuncion=true;         
 				                                }else{ 
-				                                         System.out.println("6");((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso; ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;
+				                                       ((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso; ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;
 				                                }
-				                                
 				                        }
-				                      
-				        
-				        
 				          
 				}
 				break;
@@ -828,30 +770,17 @@ public class TipeScriptParser extends Parser {
 				setState(145);
 				((Instruccion_tipo_scriptContext)_localctx).llamada_funcion = llamada_funcion();
 				  
-				                
 				                        if(((Instruccion_tipo_scriptContext)_localctx).llamada_funcion.value==null){
 				                                        
-				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                    _localctx.value.setBandera0(true);
-				                                  
-
-				                                        errorEnFuncion=true;   
+				                                ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true); errorEnFuncion=true;   
 				                                       
 				                        }else{  if(((Instruccion_tipo_scriptContext)_localctx).llamada_funcion.value.isBandera0() )
 				                                {      
-				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss");
-				                                        _localctx.value.setBandera0(true);  
-				                                       
-				                                        errorEnFuncion=true;   
+				                                        ((Instruccion_tipo_scriptContext)_localctx).value =  new Resultado("ss"); _localctx.value.setBandera0(true);   errorEnFuncion=true;   
 
-				                             
-				                                        
 				                                }else{ ((Instruccion_tipo_scriptContext)_localctx).error = true;  ((Instruccion_tipo_scriptContext)_localctx).funcion = declaracionFuncionEnCurso; ((Instruccion_tipo_scriptContext)_localctx).if_ = declaracioniFEnCurso;
 				                                }
-				                                
 				                        }
-
-				                        
 				        
 				}
 				break;
@@ -906,7 +835,7 @@ public class TipeScriptParser extends Parser {
 			setState(152);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 127543462076480L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 255086924144704L) != 0)) {
 				{
 				setState(151);
 				((Regreso_funcionContext)_localctx).tipoAsignacionVariable = tipoAsignacionVariable();
@@ -923,51 +852,29 @@ public class TipeScriptParser extends Parser {
 			                                        if(((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value!=null){
 			                                                if(((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value!=null)
 			                                                {
-			                                                       
-			                                                        
 			                                                                if (!tablaSimbolosLocales.get((((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null)).getClass().getSimpleName().equals(((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value.getClass().getSimpleName()) ){
 			                                                                
 			                                                                valor=((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value.getClass().getSimpleName()+" no compatible con "+tablaSimbolosLocales.get((((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null)).getClass().getSimpleName();
-			                                                                errorEnFuncion=true;      
-			                                                          
-			                                                                String mensaje =  (((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null) + " " 
-			                                                                + ((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value + " " +
-			                                                                (((Regreso_funcionContext)_localctx).FINI_NSTRUCCION!=null?((Regreso_funcionContext)_localctx).FINI_NSTRUCCION.getText():null); 
+			                                                                errorEnFuncion=true;  String mensaje =  (((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null) + " "   + ((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value + " " + (((Regreso_funcionContext)_localctx).FINI_NSTRUCCION!=null?((Regreso_funcionContext)_localctx).FINI_NSTRUCCION.getText():null); 
 
-			                                                               
-			                                                        
-			                                                        
 			                                                                }else{
 			                                                                
 			                                                                        valor="Guardando en tabla: " + (((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null) + " -> " + ((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value;
 			                                                                        tablaSimbolosLocales.put((((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null), ((Regreso_funcionContext)_localctx).tipoAsignacionVariable.value.value);
-			                                                                         String returnn=(((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null)+" "+(((Regreso_funcionContext)_localctx).tipoAsignacionVariable!=null?_input.getText(((Regreso_funcionContext)_localctx).tipoAsignacionVariable.start,((Regreso_funcionContext)_localctx).tipoAsignacionVariable.stop):null)+" ;";
-			                                                                        instrucciones.add(returnn);
-			                                                                        tipoInstruccion.add(0);
-			                                                                        returnFuncion=true;
+			                                                                        String returnn=(((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null)+" "+(((Regreso_funcionContext)_localctx).tipoAsignacionVariable!=null?_input.getText(((Regreso_funcionContext)_localctx).tipoAsignacionVariable.start,((Regreso_funcionContext)_localctx).tipoAsignacionVariable.stop):null)+" ;";
+			                                                                        instrucciones.add(returnn); tipoInstruccion.add(0); returnFuncion=true;
 			                                                                }
-			                                                
-			                                                
 			                                                }
 			                                        }
 			                                }else{
 			                                        if (((Regreso_funcionContext)_localctx).tipoAsignacionVariable != null) {
-			                                                   errorEnFuncion=true;
-			                                                   ((Regreso_funcionContext)_localctx).error2 = true;
+			                                                   errorEnFuncion=true;  ((Regreso_funcionContext)_localctx).error2 = true;
 			                                        }else{
-			                                                        String returnn=(((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null)+" ;";
-			                                                        instrucciones.add(returnn);
-			                                                        tipoInstruccion.add(0);
-			                                                        returnFuncion=true;
-
+			                                                        String returnn=(((Regreso_funcionContext)_localctx).REGRESO!=null?((Regreso_funcionContext)_localctx).REGRESO.getText():null)+" ;"; instrucciones.add(returnn); tipoInstruccion.add(0); returnFuncion=true;
 			                                        }
-			                                        
 			                                }
 			                } else{
-			                        errorEnFuncion=true;
-			                        ((Regreso_funcionContext)_localctx).error1 = true;
-			                      
-
+			                        errorEnFuncion=true;  ((Regreso_funcionContext)_localctx).error1 = true;
 			                }
 			        
 			}
@@ -1032,10 +939,9 @@ public class TipeScriptParser extends Parser {
 			{
 
 			                        tablaSimbolosLocales=new HashMap<String,Object>();
-			                                instruccionesFuncion = new ArrayList<>();
-			                                tipoInstruccionFuncion= new ArrayList<>();
-			                        errorEnFuncion=false;
-			                        returnFuncion=false;
+			                        instruccionesFuncion = new ArrayList<>();
+			                        tipoInstruccionFuncion= new ArrayList<>();
+			                        errorEnFuncion=false; returnFuncion=false;
 			                        declaracionFuncionEnCurso=true;
 
 			                
@@ -1055,39 +961,24 @@ public class TipeScriptParser extends Parser {
 			((Declaracion_funcionContext)_localctx).tipo = tipo();
 			                 
 			                      
-			                        
 			                         Object valor=null;
 			                          
 			                        switch (((Declaracion_funcionContext)_localctx).tipo.value.toString()) {
-			                                case "String" -> {
-			                                        valor="a";
-			                                }
-			                                case "Character" -> {
-			                                         valor='a';
-			                                }
-			                                case "Boolean" -> {
-			                                        valor=false;
-			                                }
-			                                case "Double" -> {
-			                                       valor=0.0;
-			                                }
-			                                case "void" -> {
-			                                       valor=null;
-			                                }
-			                               
-			                               
+			                                case "String" -> {  valor="a"; }
+			                                case "Character" -> {valor='a'; }
+			                                case "Boolean" -> {valor=false; }
+			                                case "Double" -> {valor=0.0; }
+			                                case "void" -> { valor=null; }
 			                        }     
 			                          tablaSimbolosLocales.put("return", valor );
 			                          
-			                        
 			                        
 			setState(166);
 			match(CORCH1);
 
 			                                
 			                                String encabezadoFucion=(((Declaracion_funcionContext)_localctx).f!=null?((Declaracion_funcionContext)_localctx).f.getText():null)+" "+(((Declaracion_funcionContext)_localctx).id!=null?((Declaracion_funcionContext)_localctx).id.getText():null)+" ("+(((Declaracion_funcionContext)_localctx).parametros_funcion!=null?_input.getText(((Declaracion_funcionContext)_localctx).parametros_funcion.start,((Declaracion_funcionContext)_localctx).parametros_funcion.stop):null)+") : "+(((Declaracion_funcionContext)_localctx).tipo!=null?_input.getText(((Declaracion_funcionContext)_localctx).tipo.start,((Declaracion_funcionContext)_localctx).tipo.stop):null)+" {";
-			                                instrucciones.add(encabezadoFucion);
-			                                tipoInstruccion.add(8);
+			                                instrucciones.add(encabezadoFucion); tipoInstruccion.add(8);
 			                                
 			setState(168);
 			((Declaracion_funcionContext)_localctx).bloque_instrucciones = bloque_instrucciones();
@@ -1095,51 +986,31 @@ public class TipeScriptParser extends Parser {
 			match(CORCH2);
 
 			                        
+			                                        if(errorEnFuncion){ 
+			                                                ((Declaracion_funcionContext)_localctx).error = true;
+			                                        }else{ 
+			                                                        Object tipoRetorno=null;
+			                                                        if(tablaSimbolosLocales.get("return")!=null){
+			                                                        tipoRetorno = tablaSimbolosLocales.get("return");
 
-			                        if(errorEnFuncion){ 
-			                                ((Declaracion_funcionContext)_localctx).error = true;
-			                                     
-
-			                        }else{ 
-			                                        Object tipoRetorno=null;
-			                                        if(tablaSimbolosLocales.get("return")!=null){
-			                                              tipoRetorno = tablaSimbolosLocales.get("return");
-
+			                                                        }
+			                                                        List<Token> tokens = ((CommonTokenStream)_input)
+			                                                                .getTokens((((Declaracion_funcionContext)_localctx).bloque_instrucciones!=null?(((Declaracion_funcionContext)_localctx).bloque_instrucciones.start):null).getTokenIndex(), 
+			                                                                        (((Declaracion_funcionContext)_localctx).bloque_instrucciones!=null?(((Declaracion_funcionContext)_localctx).bloque_instrucciones.stop):null).getTokenIndex());
+			                                                       
+			                                                     
+			                                                        Funcion miFuncion =new Funcion((((Declaracion_funcionContext)_localctx).id!=null?((Declaracion_funcionContext)_localctx).id.getText():null),((Declaracion_funcionContext)_localctx).parametros_funcion.parametros,tablaSimbolosLocales,((Declaracion_funcionContext)_localctx).bloque_instrucciones,tipoRetorno,tokens);
+			                                                        miFuncion.setInstrucciones(instruccionesFuncion);
+			                                                        miFuncion.setTipoInstruccion(tipoInstruccionFuncion);
+			                                                        tablaFunciones.put((((Declaracion_funcionContext)_localctx).id!=null?((Declaracion_funcionContext)_localctx).id.getText():null),miFuncion );  
 			                                        }
-
-			                                   
-			                                                
-			                                        List<Token> tokens = ((CommonTokenStream)_input)
-			                                                .getTokens((((Declaracion_funcionContext)_localctx).bloque_instrucciones!=null?(((Declaracion_funcionContext)_localctx).bloque_instrucciones.start):null).getTokenIndex(), 
-			                                                        (((Declaracion_funcionContext)_localctx).bloque_instrucciones!=null?(((Declaracion_funcionContext)_localctx).bloque_instrucciones.stop):null).getTokenIndex());
-			                                        for (Token t : tokens) {
-			                                           
-			                                        }
-			                                         System.out.println("1");
-			                                        Funcion miFuncion =new Funcion((((Declaracion_funcionContext)_localctx).id!=null?((Declaracion_funcionContext)_localctx).id.getText():null),((Declaracion_funcionContext)_localctx).parametros_funcion.parametros,tablaSimbolosLocales,((Declaracion_funcionContext)_localctx).bloque_instrucciones,tipoRetorno,tokens);
-			                                         System.out.println("2");
-			                                        miFuncion.setInstrucciones(instruccionesFuncion);
-			                                          System.out.println("3");
-			                                        miFuncion.setTipoInstruccion(tipoInstruccionFuncion);
-			                                         System.out.println("5");
-			                                        tablaFunciones.put((((Declaracion_funcionContext)_localctx).id!=null?((Declaracion_funcionContext)_localctx).id.getText():null),miFuncion );
-			                                         System.out.println("4");
-			                                       
-
-
-
+			                                        errorEnFuncion=false;
+			                                        tablaSimbolosLocales=null;
+			                                        instruccionesFuncion = null;
+			                                        tipoInstruccionFuncion= null;
+			                                        declaracionFuncionEnCurso=false;
+			                                        instrucciones.add("}"); tipoInstruccion.add(0);
 			                                
-			                        }
-			                       errorEnFuncion=false;
-			                        tablaSimbolosLocales=null;
-			                        instruccionesFuncion = null;
-			                                tipoInstruccionFuncion= null;
-			                         declaracionFuncionEnCurso=false;
-			                         instrucciones.add("}");
-			                                tipoInstruccion.add(0);
-			                         
-
-			                
 			}
 		}
 		catch (RecognitionException re) {
@@ -1208,29 +1079,16 @@ public class TipeScriptParser extends Parser {
 
 			                        ((Parametros_funcionContext)_localctx).parametros =  new HashMap<String, String>(); 
 			                        Object valor=null;
-			                    
 
 			                        switch (((Parametros_funcionContext)_localctx).t.value.toString()) {
-			                                case "String" -> {
-			                                        valor="a";
-			                                }
-			                                case "Character" -> {
-			                                         valor='a';
-			                                }
-			                                case "Boolean" -> {
-			                                        valor=false;
-			                                }
-			                                case "Double" -> {
-			                                       valor=0.0;
-			                                }
-			                               
-			                               
+			                                case "String" -> {valor="a"; }
+			                                case "Character" -> { valor='a';}
+			                                case "Boolean" -> {valor=false; }
+			                                case "Double" -> {valor=0.0; }
 			                        }      
 
-			                        
 			                        _localctx.parametros.put(((Parametros_funcionContext)_localctx).id.getText(), ((Parametros_funcionContext)_localctx).t.value.toString());
 			                        tablaSimbolosLocales.put(((Parametros_funcionContext)_localctx).id.getText(), valor);
-
 			                
 			setState(184);
 			_errHandler.sync(this);
@@ -1248,29 +1106,16 @@ public class TipeScriptParser extends Parser {
 				((Parametros_funcionContext)_localctx).t2 = tipo();
 
 				                    if(_localctx.parametros!=null){
-
-				                       
 				                        switch (((Parametros_funcionContext)_localctx).t.value.toString()) {
-				                                case "String" -> {
-				                                        valor="a";
-				                                }
-				                                case "Character" -> {
-				                                         valor='a';
-				                                }
-				                                case "Boolean" -> {
-				                                        valor=false;
-				                                }
-				                                case "Double" -> {
-				                                       valor=0.0;
-				                                }
-				                               
-				                               
+				                                case "String" -> { valor="a";   }
+				                                case "Character" -> { valor='a';  }
+				                                case "Boolean" -> {  valor=false;}
+				                                case "Double" -> { valor=0.0; }
 				                        }      
 
 				                        _localctx.parametros.put(((Parametros_funcionContext)_localctx).id2.getText(), ((Parametros_funcionContext)_localctx).t2.value.toString());   
 				                        tablaSimbolosLocales.put(((Parametros_funcionContext)_localctx).id2.getText(), valor);
 				                    }
-				                     
 				                
 				}
 				}
@@ -1485,7 +1330,7 @@ public class TipeScriptParser extends Parser {
 			setState(207);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 127543462076480L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 255086924144704L) != 0)) {
 				{
 				setState(206);
 				((Llamada_funcionContext)_localctx).llamada_parametros_funcion = llamada_parametros_funcion();
@@ -1505,36 +1350,26 @@ public class TipeScriptParser extends Parser {
 
 			                Funcion funcion=(Funcion)tablaFunciones.get((((Llamada_funcionContext)_localctx).IDENTIFICADOR!=null?((Llamada_funcionContext)_localctx).IDENTIFICADOR.getText():null));
 			               
-			                
-			            
 			                ((Llamada_funcionContext)_localctx).retorno = funcion.getTipoRetorno();
 			                if(funcion.getParametros()!=null){
-			                          ((Llamada_funcionContext)_localctx).parametros = funcion.getParametros().size();
-			                           ((Llamada_funcionContext)_localctx).tiposParama = funcion.getParametros().values().toString();
+			                          ((Llamada_funcionContext)_localctx).parametros = funcion.getParametros().size();  ((Llamada_funcionContext)_localctx).tiposParama = funcion.getParametros().values().toString();
 			                }
 			              
-			               
 			                if(_localctx.llamada_parametros_funcion!=null){
 			                        if(funcion.getParametros().size()==((Llamada_funcionContext)_localctx).llamada_parametros_funcion.parametros.size()){
 			                                
-			                                        List<String> listaKeysParametros = new ArrayList<>(funcion.getParametros().keySet());
+			                                List<String> listaKeysParametros = new ArrayList<>(funcion.getParametros().keySet());
 			                                List<String> listaValoresParametros = new ArrayList<>(funcion.getParametros().values());
-
 			                                List<Object> listaValoresParametrosFuncion = ((Llamada_funcionContext)_localctx).llamada_parametros_funcion.parametros;
 			                                        
 			                                for (int i = 0; i < listaValoresParametros.size(); i++) {
 			                                        
 			                                        if(listaValoresParametros.get(i).equals(listaValoresParametrosFuncion.get(i).getClass().getSimpleName())){
-
 			                                                if(tablaEnTurno.containsKey((((Llamada_funcionContext)_localctx).IDENTIFICADOR!=null?((Llamada_funcionContext)_localctx).IDENTIFICADOR.getText():null))){
 			                                                         funcion.getVariables().put(listaKeysParametros.get(i),listaValoresParametrosFuncion.get(i));
-
-			                                                }
-			                                                               
-			                                                        
-			                                                        
+			                                                }             
 			                                        }else{
-			                ///posible erro
+			              
 			                                                ((Llamada_funcionContext)_localctx).value =  new Resultado(null, ""); 
 			                                                _localctx.value.setBandera0(true);
 			                                                _localctx.tiposParamalos+= listaValoresParametrosFuncion.get(i).toString();
@@ -1542,29 +1377,26 @@ public class TipeScriptParser extends Parser {
 			                                                    ((Llamada_funcionContext)_localctx).exito = false;
 			                                        }
 			                                }
-			                                
-
 			                                ((Llamada_funcionContext)_localctx).value =  new Resultado(null, "ss");
 			                        }else{
 			                                if(funcion.getParametros().size()==0){
-			                                        ((Llamada_funcionContext)_localctx).error2 = true;
-			                                         ((Llamada_funcionContext)_localctx).exito = false;
+			                                        ((Llamada_funcionContext)_localctx).error2 = true;  ((Llamada_funcionContext)_localctx).exito = false;
 			                                }else{
-			                                        ((Llamada_funcionContext)_localctx).error3 = true;
-			                                         ((Llamada_funcionContext)_localctx).exito = false;
+			                                        ((Llamada_funcionContext)_localctx).error3 = true;   ((Llamada_funcionContext)_localctx).exito = false;
 			                                        
-			                                }
-			                                                
+			                                }                  
 			                        }
-			                }else{  ((Llamada_funcionContext)_localctx).error3 = true; ((Llamada_funcionContext)_localctx).exito = false;}
+			                }else{ 
+			                        if(funcion.getParametros()!=null){
 
-			             
+			                                if(funcion.getParametros().size()!=0){
+			                                          ((Llamada_funcionContext)_localctx).error3 = true; ((Llamada_funcionContext)_localctx).exito = false;
+			                                }   
+			                        }   
+			                }
 			        }else{
-
-			                ((Llamada_funcionContext)_localctx).error1 = true; 
-			                ((Llamada_funcionContext)_localctx).exito = false;
-			        }
-			               
+			                ((Llamada_funcionContext)_localctx).error1 = true; ((Llamada_funcionContext)_localctx).exito = false;
+			        }   
 			        
 			}
 		}
@@ -1622,15 +1454,10 @@ public class TipeScriptParser extends Parser {
 			((Llamada_parametros_funcionContext)_localctx).tv1 = tipoAsignacionVariable();
 
 			                if(((Llamada_parametros_funcionContext)_localctx).tv1.value!=null){
-
 			                           if(((Llamada_parametros_funcionContext)_localctx).tv1.value.value!=null){
 			                                _localctx.parametros.add(((Llamada_parametros_funcionContext)_localctx).tv1.value.value);
 			                         }
-
-			                }
-
-			                
-			                
+			                }   
 			        
 			setState(222);
 			_errHandler.sync(this);
@@ -1746,21 +1573,11 @@ public class TipeScriptParser extends Parser {
 			                 if(((CondicionalContext)_localctx).t2.value.value!=null)
 			                        {
 			                                if (!(((CondicionalContext)_localctx).t2.value.value instanceof Boolean)) {
-			                                      
-			                                        ((CondicionalContext)_localctx).error3 = true;
-			                                        _localctx.value.setBandera0(true);
-			                                        ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t2!=null?_input.getText(((CondicionalContext)_localctx).t2.start,((CondicionalContext)_localctx).t2.stop):null);
-			                                }
-
-			                                
+			                                        ((CondicionalContext)_localctx).error3 = true; _localctx.value.setBandera0(true);  ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t2!=null?_input.getText(((CondicionalContext)_localctx).t2.start,((CondicionalContext)_localctx).t2.stop):null);
+			                                }            
 			                }
-			        
 			        }else{
-			               
-			                ((CondicionalContext)_localctx).error2 = true;
-			                _localctx.value.setBandera0(true);
-			                ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t2!=null?_input.getText(((CondicionalContext)_localctx).t2.start,((CondicionalContext)_localctx).t2.stop):null);
-
+			                ((CondicionalContext)_localctx).error2 = true; _localctx.value.setBandera0(true); ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t2!=null?_input.getText(((CondicionalContext)_localctx).t2.start,((CondicionalContext)_localctx).t2.stop):null);
 			        }
 			    
 			setState(230);
@@ -1771,7 +1588,7 @@ public class TipeScriptParser extends Parser {
 			setState(234);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 70480413329408L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 140960826656768L) != 0)) {
 				{
 				setState(233);
 				bloque_instrucciones_condicional();
@@ -1803,23 +1620,13 @@ public class TipeScriptParser extends Parser {
 					        if(((CondicionalContext)_localctx).t.value!=null){ 
 					                 if(((CondicionalContext)_localctx).t.value.value!=null)
 					                        {
-					                                if (!(((CondicionalContext)_localctx).t.value.value instanceof Boolean)) {
-					                                        
-					                                        ((CondicionalContext)_localctx).error3 = true;
-					                                        _localctx.value.setBandera0(true);
-					                                        ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t!=null?_input.getText(((CondicionalContext)_localctx).t.start,((CondicionalContext)_localctx).t.stop):null);
-					                                }
-
-					                                
-					                }
-					        
+					                                if (!(((CondicionalContext)_localctx).t.value.value instanceof Boolean)) {      
+					                                        ((CondicionalContext)_localctx).error3 = true; _localctx.value.setBandera0(true);  ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t!=null?_input.getText(((CondicionalContext)_localctx).t.start,((CondicionalContext)_localctx).t.stop):null);
+					                                }}
 					        }else{
-					               
 					                ((CondicionalContext)_localctx).error2 = true;
 					                _localctx.value.setBandera0(true);
 					                ((CondicionalContext)_localctx).Instvalido = (((CondicionalContext)_localctx).t!=null?_input.getText(((CondicionalContext)_localctx).t.start,((CondicionalContext)_localctx).t.stop):null);
-					               
-
 					        }
 					    
 					setState(243);
@@ -1837,7 +1644,7 @@ public class TipeScriptParser extends Parser {
 				setState(252);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 70480413329408L) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 140960826656768L) != 0)) {
 					{
 					setState(251);
 					bloque_instrucciones_condicional();
@@ -2055,7 +1862,7 @@ public class TipeScriptParser extends Parser {
 			setState(279);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 127543462076480L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 255086924144704L) != 0)) {
 				{
 				setState(278);
 				((Regreso_ifContext)_localctx).tipoAsignacionVariable = tipoAsignacionVariable();
@@ -2066,78 +1873,39 @@ public class TipeScriptParser extends Parser {
 			((Regreso_ifContext)_localctx).FINI_NSTRUCCION = match(FINI_NSTRUCCION);
 			 
 			                Object valor=null;
-			                 
 			                 if(tablaSimbolosLocales!=null)
 			                {  
-
 			                        if(!returnif)
 			                        { 
-			                                   
 			                                if(tablaSimbolosLocales.get((((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null))!=null){
-
-			                                        
 			                                        if(((Regreso_ifContext)_localctx).tipoAsignacionVariable.value!=null){
 			                                                if(((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value!=null)
 			                                                {
-			                                                
-			                                                        
 			                                                                if (!tablaSimbolosLocales.get((((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null)).getClass().getSimpleName().equals(((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value.getClass().getSimpleName()) ){
-			                                                                
 			                                                                valor=((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value.getClass().getSimpleName()+" no compatible con "+tablaSimbolosLocales.get((((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null)).getClass().getSimpleName();
 			                                                                errorif=true;      
-			                                                        
-			                                                                String mensaje =  (((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null) + " " 
-			                                                                + ((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value + " " +
-			                                                                (((Regreso_ifContext)_localctx).FINI_NSTRUCCION!=null?((Regreso_ifContext)_localctx).FINI_NSTRUCCION.getText():null); 
-
-			                                                        
-			                                                        
-			                                                        
+			                                                                String mensaje =  (((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null) + " "  + ((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value + " " +(((Regreso_ifContext)_localctx).FINI_NSTRUCCION!=null?((Regreso_ifContext)_localctx).FINI_NSTRUCCION.getText():null); 
 			                                                                }else{
-			                                                                
 			                                                                        valor="Guardando en tabla: " + (((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null) + " -> " + ((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value;
 			                                                                        tablaSimbolosLocales.put((((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null), ((Regreso_ifContext)_localctx).tipoAsignacionVariable.value.value);
 			                                                                        String returnn=(((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null)+" "+(((Regreso_ifContext)_localctx).tipoAsignacionVariable!=null?_input.getText(((Regreso_ifContext)_localctx).tipoAsignacionVariable.start,((Regreso_ifContext)_localctx).tipoAsignacionVariable.stop):null)+" ;";
-			                                                                        instrucciones.add(returnn);
-			                                                                        tipoInstruccion.add(0);
-			                                                                        returnif=true;
+			                                                                        instrucciones.add(returnn); tipoInstruccion.add(0); returnif=true;
 			                                                                }
-			                                                
-			                                                
 			                                                }
 			                                        }
 			                                }else{
-			                                        
 			                                        if (((Regreso_ifContext)_localctx).tipoAsignacionVariable != null) {
-			                                                errorif=true;
-			                                                ((Regreso_ifContext)_localctx).error2 = true;
-			                                                
+			                                                errorif=true;((Regreso_ifContext)_localctx).error2 = true;
 			                                        }else{
-			                                                returnif=true;
-			                                                 String returnn=(((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null)+";";
-			                                                instrucciones.add(returnn);
-			                                                tipoInstruccion.add(0);
-
-			                                        }
-			                                        
+			                                                returnif=true;  String returnn=(((Regreso_ifContext)_localctx).REGRESO!=null?((Regreso_ifContext)_localctx).REGRESO.getText():null)+";"; instrucciones.add(returnn); tipoInstruccion.add(0);
+			                                        }    
 			                                }
 			                        } else{
-			                                
-			                                errorif=true;
-			                                ((Regreso_ifContext)_localctx).error1 = true;
-			                        
-			                            
+			                                errorif=true; ((Regreso_ifContext)_localctx).error1 = true;   
 			                        }
-
 			                }else{
-			                          
-
-			                        ((Regreso_ifContext)_localctx).error3 = true;
-			                        errorif=true;
-			                             
-			                }
-			                             
-			               
+			                        ((Regreso_ifContext)_localctx).error3 = true;errorif=true;          
+			                }    
 			        
 			}
 		}
@@ -2209,8 +1977,7 @@ public class TipeScriptParser extends Parser {
 				match(PAR2);
 				setState(291);
 				match(FINI_NSTRUCCION);
-				 
-				        
+				   
 				        Object valor = (((Impresion_consolaContext)_localctx).t1!=null?_input.getText(((Impresion_consolaContext)_localctx).t1.start,((Impresion_consolaContext)_localctx).t1.stop):null)+" "+((Impresion_consolaContext)_localctx).t2.value ;
 				        ((Impresion_consolaContext)_localctx).value =  new Resultado(valor, "ss");
 				        _localctx.value.setBandera2(true);
@@ -2235,16 +2002,13 @@ public class TipeScriptParser extends Parser {
 				setState(300);
 				match(FINI_NSTRUCCION);
 				 
-				         
 				    if(((Impresion_consolaContext)_localctx).tipo_impresion.value != null && ((Impresion_consolaContext)_localctx).tipo_impresion.value.value != null){
 				         Object valor = null;
 				         ((Impresion_consolaContext)_localctx).value =  new Resultado(valor, "ss");
 				        if(((Impresion_consolaContext)_localctx).tipo_impresion.value.isBandera1()){
 				                  _localctx.value.setBandera1(true);
 				        }
-				        
 				    } else{
-
 				         Object valor = null;
 				         ((Impresion_consolaContext)_localctx).value =  new Resultado(valor, "ss");
 				          _localctx.value.setBandera1(true);
@@ -2640,9 +2404,7 @@ public class TipeScriptParser extends Parser {
 				                                        }
 				                                }
 				                        }
-
-				                
-				                       
+				   
 				                
 				}
 				break;
@@ -2698,9 +2460,7 @@ public class TipeScriptParser extends Parser {
 				                        (((CreacionVariableContext)_localctx).ASIGNACIO!=null?((CreacionVariableContext)_localctx).ASIGNACIO.getText():null) +  " " + (((CreacionVariableContext)_localctx).FINI_NSTRUCCION!=null?((CreacionVariableContext)_localctx).FINI_NSTRUCCION.getText():null); 
 
 				                        Object valor="nada asignado no reconocido";
-				                        ((CreacionVariableContext)_localctx).value =  new Resultado(valor, mensaje); 
-				                        _localctx.value.setBandera3(true);
-				                        _localctx.value.setBandera0(true);
+				                        ((CreacionVariableContext)_localctx).value =  new Resultado(valor, mensaje);  _localctx.value.setBandera3(true); _localctx.value.setBandera0(true);
 				                
 				}
 				break;
@@ -2721,13 +2481,8 @@ public class TipeScriptParser extends Parser {
 				((CreacionVariableContext)_localctx).FINI_NSTRUCCION = match(FINI_NSTRUCCION);
 				     
 				                        
-				                        String mensaje = (((CreacionVariableContext)_localctx).VAR!=null?((CreacionVariableContext)_localctx).VAR.getText():null) + " " + (((CreacionVariableContext)_localctx).DOS_PUNTOS!=null?((CreacionVariableContext)_localctx).DOS_PUNTOS.getText():null) + " " + ((CreacionVariableContext)_localctx).tipo.value + " " + 
-				                        (((CreacionVariableContext)_localctx).ASIGNACIO!=null?((CreacionVariableContext)_localctx).ASIGNACIO.getText():null) + " " + ((CreacionVariableContext)_localctx).tipoAsignacionVariable.value.value + " " +
-				                        (((CreacionVariableContext)_localctx).FINI_NSTRUCCION!=null?((CreacionVariableContext)_localctx).FINI_NSTRUCCION.getText():null); 
-				                        Object valor="ID no reconocido";
-				                        ((CreacionVariableContext)_localctx).value =  new Resultado(valor, mensaje); 
-				                        _localctx.value.setBandera4(true);
-				                        _localctx.value.setBandera0(true);
+				                        String mensaje = (((CreacionVariableContext)_localctx).VAR!=null?((CreacionVariableContext)_localctx).VAR.getText():null) + " " + (((CreacionVariableContext)_localctx).DOS_PUNTOS!=null?((CreacionVariableContext)_localctx).DOS_PUNTOS.getText():null) + " " + ((CreacionVariableContext)_localctx).tipo.value + " " +  (((CreacionVariableContext)_localctx).ASIGNACIO!=null?((CreacionVariableContext)_localctx).ASIGNACIO.getText():null) + " " + ((CreacionVariableContext)_localctx).tipoAsignacionVariable.value.value + " " +(((CreacionVariableContext)_localctx).FINI_NSTRUCCION!=null?((CreacionVariableContext)_localctx).FINI_NSTRUCCION.getText():null); 
+				                        Object valor="ID no reconocido"; ((CreacionVariableContext)_localctx).value =  new Resultado(valor, mensaje);  _localctx.value.setBandera4(true); _localctx.value.setBandera0(true);
 				                
 				}
 				break;
@@ -2790,30 +2545,19 @@ public class TipeScriptParser extends Parser {
 			                        Map <String,Object> tablaEnTurno=null;
 			                        
 			                        if(tablaSimbolosLocales!=null)
-			                        {   
-			                               
+			                        {     
 			                                tablaEnTurno=tablaSimbolosLocales;
 			                                 if (!tablaEnTurno.containsKey((((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null))) {
-			                                        String mensaje= (((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null);
-			                                        ((AsignacionVariableContext)_localctx).value =  new Resultado(mensaje); 
-			                                        _localctx.value.setBandera0(true);
-			                                        _localctx.value.setBandera2(true);
-			                                        tablaEnTurno=tablaSimbolos;
+			                                        String mensaje= (((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null); ((AsignacionVariableContext)_localctx).value =  new Resultado(mensaje);   _localctx.value.setBandera0(true); _localctx.value.setBandera2(true);  tablaEnTurno=tablaSimbolos;
 			                                }
-			                               
 			                        }else
-			                        {  
-			                               
+			                        { 
 			                                tablaEnTurno=tablaSimbolos;
 			                        }
 			                
 			                        if (!tablaEnTurno.containsKey((((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null))) {
-			                                String mensaje= (((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null);
-			                                 ((AsignacionVariableContext)_localctx).value =  new Resultado(mensaje); 
-			                                 _localctx.value.setBandera0(true);
-			                                 _localctx.value.setBandera2(true);
+			                                String mensaje= (((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null);  ((AsignacionVariableContext)_localctx).value =  new Resultado(mensaje);  _localctx.value.setBandera0(true);_localctx.value.setBandera2(true);
 			                        } else {
-			                               
 			                                        String valor = null;
 			                                if(((AsignacionVariableContext)_localctx).tipoAsignacionVariable.value!=null){
 
@@ -2828,16 +2572,11 @@ public class TipeScriptParser extends Parser {
 			                                                (((AsignacionVariableContext)_localctx).FINI_NSTRUCCION!=null?((AsignacionVariableContext)_localctx).FINI_NSTRUCCION.getText():null); 
 
 
-			                                                ((AsignacionVariableContext)_localctx).value =  new Resultado(mensaje); 
-			                                                _localctx.value.añadirMensaje(valor);        
-			                                                _localctx.value.setBandera1(true);
-			                                                _localctx.value.setBandera0(true);
+			                                                ((AsignacionVariableContext)_localctx).value =  new Resultado(mensaje);  _localctx.value.añadirMensaje(valor);   _localctx.value.setBandera1(true); _localctx.value.setBandera0(true);
 			                                                }else{
-			                                                
 			                                                        valor="Guardando en tabla: " + (((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null) + " -> " + ((AsignacionVariableContext)_localctx).tipoAsignacionVariable.value.value;
 			                                                        tablaEnTurno.put((((AsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((AsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null), ((AsignacionVariableContext)_localctx).tipoAsignacionVariable.value.value);
 			                                                        ((AsignacionVariableContext)_localctx).value =  new Resultado(valor, ""); 
-			                                                        
 			                                                }
 			                                        }
 
@@ -2845,11 +2584,8 @@ public class TipeScriptParser extends Parser {
 			                                        ((AsignacionVariableContext)_localctx).value =  new Resultado();   
 			                                        _localctx.value.setBandera3(true);
 			                                        _localctx.value.setBandera0(true);
-			                                }
-			                                
+			                                } 
 			                        }
-
-			        
 			                
 			}
 		}
@@ -2915,7 +2651,6 @@ public class TipeScriptParser extends Parser {
 				 
 				                        Object valor = null;
 				                        valor=(String)(((TipoAsignacionVariableContext)_localctx).CADENA!=null?((TipoAsignacionVariableContext)_localctx).CADENA.getText():null) ;  
-				                      
 				                        ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, ""); 
 				                
 				}
@@ -2950,21 +2685,16 @@ public class TipeScriptParser extends Parser {
 				((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR = match(IDENTIFICADOR);
 
 
-
 				   System.out.println("ingrse se algo"+(((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null));
 				                 Map <String,Object> tablaEnTurno=null;
 				                        
 				                if(tablaSimbolosLocales!=null)
 				                {   
-				                        System.out.println("1");
-				                      
 				                        tablaEnTurno=tablaSimbolosLocales;
 				                                if (!tablaEnTurno.containsKey((((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null))) {
-				                              
-				                               System.out.println("2");
+				                
 				                                tablaEnTurno=tablaSimbolos;
 				                        }
-				                        
 				                }else
 				                {  
 				                        tablaEnTurno=tablaSimbolos;
@@ -2972,15 +2702,11 @@ public class TipeScriptParser extends Parser {
 				                }
 				                        Object valor = null;
 				                        if (tablaEnTurno.containsKey((((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null))) {
-				                                valor = tablaEnTurno.get((((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null));
-				                                  ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, "");
-				                                    System.out.println("4");
+				                                valor = tablaEnTurno.get((((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR!=null?((TipoAsignacionVariableContext)_localctx).IDENTIFICADOR.getText():null)); ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, "");   
 				                        } else{
-				                                ((TipoAsignacionVariableContext)_localctx).errorId = true;
-				                                  System.out.println("5");
+				                                ((TipoAsignacionVariableContext)_localctx).errorId = true;    System.out.println("5");
 				                        }
 				                       
-
 				        
 				}
 				break;
@@ -2992,12 +2718,9 @@ public class TipeScriptParser extends Parser {
 
 				                
 				                Object valor = null;
-
 				                if(((TipoAsignacionVariableContext)_localctx).llamada_funcion.exito){
 				                        if(((TipoAsignacionVariableContext)_localctx).llamada_funcion.retorno!=null){
-				                                valor=((TipoAsignacionVariableContext)_localctx).llamada_funcion.retorno;  
-				                                ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, "");          
-
+				                                valor=((TipoAsignacionVariableContext)_localctx).llamada_funcion.retorno;  ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, "");          
 				                        }
 				                }
 				        
@@ -3013,12 +2736,9 @@ public class TipeScriptParser extends Parser {
 
 				                        if(((TipoAsignacionVariableContext)_localctx).expresion.value!=null){
 				                                if(((TipoAsignacionVariableContext)_localctx).expresion.value.value!=null){
-				                                        valor=((TipoAsignacionVariableContext)_localctx).expresion.value.value ;  
-				                                         ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, "");          
-
+				                                        valor=((TipoAsignacionVariableContext)_localctx).expresion.value.value ;    ((TipoAsignacionVariableContext)_localctx).value =  new Resultado(valor, "");          
 				                                }
 				                        }
-				                      
 				                
 				}
 				break;
@@ -3220,11 +2940,7 @@ public class TipeScriptParser extends Parser {
 				                                  valort1  = ((ExpresionContext)_localctx).t1.value.value;
 				                                  ((ExpresionContext)_localctx).value =  new Resultado(valort1, ""); 
 				                        }      
-				                
-				                        
-				                         ((ExpresionContext)_localctx).value =  new Resultado(valort1, ""); 
-				                        
-				                        
+				                         ((ExpresionContext)_localctx).value =  new Resultado(valort1, "");   
 				                
 				setState(410);
 				_errHandler.sync(this);
@@ -3238,13 +2954,9 @@ public class TipeScriptParser extends Parser {
 					((ExpresionContext)_localctx).t2 = terminoN2();
 					 Object valor = null;
 					                        if(((ExpresionContext)_localctx).t2.value.value!=null && _localctx.value.value!=null){
-					                                  valor  = (Double)_localctx.value.value+ (Double)((ExpresionContext)_localctx).t2.value.value;
-					                                  ((ExpresionContext)_localctx).value =  new Resultado(valor, ""); 
+					                                  valor  = (Double)_localctx.value.value+ (Double)((ExpresionContext)_localctx).t2.value.value; ((ExpresionContext)_localctx).value =  new Resultado(valor, ""); 
 					                        }      
-					                
-					                     
 					                         ((ExpresionContext)_localctx).value =  new Resultado(valor, ""); 
-					                        
 					                
 					}
 					}
@@ -3262,14 +2974,9 @@ public class TipeScriptParser extends Parser {
 
 				                         Object valort1 = null;
 				                        if(((ExpresionContext)_localctx).t1.value.value!=null){
-				                                  valort1  = ((ExpresionContext)_localctx).t1.value.value;
-				                                  ((ExpresionContext)_localctx).value =  new Resultado(valort1, ""); 
+				                                  valort1  = ((ExpresionContext)_localctx).t1.value.value;   ((ExpresionContext)_localctx).value =  new Resultado(valort1, ""); 
 				                        }      
-				                
-				                        
 				                         ((ExpresionContext)_localctx).value =  new Resultado(valort1, ""); 
-				                        
-				                        
 				                
 				setState(421);
 				_errHandler.sync(this);
@@ -3284,13 +2991,9 @@ public class TipeScriptParser extends Parser {
 						((ExpresionContext)_localctx).t2 = terminoN2();
 						 Object valor = null;
 						                        if(((ExpresionContext)_localctx).t2.value.value!=null && _localctx.value.value!=null){
-						                                  valor  = (Double)_localctx.value.value- (Double)((ExpresionContext)_localctx).t2.value.value;
-						                                  ((ExpresionContext)_localctx).value =  new Resultado(valor, ""); 
+						                                  valor  = (Double)_localctx.value.value- (Double)((ExpresionContext)_localctx).t2.value.value;   ((ExpresionContext)_localctx).value =  new Resultado(valor, ""); 
 						                        }      
-						                
-						                     
-						                         ((ExpresionContext)_localctx).value =  new Resultado(valor, ""); 
-						                        
+						                         ((ExpresionContext)_localctx).value =  new Resultado(valor, "");  
 						                
 						}
 						} 
@@ -3363,14 +3066,9 @@ public class TipeScriptParser extends Parser {
 
 				                         Object valort1 = null;
 				                        if(((TerminoN2Context)_localctx).t1.value.value!=null ){
-				                                  valort1  = ((TerminoN2Context)_localctx).t1.value.value;
-				                                  ((TerminoN2Context)_localctx).value =  new Resultado(valort1, ""); 
+				                                  valort1  = ((TerminoN2Context)_localctx).t1.value.value;  ((TerminoN2Context)_localctx).value =  new Resultado(valort1, ""); 
 				                        }      
-				                
-				                        
 				                         ((TerminoN2Context)_localctx).value =  new Resultado(valort1, ""); 
-				                        
-				                        
 				                
 				setState(434);
 				_errHandler.sync(this);
@@ -3384,13 +3082,9 @@ public class TipeScriptParser extends Parser {
 					((TerminoN2Context)_localctx).t2 = terminoN3();
 					 Object valor = null;
 					                        if(((TerminoN2Context)_localctx).t2.value.value!=null && _localctx.value.value!=null){
-					                                  valor  = (Double)_localctx.value.value* (Double)((TerminoN2Context)_localctx).t2.value.value;
-					                                  ((TerminoN2Context)_localctx).value =  new Resultado(valor, ""); 
+					                                  valor  = (Double)_localctx.value.value* (Double)((TerminoN2Context)_localctx).t2.value.value;((TerminoN2Context)_localctx).value =  new Resultado(valor, ""); 
 					                        }      
-					                
-					                     
-					                         ((TerminoN2Context)_localctx).value =  new Resultado(valor, ""); 
-					                        
+					                         ((TerminoN2Context)_localctx).value =  new Resultado(valor, "");   
 					                
 					}
 					}
@@ -3409,10 +3103,7 @@ public class TipeScriptParser extends Parser {
 				                        if(((TerminoN2Context)_localctx).t1.value.value!=null ){
 				                                   valort1  =  ((TerminoN2Context)_localctx).t1.value.value;
 				                        }     
-				                
-				                         ((TerminoN2Context)_localctx).value =  new Resultado(valort1, ""); 
-				                        
-				                        
+				                         ((TerminoN2Context)_localctx).value =  new Resultado(valort1, "");   
 				                
 				setState(445);
 				_errHandler.sync(this);
@@ -3426,13 +3117,9 @@ public class TipeScriptParser extends Parser {
 					((TerminoN2Context)_localctx).t2 = terminoN3();
 					 Object valor = null;
 					                        if(((TerminoN2Context)_localctx).t2.value.value!=null && _localctx.value.value!=null){
-					                                  valor  = (Double)_localctx.value.value / (Double)((TerminoN2Context)_localctx).t2.value.value;
-					                                  ((TerminoN2Context)_localctx).value =  new Resultado(valor, ""); 
-					                    
+					                                  valor  = (Double)_localctx.value.value / (Double)((TerminoN2Context)_localctx).t2.value.value; ((TerminoN2Context)_localctx).value =  new Resultado(valor, ""); 
 					                        }
-					                    
 					                         ((TerminoN2Context)_localctx).value =  new Resultado(valor, ""); 
-					                       
 					                
 					}
 					}
@@ -3496,10 +3183,8 @@ public class TipeScriptParser extends Parser {
 
 			                         Object valorn1 = null;
 			                        if(((TerminoN3Context)_localctx).n1.value.value!=null){
-			                                valorn1 = ((TerminoN3Context)_localctx).n1.value.value;
-			                                 ((TerminoN3Context)_localctx).value =  new Resultado(valorn1, ""); 
-			                        }      
-			                
+			                                valorn1 = ((TerminoN3Context)_localctx).n1.value.value; ((TerminoN3Context)_localctx).value =  new Resultado(valorn1, ""); 
+			                        }     
 			                         ((TerminoN3Context)_localctx).value =  new Resultado(valorn1, ""); 
 			                        
 			                        
@@ -3516,14 +3201,9 @@ public class TipeScriptParser extends Parser {
 				((TerminoN3Context)_localctx).n2 = terminoN4();
 				  Object valor = null;
 				                        if(((TerminoN3Context)_localctx).n2.value.value!=null && _localctx.value.value!=null ){  
-				                               valor= Math.pow((Double)_localctx.value.value, (Double)((TerminoN3Context)_localctx).n2.value.value);
-				                                 ((TerminoN3Context)_localctx).value =  new Resultado(valor, ""); 
+				                               valor= Math.pow((Double)_localctx.value.value, (Double)((TerminoN3Context)_localctx).n2.value.value);    ((TerminoN3Context)_localctx).value =  new Resultado(valor, ""); 
 				                        }      
-				                                
-				                        
 				                         ((TerminoN3Context)_localctx).value =  new Resultado(valor, ""); 
-				                        
-				                              
 				                
 				}
 				}
@@ -3567,6 +3247,10 @@ public class TipeScriptParser extends Parser {
 		public TerminalNode ASIGNACIO(int i) {
 			return getToken(TipeScriptParser.ASIGNACIO, i);
 		}
+		public List<TerminalNode> DIFERENTE() { return getTokens(TipeScriptParser.DIFERENTE); }
+		public TerminalNode DIFERENTE(int i) {
+			return getToken(TipeScriptParser.DIFERENTE, i);
+		}
 		public TerminoN4Context(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3586,9 +3270,9 @@ public class TipeScriptParser extends Parser {
 		enterRule(_localctx, 60, RULE_terminoN4);
 		int _la;
 		try {
-			setState(506);
+			setState(529);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,36,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,38,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -3597,10 +3281,8 @@ public class TipeScriptParser extends Parser {
 
 				                         Object valorn1 = null;
 				                        if(((TerminoN4Context)_localctx).n1.value.value!=null){
-				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;
-				                                 ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
+				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;  ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
 				                        }      
-				                
 				                         ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
 				                        
 				                        
@@ -3617,14 +3299,8 @@ public class TipeScriptParser extends Parser {
 					((TerminoN4Context)_localctx).n2 = numero();
 					  Object valor = null;
 					                        if(((TerminoN4Context)_localctx).n2.value.value!=null && _localctx.value.value!=null ){  
-					                                valor  = (Double)_localctx.value.value > (Double)((TerminoN4Context)_localctx).n2.value.value;
-					                                 ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
-					                        }      
-					                                
-					                        
-					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
-					                        
-					                              
+					                                valor  = (Double)_localctx.value.value > (Double)((TerminoN4Context)_localctx).n2.value.value; ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
+					                        }       ((TerminoN4Context)_localctx).value =  new Resultado(valor, "");             
 					                
 					}
 					}
@@ -3642,13 +3318,9 @@ public class TipeScriptParser extends Parser {
 
 				                         Object valorn1 = null;
 				                        if(((TerminoN4Context)_localctx).n1.value.value!=null){
-				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;
-				                                 ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
+				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;  ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
 				                        }      
-				                
 				                         ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
-				                        
-				                        
 				                
 				setState(480);
 				_errHandler.sync(this);
@@ -3664,12 +3336,8 @@ public class TipeScriptParser extends Parser {
 					                        if(((TerminoN4Context)_localctx).n2.value.value!=null && _localctx.value.value!=null ){  
 					                                valor  = (Double)_localctx.value.value <  (Double)((TerminoN4Context)_localctx).n2.value.value;
 					                                 ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
-					                        }      
-					                                
-					                        
-					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
-					                        
-					                              
+					                        }    
+					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, "");            
 					                
 					}
 					}
@@ -3689,8 +3357,7 @@ public class TipeScriptParser extends Parser {
 				                        if(((TerminoN4Context)_localctx).n1.value.value!=null){
 				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;
 				                                 ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
-				                        }      
-				                
+				                        }     
 				                         ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
 				                        
 				                        
@@ -3712,11 +3379,7 @@ public class TipeScriptParser extends Parser {
 					                                valor  = (Double)_localctx.value.value  >=  (Double)((TerminoN4Context)_localctx).n2.value.value;
 					                                 ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
 					                        }      
-					                                
-					                        
-					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
-					                        
-					                              
+					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, "");             
 					                
 					}
 					}
@@ -3737,10 +3400,8 @@ public class TipeScriptParser extends Parser {
 				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;
 				                                 ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
 				                        }      
-				                
 				                         ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
-				                        
-				                        
+				                           
 				                
 				setState(503);
 				_errHandler.sync(this);
@@ -3757,15 +3418,88 @@ public class TipeScriptParser extends Parser {
 					                                valor  = (Double)_localctx.value.value <=  (Double)((TerminoN4Context)_localctx).n2.value.value;
 					                                 ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
 					                        }      
-					                                
-					                        
-					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
-					                        
-					                              
+					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, "");       
 					                
 					}
 					}
 					setState(505);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				}
+				break;
+			case 5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(506);
+				((TerminoN4Context)_localctx).n1 = numero();
+
+				                         Object valorn1 = null;
+				                        if(((TerminoN4Context)_localctx).n1.value.value!=null){
+				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value;  ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
+				                        }      
+				                
+				                         ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
+				                
+				setState(514);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==DIFERENTE) {
+					{
+					{
+					setState(508);
+					match(DIFERENTE);
+					setState(509);
+					((TerminoN4Context)_localctx).n2 = numero();
+					  Object valor = null;
+					                        if(((TerminoN4Context)_localctx).n2.value.value!=null && _localctx.value.value!=null ){  
+					                                valor  = _localctx.value.value !=  ((TerminoN4Context)_localctx).n2.value.value; ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
+					                        }      
+					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
+					                
+					}
+					}
+					setState(516);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				}
+				break;
+			case 6:
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(517);
+				((TerminoN4Context)_localctx).n1 = numero();
+
+				                         Object valorn1 = null;
+				                        if(((TerminoN4Context)_localctx).n1.value.value!=null){
+				                                valorn1 = (Double)((TerminoN4Context)_localctx).n1.value.value; ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
+				                        }      
+				                         ((TerminoN4Context)_localctx).value =  new Resultado(valorn1, ""); 
+				                
+				setState(526);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==ASIGNACIO) {
+					{
+					{
+					setState(519);
+					match(ASIGNACIO);
+					setState(520);
+					match(ASIGNACIO);
+					setState(521);
+					((TerminoN4Context)_localctx).n2 = numero();
+					  Object valor = null;
+					                        if(((TerminoN4Context)_localctx).n2.value.value!=null && _localctx.value.value!=null ){  
+					                                valor  = _localctx.value.value ==  ((TerminoN4Context)_localctx).n2.value.value;
+					                                 ((TerminoN4Context)_localctx).value =  new Resultado(valor, ""); 
+					                        }      
+					                        
+					                         ((TerminoN4Context)_localctx).value =  new Resultado(valor, "");        
+					                
+					}
+					}
+					setState(528);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -3826,13 +3560,13 @@ public class TipeScriptParser extends Parser {
 		enterRule(_localctx, 62, RULE_numero);
 		int _la;
 		try {
-			setState(525);
+			setState(548);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ENTERO:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(508);
+				setState(531);
 				((NumeroContext)_localctx).ENTERO = match(ENTERO);
 				 
 				                Object valor = Double.parseDouble((((NumeroContext)_localctx).ENTERO!=null?((NumeroContext)_localctx).ENTERO.getText():null));
@@ -3843,7 +3577,7 @@ public class TipeScriptParser extends Parser {
 			case DECIMAL:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(510);
+				setState(533);
 				((NumeroContext)_localctx).DECIMAL = match(DECIMAL);
 				 
 				                 Object valor =  Double.parseDouble((((NumeroContext)_localctx).DECIMAL!=null?((NumeroContext)_localctx).DECIMAL.getText():null)); 
@@ -3854,11 +3588,11 @@ public class TipeScriptParser extends Parser {
 			case PAR1:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(512);
+				setState(535);
 				match(PAR1);
-				setState(513);
+				setState(536);
 				((NumeroContext)_localctx).expresion = expresion();
-				setState(514);
+				setState(537);
 				match(PAR2);
 				 
 				                 Object valor =  ((NumeroContext)_localctx).expresion.value; 
@@ -3869,41 +3603,31 @@ public class TipeScriptParser extends Parser {
 			case IDENTIFICADOR:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(517);
+				setState(540);
 				((NumeroContext)_localctx).IDENTIFICADOR = match(IDENTIFICADOR);
 				 
 				                 Map <String,Object> tablaEnTurno=null;
 
 				                if(tablaSimbolosLocales!=null)
-				                {   
-				                      
+				                {     
 				                        tablaEnTurno=tablaSimbolosLocales;
 				                                if (!tablaEnTurno.containsKey((((NumeroContext)_localctx).IDENTIFICADOR!=null?((NumeroContext)_localctx).IDENTIFICADOR.getText():null))) {
 				                                tablaEnTurno=tablaSimbolos;
 				                        }
-				                        
-				                
-				                        
 				                }else
-				                {  
-				                     
+				                {    
 				                        tablaEnTurno=tablaSimbolos;
 				                }
-				                boolean ban1 = false;
-				                boolean ban2 = false;
-				                Object valor = null;
+				                boolean ban1 = false;boolean ban2 = false;   Object valor = null;
 				                
 				                if (!tablaEnTurno.containsKey((((NumeroContext)_localctx).IDENTIFICADOR!=null?((NumeroContext)_localctx).IDENTIFICADOR.getText():null))) {
-				                        valor = null; 
-				                        ban1=true;
+				                        valor = null;  ban1=true;
 				                } else {
 
 				                        if(tablaEnTurno.get((((NumeroContext)_localctx).IDENTIFICADOR!=null?((NumeroContext)_localctx).IDENTIFICADOR.getText():null)) instanceof Double){
 				                                valor = tablaEnTurno.get((((NumeroContext)_localctx).IDENTIFICADOR!=null?((NumeroContext)_localctx).IDENTIFICADOR.getText():null));
-
 				                        } else{
-				                                ban2=true;
-				                                 valor= null;
+				                                ban2=true; valor= null;
 				                        }
 				                }
 
@@ -3917,9 +3641,9 @@ public class TipeScriptParser extends Parser {
 			case MENOS:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(519);
+				setState(542);
 				match(MENOS);
-				setState(520);
+				setState(543);
 				((NumeroContext)_localctx).numero = numero();
 				 
 				                 Object valor = -((Number) ((NumeroContext)_localctx).numero.value.value).doubleValue(); 
@@ -3932,9 +3656,9 @@ public class TipeScriptParser extends Parser {
 			case BOOLEAN:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(523);
+				setState(546);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 4398147174400L) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 8796294348800L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -3942,8 +3666,7 @@ public class TipeScriptParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				       
-				                
+				            
 				             Object valor= null; 
 				             ((NumeroContext)_localctx).value =  new Resultado(valor, "");
 				        
@@ -3997,11 +3720,11 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(527);
+			setState(550);
 			match(REGRESO);
-			setState(528);
+			setState(551);
 			match(PAR1);
-			setState(529);
+			setState(552);
 			((RegresoContext)_localctx).bloque_main = bloque_main();
 			 
 			                if(!((RegresoContext)_localctx).bloque_main.exito){
@@ -4010,9 +3733,9 @@ public class TipeScriptParser extends Parser {
 			                }
 			        
 			        
-			setState(531);
+			setState(554);
 			match(PAR2);
-			setState(532);
+			setState(555);
 			match(FINI_NSTRUCCION);
 			  
 			               if(!_localctx.errorInterno){
@@ -4067,19 +3790,19 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(535);
+			setState(558);
 			match(MENOR_QUE);
-			setState(536);
+			setState(559);
 			match(MAIN);
-			setState(537);
+			setState(560);
 			match(MAYOR_QUE);
-			setState(538);
+			setState(561);
 			bloque_instrucciones_html();
-			setState(539);
+			setState(562);
 			match(T__1);
-			setState(540);
+			setState(563);
 			match(MAIN);
-			setState(541);
+			setState(564);
 			match(MAYOR_QUE);
 			 
 			                ((Bloque_mainContext)_localctx).exito = true;
@@ -4125,9 +3848,9 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(544);
+			setState(567);
 			instruccion_html();
-			setState(545);
+			setState(568);
 			bloque_instrucciones_html_prima();
 			}
 		}
@@ -4168,15 +3891,15 @@ public class TipeScriptParser extends Parser {
 		Bloque_instrucciones_html_primaContext _localctx = new Bloque_instrucciones_html_primaContext(_ctx, getState());
 		enterRule(_localctx, 70, RULE_bloque_instrucciones_html_prima);
 		try {
-			setState(551);
+			setState(574);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case MENOR_QUE:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(547);
+				setState(570);
 				instruccion_html();
-				setState(548);
+				setState(571);
 				bloque_instrucciones_html_prima();
 				}
 				break;
@@ -4236,13 +3959,13 @@ public class TipeScriptParser extends Parser {
 		Instruccion_htmlContext _localctx = new Instruccion_htmlContext(_ctx, getState());
 		enterRule(_localctx, 72, RULE_instruccion_html);
 		try {
-			setState(565);
+			setState(588);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,39,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,41,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(553);
+				setState(576);
 				((Instruccion_htmlContext)_localctx).etiquetaEncabezado = etiquetaEncabezado();
 				an(((Instruccion_htmlContext)_localctx).etiquetaEncabezado,1);
 				}
@@ -4250,7 +3973,7 @@ public class TipeScriptParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(556);
+				setState(579);
 				((Instruccion_htmlContext)_localctx).etiquetaParrafo = etiquetaParrafo();
 				an(((Instruccion_htmlContext)_localctx).etiquetaParrafo,2);
 				}
@@ -4258,7 +3981,7 @@ public class TipeScriptParser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(559);
+				setState(582);
 				((Instruccion_htmlContext)_localctx).etiquetaBoton = etiquetaBoton();
 				an(((Instruccion_htmlContext)_localctx).etiquetaBoton,3);
 				}
@@ -4266,7 +3989,7 @@ public class TipeScriptParser extends Parser {
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(562);
+				setState(585);
 				((Instruccion_htmlContext)_localctx).etiquetaInput = etiquetaInput();
 				an(((Instruccion_htmlContext)_localctx).etiquetaInput,4);
 				}
@@ -4334,36 +4057,34 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(567);
+			setState(590);
 			match(MENOR_QUE);
-			setState(568);
+			setState(591);
 			((EtiquetaEncabezadoContext)_localctx).h1 = match(HEADERS);
-			setState(569);
+			setState(592);
 			match(MAYOR_QUE);
-			setState(576);
+			setState(599);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==CORCH1 || _la==CADENA) {
 				{
-				setState(574);
+				setState(597);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case CADENA:
 					{
-					setState(570);
+					setState(593);
 					match(CADENA);
 					}
 					break;
 				case CORCH1:
 					{
-					setState(571);
+					setState(594);
 					((EtiquetaEncabezadoContext)_localctx).variableTipeScript = variableTipeScript();
 					 
 					                                        if(!((EtiquetaEncabezadoContext)_localctx).variableTipeScript.exito){
-					                                                ((EtiquetaEncabezadoContext)_localctx).errorId = true; ((EtiquetaEncabezadoContext)_localctx).errorInterno = true;
-					                                                _localctx.ids+=(((EtiquetaEncabezadoContext)_localctx).variableTipeScript!=null?_input.getText(((EtiquetaEncabezadoContext)_localctx).variableTipeScript.start,((EtiquetaEncabezadoContext)_localctx).variableTipeScript.stop):null)+" ";
+					                                                ((EtiquetaEncabezadoContext)_localctx).errorId = true; ((EtiquetaEncabezadoContext)_localctx).errorInterno = true; _localctx.ids+=(((EtiquetaEncabezadoContext)_localctx).variableTipeScript!=null?_input.getText(((EtiquetaEncabezadoContext)_localctx).variableTipeScript.start,((EtiquetaEncabezadoContext)_localctx).variableTipeScript.stop):null)+" ";
 					                                        } 
-					                                
 					                                
 					}
 					break;
@@ -4371,21 +4092,20 @@ public class TipeScriptParser extends Parser {
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(578);
+				setState(601);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(579);
+			setState(602);
 			match(T__1);
-			setState(580);
+			setState(603);
 			((EtiquetaEncabezadoContext)_localctx).h2 = match(HEADERS);
-			setState(581);
+			setState(604);
 			match(MAYOR_QUE);
 			 
 			                                                if(!(((EtiquetaEncabezadoContext)_localctx).h1!=null?((EtiquetaEncabezadoContext)_localctx).h1.getText():null).equals((((EtiquetaEncabezadoContext)_localctx).h2!=null?((EtiquetaEncabezadoContext)_localctx).h2.getText():null)))
 			                                                {
-			                                                        ((EtiquetaEncabezadoContext)_localctx).errorTipo = true;
-			                                                         ((EtiquetaEncabezadoContext)_localctx).errorInterno = true;
+			                                                        ((EtiquetaEncabezadoContext)_localctx).errorTipo = true;   ((EtiquetaEncabezadoContext)_localctx).errorInterno = true;
 			                                                }
 			                                                if(!_localctx.errorInterno){
 			                                                        ((EtiquetaEncabezadoContext)_localctx).exito = true;
@@ -4433,18 +4153,17 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(584);
+			setState(607);
 			match(CORCH1);
-			setState(585);
+			setState(608);
 			((VariableTipeScriptContext)_localctx).IDENTIFICADOR = match(IDENTIFICADOR);
 
 			                if (!tablaSimbolos.containsKey((((VariableTipeScriptContext)_localctx).IDENTIFICADOR!=null?((VariableTipeScriptContext)_localctx).IDENTIFICADOR.getText():null))) 
 			                {
-			                        ((VariableTipeScriptContext)_localctx).errorId = true;
-			                        ((VariableTipeScriptContext)_localctx).errorInterno = true;
+			                        ((VariableTipeScriptContext)_localctx).errorId = true;((VariableTipeScriptContext)_localctx).errorInterno = true;
 			                }
 			        
-			setState(587);
+			setState(610);
 			match(CORCH2);
 
 			                if(!_localctx.errorInterno){
@@ -4514,29 +4233,29 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(590);
+			setState(613);
 			match(MENOR_QUE);
-			setState(591);
+			setState(614);
 			((EtiquetaParrafoContext)_localctx).p1 = match(PARRAFO);
-			setState(592);
+			setState(615);
 			match(MAYOR_QUE);
-			setState(599);
+			setState(622);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==CORCH1 || _la==CADENA) {
 				{
-				setState(597);
+				setState(620);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case CADENA:
 					{
-					setState(593);
+					setState(616);
 					match(CADENA);
 					}
 					break;
 				case CORCH1:
 					{
-					setState(594);
+					setState(617);
 					((EtiquetaParrafoContext)_localctx).variableTipeScript = variableTipeScript();
 					 
 					                                        if(!((EtiquetaParrafoContext)_localctx).variableTipeScript.exito){
@@ -4550,18 +4269,17 @@ public class TipeScriptParser extends Parser {
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(601);
+				setState(624);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(602);
+			setState(625);
 			match(T__1);
-			setState(603);
+			setState(626);
 			((EtiquetaParrafoContext)_localctx).p2 = match(PARRAFO);
-			setState(604);
+			setState(627);
 			match(MAYOR_QUE);
-			 
-			                                                
+			   
 			                                                if(!_localctx.errorInterno){
 			                                                        ((EtiquetaParrafoContext)_localctx).errorTipo = false;
 			                                                        ((EtiquetaParrafoContext)_localctx).exito = true;
@@ -4633,16 +4351,16 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(607);
+			setState(630);
 			match(MENOR_QUE);
-			setState(608);
+			setState(631);
 			match(BOTON);
-			setState(610);
+			setState(633);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ONCLICK) {
 				{
-				setState(609);
+				setState(632);
 				((EtiquetaBotonContext)_localctx).onclick = onclick();
 				}
 			}
@@ -4653,29 +4371,28 @@ public class TipeScriptParser extends Parser {
 			                                                ((EtiquetaBotonContext)_localctx).errorOnClock = true; ((EtiquetaBotonContext)_localctx).errorInterno = true;
 			                                               
 			                                        } 
-
 			                                }
 			                                
 			                        
-			setState(613);
+			setState(636);
 			match(MAYOR_QUE);
-			setState(620);
+			setState(643);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==CORCH1 || _la==CADENA) {
 				{
-				setState(618);
+				setState(641);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case CADENA:
 					{
-					setState(614);
+					setState(637);
 					match(CADENA);
 					}
 					break;
 				case CORCH1:
 					{
-					setState(615);
+					setState(638);
 					((EtiquetaBotonContext)_localctx).variableTipeScript = variableTipeScript();
 					 
 					                                        if(!((EtiquetaBotonContext)_localctx).variableTipeScript.exito){
@@ -4689,18 +4406,17 @@ public class TipeScriptParser extends Parser {
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(622);
+				setState(645);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(623);
+			setState(646);
 			match(T__1);
-			setState(624);
+			setState(647);
 			match(BOTON);
-			setState(625);
+			setState(648);
 			match(MAYOR_QUE);
-			 
-			                                                
+			      
 			                                                if(!_localctx.errorInterno){
 			                                                        ((EtiquetaBotonContext)_localctx).errorTipo = false;
 			                                                        ((EtiquetaBotonContext)_localctx).exito = true;
@@ -4752,25 +4468,23 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(628);
+			setState(651);
 			match(ONCLICK);
-			setState(629);
+			setState(652);
 			match(ASIGNACIO);
-			setState(630);
+			setState(653);
 			match(CORCH1);
-			setState(631);
+			setState(654);
 			((OnclickContext)_localctx).llamada_funcion = llamada_funcion();
-			 if(!((OnclickContext)_localctx).llamada_funcion.exito){  ((OnclickContext)_localctx).errorInterno = true;  ((OnclickContext)_localctx).errorLlamadaFuncion =  true;}  
+
+			         if(!((OnclickContext)_localctx).llamada_funcion.exito){  ((OnclickContext)_localctx).errorInterno = true;  ((OnclickContext)_localctx).errorLlamadaFuncion =  true;}  
 			        
-			        
-			setState(633);
+			setState(656);
 			match(CORCH2);
 			 
-			                if(!_localctx.errorInterno){
-			                      
+			                if(!_localctx.errorInterno){      
 			                        ((OnclickContext)_localctx).exito = true;
 			                } 
-			        
 			        
 			}
 		}
@@ -4822,41 +4536,38 @@ public class TipeScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(636);
+			setState(659);
 			match(MENOR_QUE);
-			setState(637);
+			setState(660);
 			match(INPUT);
-			setState(645);
+			setState(668);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__2) {
 				{
-				setState(638);
+				setState(661);
 				match(T__2);
-				setState(639);
+				setState(662);
 				match(ASIGNACIO);
-				setState(640);
+				setState(663);
 				match(CORCH1);
-				setState(641);
+				setState(664);
 				((EtiquetaInputContext)_localctx).variableTipeScript = variableTipeScript();
-				setState(642);
+				setState(665);
 				match(CORCH2);
 				 
 				                                        if(!((EtiquetaInputContext)_localctx).variableTipeScript.exito){
-				                                                ((EtiquetaInputContext)_localctx).errorId = true; ((EtiquetaInputContext)_localctx).errorInterno = true;
-				                                                _localctx.ids+=(((EtiquetaInputContext)_localctx).variableTipeScript!=null?_input.getText(((EtiquetaInputContext)_localctx).variableTipeScript.start,((EtiquetaInputContext)_localctx).variableTipeScript.stop):null)+" ";
+				                                                ((EtiquetaInputContext)_localctx).errorId = true; ((EtiquetaInputContext)_localctx).errorInterno = true; _localctx.ids+=(((EtiquetaInputContext)_localctx).variableTipeScript!=null?_input.getText(((EtiquetaInputContext)_localctx).variableTipeScript.start,((EtiquetaInputContext)_localctx).variableTipeScript.stop):null)+" ";
 				                                        } 
 				                                
 				}
 			}
 
-			setState(647);
+			setState(670);
 			match(T__3);
 			 
-			                                                
 			                                                if(!_localctx.errorInterno){
-			                                                        ((EtiquetaInputContext)_localctx).errorTipo = false;
-			                                                        ((EtiquetaInputContext)_localctx).exito = true;
+			                                                        ((EtiquetaInputContext)_localctx).errorTipo = false; ((EtiquetaInputContext)_localctx).exito = true;
 			                                                } 
 			                                        
 			}
@@ -4873,7 +4584,7 @@ public class TipeScriptParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001/\u028b\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u00010\u02a2\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
@@ -4952,354 +4663,372 @@ public class TipeScriptParser extends Parser {
 		"\u0001\u001e\u0001\u001e\u0001\u001e\u0005\u001e\u01eb\b\u001e\n\u001e"+
 		"\f\u001e\u01ee\t\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e"+
 		"\u0001\u001e\u0001\u001e\u0005\u001e\u01f6\b\u001e\n\u001e\f\u001e\u01f9"+
-		"\t\u001e\u0003\u001e\u01fb\b\u001e\u0001\u001f\u0001\u001f\u0001\u001f"+
-		"\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f"+
-		"\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f"+
-		"\u0001\u001f\u0001\u001f\u0003\u001f\u020e\b\u001f\u0001 \u0001 \u0001"+
-		" \u0001 \u0001 \u0001 \u0001 \u0001 \u0001!\u0001!\u0001!\u0001!\u0001"+
-		"!\u0001!\u0001!\u0001!\u0001!\u0001\"\u0001\"\u0001\"\u0001#\u0001#\u0001"+
-		"#\u0001#\u0003#\u0228\b#\u0001$\u0001$\u0001$\u0001$\u0001$\u0001$\u0001"+
-		"$\u0001$\u0001$\u0001$\u0001$\u0001$\u0003$\u0236\b$\u0001%\u0001%\u0001"+
-		"%\u0001%\u0001%\u0001%\u0001%\u0005%\u023f\b%\n%\f%\u0242\t%\u0001%\u0001"+
-		"%\u0001%\u0001%\u0001%\u0001&\u0001&\u0001&\u0001&\u0001&\u0001&\u0001"+
-		"\'\u0001\'\u0001\'\u0001\'\u0001\'\u0001\'\u0001\'\u0005\'\u0256\b\'\n"+
-		"\'\f\'\u0259\t\'\u0001\'\u0001\'\u0001\'\u0001\'\u0001\'\u0001(\u0001"+
-		"(\u0001(\u0003(\u0263\b(\u0001(\u0001(\u0001(\u0001(\u0001(\u0001(\u0005"+
-		"(\u026b\b(\n(\f(\u026e\t(\u0001(\u0001(\u0001(\u0001(\u0001(\u0001)\u0001"+
-		")\u0001)\u0001)\u0001)\u0001)\u0001)\u0001)\u0001*\u0001*\u0001*\u0001"+
-		"*\u0001*\u0001*\u0001*\u0001*\u0001*\u0003*\u0286\b*\u0001*\u0001*\u0001"+
-		"*\u0001*\u0000\u0000+\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012"+
-		"\u0014\u0016\u0018\u001a\u001c\u001e \"$&(*,.02468:<>@BDFHJLNPRT\u0000"+
-		"\u0002\u0001\u0000,-\u0002\u0000\u0019\u001a**\u02a8\u0000V\u0001\u0000"+
-		"\u0000\u0000\u0002f\u0001\u0000\u0000\u0000\u0004n\u0001\u0000\u0000\u0000"+
-		"\u0006v\u0001\u0000\u0000\u0000\bx\u0001\u0000\u0000\u0000\n\u0083\u0001"+
-		"\u0000\u0000\u0000\f\u0094\u0001\u0000\u0000\u0000\u000e\u0096\u0001\u0000"+
-		"\u0000\u0000\u0010\u009d\u0001\u0000\u0000\u0000\u0012\u00ac\u0001\u0000"+
-		"\u0000\u0000\u0014\u00c1\u0001\u0000\u0000\u0000\u0016\u00ca\u0001\u0000"+
-		"\u0000\u0000\u0018\u00cc\u0001\u0000\u0000\u0000\u001a\u00d5\u0001\u0000"+
-		"\u0000\u0000\u001c\u00e1\u0001\u0000\u0000\u0000\u001e\u010a\u0001\u0000"+
-		"\u0000\u0000 \u0113\u0001\u0000\u0000\u0000\"\u0115\u0001\u0000\u0000"+
-		"\u0000$\u012f\u0001\u0000\u0000\u0000&\u0131\u0001\u0000\u0000\u0000("+
-		"\u013a\u0001\u0000\u0000\u0000*\u0148\u0001\u0000\u0000\u0000,\u016b\u0001"+
-		"\u0000\u0000\u0000.\u016d\u0001\u0000\u0000\u00000\u0182\u0001\u0000\u0000"+
-		"\u00002\u0184\u0001\u0000\u0000\u00004\u0190\u0001\u0000\u0000\u00006"+
-		"\u01a8\u0001\u0000\u0000\u00008\u01c0\u0001\u0000\u0000\u0000:\u01c2\u0001"+
-		"\u0000\u0000\u0000<\u01fa\u0001\u0000\u0000\u0000>\u020d\u0001\u0000\u0000"+
-		"\u0000@\u020f\u0001\u0000\u0000\u0000B\u0217\u0001\u0000\u0000\u0000D"+
-		"\u0220\u0001\u0000\u0000\u0000F\u0227\u0001\u0000\u0000\u0000H\u0235\u0001"+
-		"\u0000\u0000\u0000J\u0237\u0001\u0000\u0000\u0000L\u0248\u0001\u0000\u0000"+
-		"\u0000N\u024e\u0001\u0000\u0000\u0000P\u025f\u0001\u0000\u0000\u0000R"+
-		"\u0274\u0001\u0000\u0000\u0000T\u027c\u0001\u0000\u0000\u0000VW\u0003"+
-		"\u0002\u0001\u0000W\u0001\u0001\u0000\u0000\u0000XY\u0005\n\u0000\u0000"+
-		"YZ\u0005.\u0000\u0000Z[\u0005\u000f\u0000\u0000[\\\u0005\r\u0000\u0000"+
-		"\\]\u0005\u000e\u0000\u0000]^\u0005\u0010\u0000\u0000^`\u0005\u0011\u0000"+
-		"\u0000_a\u0003\u0004\u0002\u0000`_\u0001\u0000\u0000\u0000`a\u0001\u0000"+
-		"\u0000\u0000ab\u0001\u0000\u0000\u0000bc\u0003@ \u0000cd\u0005\u0012\u0000"+
-		"\u0000dg\u0001\u0000\u0000\u0000eg\u0001\u0000\u0000\u0000fX\u0001\u0000"+
-		"\u0000\u0000fe\u0001\u0000\u0000\u0000g\u0003\u0001\u0000\u0000\u0000"+
-		"hi\u0003\b\u0004\u0000ij\u0003\u0006\u0003\u0000jo\u0001\u0000\u0000\u0000"+
-		"kl\u0003\u0010\b\u0000lm\u0003\u0006\u0003\u0000mo\u0001\u0000\u0000\u0000"+
-		"nh\u0001\u0000\u0000\u0000nk\u0001\u0000\u0000\u0000o\u0005\u0001\u0000"+
-		"\u0000\u0000pq\u0003\b\u0004\u0000qr\u0003\u0006\u0003\u0000rw\u0001\u0000"+
-		"\u0000\u0000st\u0003\u0010\b\u0000tu\u0003\u0006\u0003\u0000uw\u0001\u0000"+
-		"\u0000\u0000vp\u0001\u0000\u0000\u0000vs\u0001\u0000\u0000\u0000w\u0007"+
-		"\u0001\u0000\u0000\u0000xy\u0003\f\u0006\u0000yz\u0006\u0004\uffff\uffff"+
-		"\u0000z{\u0003\n\u0005\u0000{|\u0006\u0004\uffff\uffff\u0000|\t\u0001"+
-		"\u0000\u0000\u0000}~\u0003\f\u0006\u0000~\u007f\u0006\u0005\uffff\uffff"+
-		"\u0000\u007f\u0080\u0003\n\u0005\u0000\u0080\u0081\u0006\u0005\uffff\uffff"+
-		"\u0000\u0081\u0084\u0001\u0000\u0000\u0000\u0082\u0084\u0006\u0005\uffff"+
-		"\uffff\u0000\u0083}\u0001\u0000\u0000\u0000\u0083\u0082\u0001\u0000\u0000"+
-		"\u0000\u0084\u000b\u0001\u0000\u0000\u0000\u0085\u0086\u0003,\u0016\u0000"+
-		"\u0086\u0087\u0006\u0006\uffff\uffff\u0000\u0087\u0095\u0001\u0000\u0000"+
-		"\u0000\u0088\u0089\u0003.\u0017\u0000\u0089\u008a\u0006\u0006\uffff\uffff"+
-		"\u0000\u008a\u0095\u0001\u0000\u0000\u0000\u008b\u008c\u0003$\u0012\u0000"+
-		"\u008c\u008d\u0006\u0006\uffff\uffff\u0000\u008d\u0095\u0001\u0000\u0000"+
-		"\u0000\u008e\u008f\u0003\u001c\u000e\u0000\u008f\u0090\u0006\u0006\uffff"+
-		"\uffff\u0000\u0090\u0095\u0001\u0000\u0000\u0000\u0091\u0092\u0003\u0018"+
-		"\f\u0000\u0092\u0093\u0006\u0006\uffff\uffff\u0000\u0093\u0095\u0001\u0000"+
-		"\u0000\u0000\u0094\u0085\u0001\u0000\u0000\u0000\u0094\u0088\u0001\u0000"+
-		"\u0000\u0000\u0094\u008b\u0001\u0000\u0000\u0000\u0094\u008e\u0001\u0000"+
-		"\u0000\u0000\u0094\u0091\u0001\u0000\u0000\u0000\u0095\r\u0001\u0000\u0000"+
-		"\u0000\u0096\u0098\u0005\u000b\u0000\u0000\u0097\u0099\u00030\u0018\u0000"+
-		"\u0098\u0097\u0001\u0000\u0000\u0000\u0098\u0099\u0001\u0000\u0000\u0000"+
-		"\u0099\u009a\u0001\u0000\u0000\u0000\u009a\u009b\u0005\u0015\u0000\u0000"+
-		"\u009b\u009c\u0006\u0007\uffff\uffff\u0000\u009c\u000f\u0001\u0000\u0000"+
-		"\u0000\u009d\u009e\u0006\b\uffff\uffff\u0000\u009e\u009f\u0005&\u0000"+
-		"\u0000\u009f\u00a0\u0005.\u0000\u0000\u00a0\u00a1\u0005\r\u0000\u0000"+
-		"\u00a1\u00a2\u0003\u0012\t\u0000\u00a2\u00a3\u0005\u000e\u0000\u0000\u00a3"+
-		"\u00a4\u0005\u0018\u0000\u0000\u00a4\u00a5\u00034\u001a\u0000\u00a5\u00a6"+
-		"\u0006\b\uffff\uffff\u0000\u00a6\u00a7\u0005\u0011\u0000\u0000\u00a7\u00a8"+
-		"\u0006\b\uffff\uffff\u0000\u00a8\u00a9\u0003\u0014\n\u0000\u00a9\u00aa"+
-		"\u0005\u0012\u0000\u0000\u00aa\u00ab\u0006\b\uffff\uffff\u0000\u00ab\u0011"+
-		"\u0001\u0000\u0000\u0000\u00ac\u00ad\u0005.\u0000\u0000\u00ad\u00ae\u0005"+
-		"\u0018\u0000\u0000\u00ae\u00af\u00034\u001a\u0000\u00af\u00b8\u0006\t"+
-		"\uffff\uffff\u0000\u00b0\u00b1\u0005\f\u0000\u0000\u00b1\u00b2\u0005."+
-		"\u0000\u0000\u00b2\u00b3\u0005\u0018\u0000\u0000\u00b3\u00b4\u00034\u001a"+
-		"\u0000\u00b4\u00b5\u0006\t\uffff\uffff\u0000\u00b5\u00b7\u0001\u0000\u0000"+
-		"\u0000\u00b6\u00b0\u0001\u0000\u0000\u0000\u00b7\u00ba\u0001\u0000\u0000"+
-		"\u0000\u00b8\u00b6\u0001\u0000\u0000\u0000\u00b8\u00b9\u0001\u0000\u0000"+
-		"\u0000\u00b9\u0013\u0001\u0000\u0000\u0000\u00ba\u00b8\u0001\u0000\u0000"+
-		"\u0000\u00bb\u00bc\u0003\b\u0004\u0000\u00bc\u00bd\u0003\u0016\u000b\u0000"+
-		"\u00bd\u00c2\u0001\u0000\u0000\u0000\u00be\u00bf\u0003\u000e\u0007\u0000"+
-		"\u00bf\u00c0\u0003\u0016\u000b\u0000\u00c0\u00c2\u0001\u0000\u0000\u0000"+
-		"\u00c1\u00bb\u0001\u0000\u0000\u0000\u00c1\u00be\u0001\u0000\u0000\u0000"+
-		"\u00c2\u0015\u0001\u0000\u0000\u0000\u00c3\u00c4\u0003\b\u0004\u0000\u00c4"+
-		"\u00c5\u0003\u0016\u000b\u0000\u00c5\u00cb\u0001\u0000\u0000\u0000\u00c6"+
-		"\u00c7\u0003\u000e\u0007\u0000\u00c7\u00c8\u0003\u0016\u000b\u0000\u00c8"+
-		"\u00cb\u0001\u0000\u0000\u0000\u00c9\u00cb\u0001\u0000\u0000\u0000\u00ca"+
-		"\u00c3\u0001\u0000\u0000\u0000\u00ca\u00c6\u0001\u0000\u0000\u0000\u00ca"+
-		"\u00c9\u0001\u0000\u0000\u0000\u00cb\u0017\u0001\u0000\u0000\u0000\u00cc"+
-		"\u00cd\u0005.\u0000\u0000\u00cd\u00cf\u0005\r\u0000\u0000\u00ce\u00d0"+
-		"\u0003\u001a\r\u0000\u00cf\u00ce\u0001\u0000\u0000\u0000\u00cf\u00d0\u0001"+
-		"\u0000\u0000\u0000\u00d0\u00d1\u0001\u0000\u0000\u0000\u00d1\u00d2\u0005"+
-		"\u000e\u0000\u0000\u00d2\u00d3\u0005\u0015\u0000\u0000\u00d3\u00d4\u0006"+
-		"\f\uffff\uffff\u0000\u00d4\u0019\u0001\u0000\u0000\u0000\u00d5\u00d6\u0006"+
-		"\r\uffff\uffff\u0000\u00d6\u00d7\u00030\u0018\u0000\u00d7\u00de\u0006"+
-		"\r\uffff\uffff\u0000\u00d8\u00d9\u0005\f\u0000\u0000\u00d9\u00da\u0003"+
-		"0\u0018\u0000\u00da\u00db\u0006\r\uffff\uffff\u0000\u00db\u00dd\u0001"+
-		"\u0000\u0000\u0000\u00dc\u00d8\u0001\u0000\u0000\u0000\u00dd\u00e0\u0001"+
-		"\u0000\u0000\u0000\u00de\u00dc\u0001\u0000\u0000\u0000\u00de\u00df\u0001"+
-		"\u0000\u0000\u0000\u00df\u001b\u0001\u0000\u0000\u0000\u00e0\u00de\u0001"+
-		"\u0000\u0000\u0000\u00e1\u00e2\u0006\u000e\uffff\uffff\u0000\u00e2\u00e3"+
-		"\u0005!\u0000\u0000\u00e3\u00e4\u0005\r\u0000\u0000\u00e4\u00e5\u0003"+
-		"0\u0018\u0000\u00e5\u00e6\u0006\u000e\uffff\uffff\u0000\u00e6\u00e7\u0005"+
-		"\u000e\u0000\u0000\u00e7\u00e8\u0005\u0011\u0000\u0000\u00e8\u00ea\u0006"+
-		"\u000e\uffff\uffff\u0000\u00e9\u00eb\u0003\u001e\u000f\u0000\u00ea\u00e9"+
-		"\u0001\u0000\u0000\u0000\u00ea\u00eb\u0001\u0000\u0000\u0000\u00eb\u00ec"+
-		"\u0001\u0000\u0000\u0000\u00ec\u00ed\u0005\u0012\u0000\u0000\u00ed\u0100"+
-		"\u0006\u000e\uffff\uffff\u0000\u00ee\u00f6\u0005\"\u0000\u0000\u00ef\u00f0"+
-		"\u0005!\u0000\u0000\u00f0\u00f1\u0005\r\u0000\u0000\u00f1\u00f2\u0003"+
-		"0\u0018\u0000\u00f2\u00f3\u0006\u000e\uffff\uffff\u0000\u00f3\u00f4\u0005"+
-		"\u000e\u0000\u0000\u00f4\u00f5\u0006\u000e\uffff\uffff\u0000\u00f5\u00f7"+
-		"\u0001\u0000\u0000\u0000\u00f6\u00ef\u0001\u0000\u0000\u0000\u00f6\u00f7"+
-		"\u0001\u0000\u0000\u0000\u00f7\u00f8\u0001\u0000\u0000\u0000\u00f8\u00f9"+
-		"\u0005\u0011\u0000\u0000\u00f9\u00fa\u0006\u000e\uffff\uffff\u0000\u00fa"+
-		"\u00fc\u0006\u000e\uffff\uffff\u0000\u00fb\u00fd\u0003\u001e\u000f\u0000"+
-		"\u00fc\u00fb\u0001\u0000\u0000\u0000\u00fc\u00fd\u0001\u0000\u0000\u0000"+
-		"\u00fd\u00fe\u0001\u0000\u0000\u0000\u00fe\u00ff\u0005\u0012\u0000\u0000"+
-		"\u00ff\u0101\u0006\u000e\uffff\uffff\u0000\u0100\u00ee\u0001\u0000\u0000"+
-		"\u0000\u0100\u0101\u0001\u0000\u0000\u0000\u0101\u0102\u0001\u0000\u0000"+
-		"\u0000\u0102\u0103\u0006\u000e\uffff\uffff\u0000\u0103\u001d\u0001\u0000"+
-		"\u0000\u0000\u0104\u0105\u0003\b\u0004\u0000\u0105\u0106\u0003 \u0010"+
-		"\u0000\u0106\u010b\u0001\u0000\u0000\u0000\u0107\u0108\u0003\"\u0011\u0000"+
-		"\u0108\u0109\u0003 \u0010\u0000\u0109\u010b\u0001\u0000\u0000\u0000\u010a"+
-		"\u0104\u0001\u0000\u0000\u0000\u010a\u0107\u0001\u0000\u0000\u0000\u010b"+
-		"\u001f\u0001\u0000\u0000\u0000\u010c\u010d\u0003\b\u0004\u0000\u010d\u010e"+
-		"\u0003 \u0010\u0000\u010e\u0114\u0001\u0000\u0000\u0000\u010f\u0110\u0003"+
-		"\"\u0011\u0000\u0110\u0111\u0003 \u0010\u0000\u0111\u0114\u0001\u0000"+
-		"\u0000\u0000\u0112\u0114\u0001\u0000\u0000\u0000\u0113\u010c\u0001\u0000"+
-		"\u0000\u0000\u0113\u010f\u0001\u0000\u0000\u0000\u0113\u0112\u0001\u0000"+
-		"\u0000\u0000\u0114!\u0001\u0000\u0000\u0000\u0115\u0117\u0005\u000b\u0000"+
-		"\u0000\u0116\u0118\u00030\u0018\u0000\u0117\u0116\u0001\u0000\u0000\u0000"+
-		"\u0117\u0118\u0001\u0000\u0000\u0000\u0118\u0119\u0001\u0000\u0000\u0000"+
-		"\u0119\u011a\u0005\u0015\u0000\u0000\u011a\u011b\u0006\u0011\uffff\uffff"+
-		"\u0000\u011b#\u0001\u0000\u0000\u0000\u011c\u011d\u0005$\u0000\u0000\u011d"+
-		"\u011e\u0005\u0001\u0000\u0000\u011e\u011f\u0005%\u0000\u0000\u011f\u0120"+
-		"\u0005\r\u0000\u0000\u0120\u0121\u0003*\u0015\u0000\u0121\u0122\u0003"+
-		"&\u0013\u0000\u0122\u0123\u0005\u000e\u0000\u0000\u0123\u0124\u0005\u0015"+
-		"\u0000\u0000\u0124\u0125\u0006\u0012\uffff\uffff\u0000\u0125\u0130\u0001"+
-		"\u0000\u0000\u0000\u0126\u0127\u0005$\u0000\u0000\u0127\u0128\u0005\u0001"+
-		"\u0000\u0000\u0128\u0129\u0005%\u0000\u0000\u0129\u012a\u0005\r\u0000"+
-		"\u0000\u012a\u012b\u0003*\u0015\u0000\u012b\u012c\u0005\u000e\u0000\u0000"+
-		"\u012c\u012d\u0005\u0015\u0000\u0000\u012d\u012e\u0006\u0012\uffff\uffff"+
-		"\u0000\u012e\u0130\u0001\u0000\u0000\u0000\u012f\u011c\u0001\u0000\u0000"+
-		"\u0000\u012f\u0126\u0001\u0000\u0000\u0000\u0130%\u0001\u0000\u0000\u0000"+
-		"\u0131\u0132\u0003*\u0015\u0000\u0132\u0133\u0003(\u0014\u0000\u0133\u0134"+
-		"\u0006\u0013\uffff\uffff\u0000\u0134\'\u0001\u0000\u0000\u0000\u0135\u0136"+
-		"\u0003*\u0015\u0000\u0136\u0137\u0003(\u0014\u0000\u0137\u0138\u0006\u0014"+
-		"\uffff\uffff\u0000\u0138\u013b\u0001\u0000\u0000\u0000\u0139\u013b\u0001"+
-		"\u0000\u0000\u0000\u013a\u0135\u0001\u0000\u0000\u0000\u013a\u0139\u0001"+
-		"\u0000\u0000\u0000\u013b)\u0001\u0000\u0000\u0000\u013c\u013d\u0005\u0019"+
-		"\u0000\u0000\u013d\u0149\u0006\u0015\uffff\uffff\u0000\u013e\u013f\u0005"+
-		".\u0000\u0000\u013f\u0149\u0006\u0015\uffff\uffff\u0000\u0140\u0141\u0003"+
-		"6\u001b\u0000\u0141\u0142\u0006\u0015\uffff\uffff\u0000\u0142\u0149\u0001"+
-		"\u0000\u0000\u0000\u0143\u0144\u0005)\u0000\u0000\u0144\u0149\u0006\u0015"+
-		"\uffff\uffff\u0000\u0145\u0146\u00032\u0019\u0000\u0146\u0147\u0006\u0015"+
-		"\uffff\uffff\u0000\u0147\u0149\u0001\u0000\u0000\u0000\u0148\u013c\u0001"+
-		"\u0000\u0000\u0000\u0148\u013e\u0001\u0000\u0000\u0000\u0148\u0140\u0001"+
-		"\u0000\u0000\u0000\u0148\u0143\u0001\u0000\u0000\u0000\u0148\u0145\u0001"+
-		"\u0000\u0000\u0000\u0149+\u0001\u0000\u0000\u0000\u014a\u014b\u0005#\u0000"+
-		"\u0000\u014b\u014c\u0005.\u0000\u0000\u014c\u014d\u0005\u0018\u0000\u0000"+
-		"\u014d\u014e\u00034\u001a\u0000\u014e\u014f\u0005\u000f\u0000\u0000\u014f"+
-		"\u0150\u00030\u0018\u0000\u0150\u0151\u0005\u0015\u0000\u0000\u0151\u0152"+
-		"\u0006\u0016\uffff\uffff\u0000\u0152\u016c\u0001\u0000\u0000\u0000\u0153"+
-		"\u0154\u0005#\u0000\u0000\u0154\u0155\u0005.\u0000\u0000\u0155\u0156\u0005"+
-		"\u0018\u0000\u0000\u0156\u0157\u0005\u000f\u0000\u0000\u0157\u0158\u0003"+
-		"0\u0018\u0000\u0158\u0159\u0005\u0015\u0000\u0000\u0159\u015a\u0006\u0016"+
-		"\uffff\uffff\u0000\u015a\u016c\u0001\u0000\u0000\u0000\u015b\u015c\u0005"+
-		"#\u0000\u0000\u015c\u015d\u0005.\u0000\u0000\u015d\u015e\u0005\u0018\u0000"+
-		"\u0000\u015e\u015f\u00034\u001a\u0000\u015f\u0160\u0005\u000f\u0000\u0000"+
-		"\u0160\u0161\u0005\u0015\u0000\u0000\u0161\u0162\u0006\u0016\uffff\uffff"+
-		"\u0000\u0162\u016c\u0001\u0000\u0000\u0000\u0163\u0164\u0005#\u0000\u0000"+
-		"\u0164\u0165\u0005\u0018\u0000\u0000\u0165\u0166\u00034\u001a\u0000\u0166"+
-		"\u0167\u0005\u000f\u0000\u0000\u0167\u0168\u00030\u0018\u0000\u0168\u0169"+
-		"\u0005\u0015\u0000\u0000\u0169\u016a\u0006\u0016\uffff\uffff\u0000\u016a"+
-		"\u016c\u0001\u0000\u0000\u0000\u016b\u014a\u0001\u0000\u0000\u0000\u016b"+
-		"\u0153\u0001\u0000\u0000\u0000\u016b\u015b\u0001\u0000\u0000\u0000\u016b"+
-		"\u0163\u0001\u0000\u0000\u0000\u016c-\u0001\u0000\u0000\u0000\u016d\u016e"+
-		"\u0005.\u0000\u0000\u016e\u016f\u0005\u000f\u0000\u0000\u016f\u0170\u0003"+
-		"0\u0018\u0000\u0170\u0171\u0005\u0015\u0000\u0000\u0171\u0172\u0006\u0017"+
-		"\uffff\uffff\u0000\u0172/\u0001\u0000\u0000\u0000\u0173\u0174\u0005\u0019"+
-		"\u0000\u0000\u0174\u0183\u0006\u0018\uffff\uffff\u0000\u0175\u0176\u0005"+
-		"\u001a\u0000\u0000\u0176\u0183\u0006\u0018\uffff\uffff\u0000\u0177\u0178"+
-		"\u00032\u0019\u0000\u0178\u0179\u0006\u0018\uffff\uffff\u0000\u0179\u0183"+
-		"\u0001\u0000\u0000\u0000\u017a\u017b\u0005.\u0000\u0000\u017b\u0183\u0006"+
-		"\u0018\uffff\uffff\u0000\u017c\u017d\u0003\u0018\f\u0000\u017d\u017e\u0006"+
-		"\u0018\uffff\uffff\u0000\u017e\u0183\u0001\u0000\u0000\u0000\u017f\u0180"+
-		"\u00036\u001b\u0000\u0180\u0181\u0006\u0018\uffff\uffff\u0000\u0181\u0183"+
-		"\u0001\u0000\u0000\u0000\u0182\u0173\u0001\u0000\u0000\u0000\u0182\u0175"+
-		"\u0001\u0000\u0000\u0000\u0182\u0177\u0001\u0000\u0000\u0000\u0182\u017a"+
-		"\u0001\u0000\u0000\u0000\u0182\u017c\u0001\u0000\u0000\u0000\u0182\u017f"+
-		"\u0001\u0000\u0000\u0000\u01831\u0001\u0000\u0000\u0000\u0184\u0185\u0007"+
-		"\u0000\u0000\u0000\u01853\u0001\u0000\u0000\u0000\u0186\u0187\u0005\'"+
-		"\u0000\u0000\u0187\u0191\u0006\u001a\uffff\uffff\u0000\u0188\u0189\u0005"+
-		"(\u0000\u0000\u0189\u0191\u0006\u001a\uffff\uffff\u0000\u018a\u018b\u0005"+
-		")\u0000\u0000\u018b\u0191\u0006\u001a\uffff\uffff\u0000\u018c\u018d\u0005"+
-		"*\u0000\u0000\u018d\u0191\u0006\u001a\uffff\uffff\u0000\u018e\u018f\u0005"+
-		"+\u0000\u0000\u018f\u0191\u0006\u001a\uffff\uffff\u0000\u0190\u0186\u0001"+
-		"\u0000\u0000\u0000\u0190\u0188\u0001\u0000\u0000\u0000\u0190\u018a\u0001"+
-		"\u0000\u0000\u0000\u0190\u018c\u0001\u0000\u0000\u0000\u0190\u018e\u0001"+
-		"\u0000\u0000\u0000\u01915\u0001\u0000\u0000\u0000\u0192\u0193\u00038\u001c"+
-		"\u0000\u0193\u019a\u0006\u001b\uffff\uffff\u0000\u0194\u0195\u0005\u0005"+
-		"\u0000\u0000\u0195\u0196\u00038\u001c\u0000\u0196\u0197\u0006\u001b\uffff"+
-		"\uffff\u0000\u0197\u0199\u0001\u0000\u0000\u0000\u0198\u0194\u0001\u0000"+
-		"\u0000\u0000\u0199\u019c\u0001\u0000\u0000\u0000\u019a\u0198\u0001\u0000"+
-		"\u0000\u0000\u019a\u019b\u0001\u0000\u0000\u0000\u019b\u01a9\u0001\u0000"+
-		"\u0000\u0000\u019c\u019a\u0001\u0000\u0000\u0000\u019d\u019e\u00038\u001c"+
-		"\u0000\u019e\u01a5\u0006\u001b\uffff\uffff\u0000\u019f\u01a0\u0005\u0006"+
-		"\u0000\u0000\u01a0\u01a1\u00038\u001c\u0000\u01a1\u01a2\u0006\u001b\uffff"+
-		"\uffff\u0000\u01a2\u01a4\u0001\u0000\u0000\u0000\u01a3\u019f\u0001\u0000"+
-		"\u0000\u0000\u01a4\u01a7\u0001\u0000\u0000\u0000\u01a5\u01a3\u0001\u0000"+
-		"\u0000\u0000\u01a5\u01a6\u0001\u0000\u0000\u0000\u01a6\u01a9\u0001\u0000"+
-		"\u0000\u0000\u01a7\u01a5\u0001\u0000\u0000\u0000\u01a8\u0192\u0001\u0000"+
-		"\u0000\u0000\u01a8\u019d\u0001\u0000\u0000\u0000\u01a97\u0001\u0000\u0000"+
-		"\u0000\u01aa\u01ab\u0003:\u001d\u0000\u01ab\u01b2\u0006\u001c\uffff\uffff"+
-		"\u0000\u01ac\u01ad\u0005\u0007\u0000\u0000\u01ad\u01ae\u0003:\u001d\u0000"+
-		"\u01ae\u01af\u0006\u001c\uffff\uffff\u0000\u01af\u01b1\u0001\u0000\u0000"+
-		"\u0000\u01b0\u01ac\u0001\u0000\u0000\u0000\u01b1\u01b4\u0001\u0000\u0000"+
-		"\u0000\u01b2\u01b0\u0001\u0000\u0000\u0000\u01b2\u01b3\u0001\u0000\u0000"+
-		"\u0000\u01b3\u01c1\u0001\u0000\u0000\u0000\u01b4\u01b2\u0001\u0000\u0000"+
-		"\u0000\u01b5\u01b6\u0003:\u001d\u0000\u01b6\u01bd\u0006\u001c\uffff\uffff"+
-		"\u0000\u01b7\u01b8\u0005\b\u0000\u0000\u01b8\u01b9\u0003:\u001d\u0000"+
-		"\u01b9\u01ba\u0006\u001c\uffff\uffff\u0000\u01ba\u01bc\u0001\u0000\u0000"+
-		"\u0000\u01bb\u01b7\u0001\u0000\u0000\u0000\u01bc\u01bf\u0001\u0000\u0000"+
-		"\u0000\u01bd\u01bb\u0001\u0000\u0000\u0000\u01bd\u01be\u0001\u0000\u0000"+
-		"\u0000\u01be\u01c1\u0001\u0000\u0000\u0000\u01bf\u01bd\u0001\u0000\u0000"+
-		"\u0000\u01c0\u01aa\u0001\u0000\u0000\u0000\u01c0\u01b5\u0001\u0000\u0000"+
-		"\u0000\u01c19\u0001\u0000\u0000\u0000\u01c2\u01c3\u0003<\u001e\u0000\u01c3"+
-		"\u01ca\u0006\u001d\uffff\uffff\u0000\u01c4\u01c5\u0005\t\u0000\u0000\u01c5"+
-		"\u01c6\u0003<\u001e\u0000\u01c6\u01c7\u0006\u001d\uffff\uffff\u0000\u01c7"+
-		"\u01c9\u0001\u0000\u0000\u0000\u01c8\u01c4\u0001\u0000\u0000\u0000\u01c9"+
-		"\u01cc\u0001\u0000\u0000\u0000\u01ca\u01c8\u0001\u0000\u0000\u0000\u01ca"+
-		"\u01cb\u0001\u0000\u0000\u0000\u01cb;\u0001\u0000\u0000\u0000\u01cc\u01ca"+
-		"\u0001\u0000\u0000\u0000\u01cd\u01ce\u0003>\u001f\u0000\u01ce\u01d5\u0006"+
-		"\u001e\uffff\uffff\u0000\u01cf\u01d0\u0005\u0013\u0000\u0000\u01d0\u01d1"+
-		"\u0003>\u001f\u0000\u01d1\u01d2\u0006\u001e\uffff\uffff\u0000\u01d2\u01d4"+
-		"\u0001\u0000\u0000\u0000\u01d3\u01cf\u0001\u0000\u0000\u0000\u01d4\u01d7"+
-		"\u0001\u0000\u0000\u0000\u01d5\u01d3\u0001\u0000\u0000\u0000\u01d5\u01d6"+
-		"\u0001\u0000\u0000\u0000\u01d6\u01fb\u0001\u0000\u0000\u0000\u01d7\u01d5"+
-		"\u0001\u0000\u0000\u0000\u01d8\u01d9\u0003>\u001f\u0000\u01d9\u01e0\u0006"+
-		"\u001e\uffff\uffff\u0000\u01da\u01db\u0005\u0014\u0000\u0000\u01db\u01dc"+
-		"\u0003>\u001f\u0000\u01dc\u01dd\u0006\u001e\uffff\uffff\u0000\u01dd\u01df"+
-		"\u0001\u0000\u0000\u0000\u01de\u01da\u0001\u0000\u0000\u0000\u01df\u01e2"+
-		"\u0001\u0000\u0000\u0000\u01e0\u01de\u0001\u0000\u0000\u0000\u01e0\u01e1"+
-		"\u0001\u0000\u0000\u0000\u01e1\u01fb\u0001\u0000\u0000\u0000\u01e2\u01e0"+
-		"\u0001\u0000\u0000\u0000\u01e3\u01e4\u0003>\u001f\u0000\u01e4\u01ec\u0006"+
-		"\u001e\uffff\uffff\u0000\u01e5\u01e6\u0005\u0013\u0000\u0000\u01e6\u01e7"+
-		"\u0005\u000f\u0000\u0000\u01e7\u01e8\u0003>\u001f\u0000\u01e8\u01e9\u0006"+
-		"\u001e\uffff\uffff\u0000\u01e9\u01eb\u0001\u0000\u0000\u0000\u01ea\u01e5"+
-		"\u0001\u0000\u0000\u0000\u01eb\u01ee\u0001\u0000\u0000\u0000\u01ec\u01ea"+
-		"\u0001\u0000\u0000\u0000\u01ec\u01ed\u0001\u0000\u0000\u0000\u01ed\u01fb"+
-		"\u0001\u0000\u0000\u0000\u01ee\u01ec\u0001\u0000\u0000\u0000\u01ef\u01f0"+
-		"\u0003>\u001f\u0000\u01f0\u01f7\u0006\u001e\uffff\uffff\u0000\u01f1\u01f2"+
-		"\u0005\u0014\u0000\u0000\u01f2\u01f3\u0003>\u001f\u0000\u01f3\u01f4\u0006"+
-		"\u001e\uffff\uffff\u0000\u01f4\u01f6\u0001\u0000\u0000\u0000\u01f5\u01f1"+
-		"\u0001\u0000\u0000\u0000\u01f6\u01f9\u0001\u0000\u0000\u0000\u01f7\u01f5"+
-		"\u0001\u0000\u0000\u0000\u01f7\u01f8\u0001\u0000\u0000\u0000\u01f8\u01fb"+
-		"\u0001\u0000\u0000\u0000\u01f9\u01f7\u0001\u0000\u0000\u0000\u01fa\u01cd"+
-		"\u0001\u0000\u0000\u0000\u01fa\u01d8\u0001\u0000\u0000\u0000\u01fa\u01e3"+
-		"\u0001\u0000\u0000\u0000\u01fa\u01ef\u0001\u0000\u0000\u0000\u01fb=\u0001"+
-		"\u0000\u0000\u0000\u01fc\u01fd\u0005\u0017\u0000\u0000\u01fd\u020e\u0006"+
-		"\u001f\uffff\uffff\u0000\u01fe\u01ff\u0005\u0016\u0000\u0000\u01ff\u020e"+
-		"\u0006\u001f\uffff\uffff\u0000\u0200\u0201\u0005\r\u0000\u0000\u0201\u0202"+
-		"\u00036\u001b\u0000\u0202\u0203\u0005\u000e\u0000\u0000\u0203\u0204\u0006"+
-		"\u001f\uffff\uffff\u0000\u0204\u020e\u0001\u0000\u0000\u0000\u0205\u0206"+
-		"\u0005.\u0000\u0000\u0206\u020e\u0006\u001f\uffff\uffff\u0000\u0207\u0208"+
-		"\u0005\u0006\u0000\u0000\u0208\u0209\u0003>\u001f\u0000\u0209\u020a\u0006"+
-		"\u001f\uffff\uffff\u0000\u020a\u020e\u0001\u0000\u0000\u0000\u020b\u020c"+
-		"\u0007\u0001\u0000\u0000\u020c\u020e\u0006\u001f\uffff\uffff\u0000\u020d"+
-		"\u01fc\u0001\u0000\u0000\u0000\u020d\u01fe\u0001\u0000\u0000\u0000\u020d"+
-		"\u0200\u0001\u0000\u0000\u0000\u020d\u0205\u0001\u0000\u0000\u0000\u020d"+
-		"\u0207\u0001\u0000\u0000\u0000\u020d\u020b\u0001\u0000\u0000\u0000\u020e"+
-		"?\u0001\u0000\u0000\u0000\u020f\u0210\u0005\u000b\u0000\u0000\u0210\u0211"+
-		"\u0005\r\u0000\u0000\u0211\u0212\u0003B!\u0000\u0212\u0213\u0006 \uffff"+
-		"\uffff\u0000\u0213\u0214\u0005\u000e\u0000\u0000\u0214\u0215\u0005\u0015"+
-		"\u0000\u0000\u0215\u0216\u0006 \uffff\uffff\u0000\u0216A\u0001\u0000\u0000"+
-		"\u0000\u0217\u0218\u0005\u0014\u0000\u0000\u0218\u0219\u0005\u001b\u0000"+
-		"\u0000\u0219\u021a\u0005\u0013\u0000\u0000\u021a\u021b\u0003D\"\u0000"+
-		"\u021b\u021c\u0005\u0002\u0000\u0000\u021c\u021d\u0005\u001b\u0000\u0000"+
-		"\u021d\u021e\u0005\u0013\u0000\u0000\u021e\u021f\u0006!\uffff\uffff\u0000"+
-		"\u021fC\u0001\u0000\u0000\u0000\u0220\u0221\u0003H$\u0000\u0221\u0222"+
-		"\u0003F#\u0000\u0222E\u0001\u0000\u0000\u0000\u0223\u0224\u0003H$\u0000"+
-		"\u0224\u0225\u0003F#\u0000\u0225\u0228\u0001\u0000\u0000\u0000\u0226\u0228"+
-		"\u0001\u0000\u0000\u0000\u0227\u0223\u0001\u0000\u0000\u0000\u0227\u0226"+
-		"\u0001\u0000\u0000\u0000\u0228G\u0001\u0000\u0000\u0000\u0229\u022a\u0003"+
-		"J%\u0000\u022a\u022b\u0006$\uffff\uffff\u0000\u022b\u0236\u0001\u0000"+
-		"\u0000\u0000\u022c\u022d\u0003N\'\u0000\u022d\u022e\u0006$\uffff\uffff"+
-		"\u0000\u022e\u0236\u0001\u0000\u0000\u0000\u022f\u0230\u0003P(\u0000\u0230"+
-		"\u0231\u0006$\uffff\uffff\u0000\u0231\u0236\u0001\u0000\u0000\u0000\u0232"+
-		"\u0233\u0003T*\u0000\u0233\u0234\u0006$\uffff\uffff\u0000\u0234\u0236"+
-		"\u0001\u0000\u0000\u0000\u0235\u0229\u0001\u0000\u0000\u0000\u0235\u022c"+
-		"\u0001\u0000\u0000\u0000\u0235\u022f\u0001\u0000\u0000\u0000\u0235\u0232"+
-		"\u0001\u0000\u0000\u0000\u0236I\u0001\u0000\u0000\u0000\u0237\u0238\u0005"+
-		"\u0014\u0000\u0000\u0238\u0239\u0005\u001c\u0000\u0000\u0239\u0240\u0005"+
-		"\u0013\u0000\u0000\u023a\u023f\u0005\u0019\u0000\u0000\u023b\u023c\u0003"+
-		"L&\u0000\u023c\u023d\u0006%\uffff\uffff\u0000\u023d\u023f\u0001\u0000"+
-		"\u0000\u0000\u023e\u023a\u0001\u0000\u0000\u0000\u023e\u023b\u0001\u0000"+
-		"\u0000\u0000\u023f\u0242\u0001\u0000\u0000\u0000\u0240\u023e\u0001\u0000"+
-		"\u0000\u0000\u0240\u0241\u0001\u0000\u0000\u0000\u0241\u0243\u0001\u0000"+
-		"\u0000\u0000\u0242\u0240\u0001\u0000\u0000\u0000\u0243\u0244\u0005\u0002"+
-		"\u0000\u0000\u0244\u0245\u0005\u001c\u0000\u0000\u0245\u0246\u0005\u0013"+
-		"\u0000\u0000\u0246\u0247\u0006%\uffff\uffff\u0000\u0247K\u0001\u0000\u0000"+
-		"\u0000\u0248\u0249\u0005\u0011\u0000\u0000\u0249\u024a\u0005.\u0000\u0000"+
-		"\u024a\u024b\u0006&\uffff\uffff\u0000\u024b\u024c\u0005\u0012\u0000\u0000"+
-		"\u024c\u024d\u0006&\uffff\uffff\u0000\u024dM\u0001\u0000\u0000\u0000\u024e"+
-		"\u024f\u0005\u0014\u0000\u0000\u024f\u0250\u0005\u001d\u0000\u0000\u0250"+
-		"\u0257\u0005\u0013\u0000\u0000\u0251\u0256\u0005\u0019\u0000\u0000\u0252"+
-		"\u0253\u0003L&\u0000\u0253\u0254\u0006\'\uffff\uffff\u0000\u0254\u0256"+
-		"\u0001\u0000\u0000\u0000\u0255\u0251\u0001\u0000\u0000\u0000\u0255\u0252"+
-		"\u0001\u0000\u0000\u0000\u0256\u0259\u0001\u0000\u0000\u0000\u0257\u0255"+
-		"\u0001\u0000\u0000\u0000\u0257\u0258\u0001\u0000\u0000\u0000\u0258\u025a"+
-		"\u0001\u0000\u0000\u0000\u0259\u0257\u0001\u0000\u0000\u0000\u025a\u025b"+
-		"\u0005\u0002\u0000\u0000\u025b\u025c\u0005\u001d\u0000\u0000\u025c\u025d"+
-		"\u0005\u0013\u0000\u0000\u025d\u025e\u0006\'\uffff\uffff\u0000\u025eO"+
-		"\u0001\u0000\u0000\u0000\u025f\u0260\u0005\u0014\u0000\u0000\u0260\u0262"+
-		"\u0005\u001e\u0000\u0000\u0261\u0263\u0003R)\u0000\u0262\u0261\u0001\u0000"+
-		"\u0000\u0000\u0262\u0263\u0001\u0000\u0000\u0000\u0263\u0264\u0001\u0000"+
-		"\u0000\u0000\u0264\u0265\u0006(\uffff\uffff\u0000\u0265\u026c\u0005\u0013"+
-		"\u0000\u0000\u0266\u026b\u0005\u0019\u0000\u0000\u0267\u0268\u0003L&\u0000"+
-		"\u0268\u0269\u0006(\uffff\uffff\u0000\u0269\u026b\u0001\u0000\u0000\u0000"+
-		"\u026a\u0266\u0001\u0000\u0000\u0000\u026a\u0267\u0001\u0000\u0000\u0000"+
-		"\u026b\u026e\u0001\u0000\u0000\u0000\u026c\u026a\u0001\u0000\u0000\u0000"+
-		"\u026c\u026d\u0001\u0000\u0000\u0000\u026d\u026f\u0001\u0000\u0000\u0000"+
-		"\u026e\u026c\u0001\u0000\u0000\u0000\u026f\u0270\u0005\u0002\u0000\u0000"+
-		"\u0270\u0271\u0005\u001e\u0000\u0000\u0271\u0272\u0005\u0013\u0000\u0000"+
-		"\u0272\u0273\u0006(\uffff\uffff\u0000\u0273Q\u0001\u0000\u0000\u0000\u0274"+
-		"\u0275\u0005\u001f\u0000\u0000\u0275\u0276\u0005\u000f\u0000\u0000\u0276"+
-		"\u0277\u0005\u0011\u0000\u0000\u0277\u0278\u0003\u0018\f\u0000\u0278\u0279"+
-		"\u0006)\uffff\uffff\u0000\u0279\u027a\u0005\u0012\u0000\u0000\u027a\u027b"+
-		"\u0006)\uffff\uffff\u0000\u027bS\u0001\u0000\u0000\u0000\u027c\u027d\u0005"+
-		"\u0014\u0000\u0000\u027d\u0285\u0005 \u0000\u0000\u027e\u027f\u0005\u0003"+
-		"\u0000\u0000\u027f\u0280\u0005\u000f\u0000\u0000\u0280\u0281\u0005\u0011"+
-		"\u0000\u0000\u0281\u0282\u0003L&\u0000\u0282\u0283\u0005\u0012\u0000\u0000"+
-		"\u0283\u0284\u0006*\uffff\uffff\u0000\u0284\u0286\u0001\u0000\u0000\u0000"+
-		"\u0285\u027e\u0001\u0000\u0000\u0000\u0285\u0286\u0001\u0000\u0000\u0000"+
-		"\u0286\u0287\u0001\u0000\u0000\u0000\u0287\u0288\u0005\u0004\u0000\u0000"+
-		"\u0288\u0289\u0006*\uffff\uffff\u0000\u0289U\u0001\u0000\u0000\u00000"+
-		"`fnv\u0083\u0094\u0098\u00b8\u00c1\u00ca\u00cf\u00de\u00ea\u00f6\u00fc"+
-		"\u0100\u010a\u0113\u0117\u012f\u013a\u0148\u016b\u0182\u0190\u019a\u01a5"+
-		"\u01a8\u01b2\u01bd\u01c0\u01ca\u01d5\u01e0\u01ec\u01f7\u01fa\u020d\u0227"+
-		"\u0235\u023e\u0240\u0255\u0257\u0262\u026a\u026c\u0285";
+		"\t\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001"+
+		"\u001e\u0005\u001e\u0201\b\u001e\n\u001e\f\u001e\u0204\t\u001e\u0001\u001e"+
+		"\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e"+
+		"\u0005\u001e\u020d\b\u001e\n\u001e\f\u001e\u0210\t\u001e\u0003\u001e\u0212"+
+		"\b\u001e\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001"+
+		"\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001"+
+		"\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0001\u001f\u0003"+
+		"\u001f\u0225\b\u001f\u0001 \u0001 \u0001 \u0001 \u0001 \u0001 \u0001 "+
+		"\u0001 \u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001"+
+		"!\u0001\"\u0001\"\u0001\"\u0001#\u0001#\u0001#\u0001#\u0003#\u023f\b#"+
+		"\u0001$\u0001$\u0001$\u0001$\u0001$\u0001$\u0001$\u0001$\u0001$\u0001"+
+		"$\u0001$\u0001$\u0003$\u024d\b$\u0001%\u0001%\u0001%\u0001%\u0001%\u0001"+
+		"%\u0001%\u0005%\u0256\b%\n%\f%\u0259\t%\u0001%\u0001%\u0001%\u0001%\u0001"+
+		"%\u0001&\u0001&\u0001&\u0001&\u0001&\u0001&\u0001\'\u0001\'\u0001\'\u0001"+
+		"\'\u0001\'\u0001\'\u0001\'\u0005\'\u026d\b\'\n\'\f\'\u0270\t\'\u0001\'"+
+		"\u0001\'\u0001\'\u0001\'\u0001\'\u0001(\u0001(\u0001(\u0003(\u027a\b("+
+		"\u0001(\u0001(\u0001(\u0001(\u0001(\u0001(\u0005(\u0282\b(\n(\f(\u0285"+
+		"\t(\u0001(\u0001(\u0001(\u0001(\u0001(\u0001)\u0001)\u0001)\u0001)\u0001"+
+		")\u0001)\u0001)\u0001)\u0001*\u0001*\u0001*\u0001*\u0001*\u0001*\u0001"+
+		"*\u0001*\u0001*\u0003*\u029d\b*\u0001*\u0001*\u0001*\u0001*\u0000\u0000"+
+		"+\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a"+
+		"\u001c\u001e \"$&(*,.02468:<>@BDFHJLNPRT\u0000\u0002\u0001\u0000-.\u0002"+
+		"\u0000\u001a\u001b++\u02c3\u0000V\u0001\u0000\u0000\u0000\u0002f\u0001"+
+		"\u0000\u0000\u0000\u0004n\u0001\u0000\u0000\u0000\u0006v\u0001\u0000\u0000"+
+		"\u0000\bx\u0001\u0000\u0000\u0000\n\u0083\u0001\u0000\u0000\u0000\f\u0094"+
+		"\u0001\u0000\u0000\u0000\u000e\u0096\u0001\u0000\u0000\u0000\u0010\u009d"+
+		"\u0001\u0000\u0000\u0000\u0012\u00ac\u0001\u0000\u0000\u0000\u0014\u00c1"+
+		"\u0001\u0000\u0000\u0000\u0016\u00ca\u0001\u0000\u0000\u0000\u0018\u00cc"+
+		"\u0001\u0000\u0000\u0000\u001a\u00d5\u0001\u0000\u0000\u0000\u001c\u00e1"+
+		"\u0001\u0000\u0000\u0000\u001e\u010a\u0001\u0000\u0000\u0000 \u0113\u0001"+
+		"\u0000\u0000\u0000\"\u0115\u0001\u0000\u0000\u0000$\u012f\u0001\u0000"+
+		"\u0000\u0000&\u0131\u0001\u0000\u0000\u0000(\u013a\u0001\u0000\u0000\u0000"+
+		"*\u0148\u0001\u0000\u0000\u0000,\u016b\u0001\u0000\u0000\u0000.\u016d"+
+		"\u0001\u0000\u0000\u00000\u0182\u0001\u0000\u0000\u00002\u0184\u0001\u0000"+
+		"\u0000\u00004\u0190\u0001\u0000\u0000\u00006\u01a8\u0001\u0000\u0000\u0000"+
+		"8\u01c0\u0001\u0000\u0000\u0000:\u01c2\u0001\u0000\u0000\u0000<\u0211"+
+		"\u0001\u0000\u0000\u0000>\u0224\u0001\u0000\u0000\u0000@\u0226\u0001\u0000"+
+		"\u0000\u0000B\u022e\u0001\u0000\u0000\u0000D\u0237\u0001\u0000\u0000\u0000"+
+		"F\u023e\u0001\u0000\u0000\u0000H\u024c\u0001\u0000\u0000\u0000J\u024e"+
+		"\u0001\u0000\u0000\u0000L\u025f\u0001\u0000\u0000\u0000N\u0265\u0001\u0000"+
+		"\u0000\u0000P\u0276\u0001\u0000\u0000\u0000R\u028b\u0001\u0000\u0000\u0000"+
+		"T\u0293\u0001\u0000\u0000\u0000VW\u0003\u0002\u0001\u0000W\u0001\u0001"+
+		"\u0000\u0000\u0000XY\u0005\n\u0000\u0000YZ\u0005/\u0000\u0000Z[\u0005"+
+		"\u000f\u0000\u0000[\\\u0005\r\u0000\u0000\\]\u0005\u000e\u0000\u0000]"+
+		"^\u0005\u0010\u0000\u0000^`\u0005\u0011\u0000\u0000_a\u0003\u0004\u0002"+
+		"\u0000`_\u0001\u0000\u0000\u0000`a\u0001\u0000\u0000\u0000ab\u0001\u0000"+
+		"\u0000\u0000bc\u0003@ \u0000cd\u0005\u0012\u0000\u0000dg\u0001\u0000\u0000"+
+		"\u0000eg\u0001\u0000\u0000\u0000fX\u0001\u0000\u0000\u0000fe\u0001\u0000"+
+		"\u0000\u0000g\u0003\u0001\u0000\u0000\u0000hi\u0003\b\u0004\u0000ij\u0003"+
+		"\u0006\u0003\u0000jo\u0001\u0000\u0000\u0000kl\u0003\u0010\b\u0000lm\u0003"+
+		"\u0006\u0003\u0000mo\u0001\u0000\u0000\u0000nh\u0001\u0000\u0000\u0000"+
+		"nk\u0001\u0000\u0000\u0000o\u0005\u0001\u0000\u0000\u0000pq\u0003\b\u0004"+
+		"\u0000qr\u0003\u0006\u0003\u0000rw\u0001\u0000\u0000\u0000st\u0003\u0010"+
+		"\b\u0000tu\u0003\u0006\u0003\u0000uw\u0001\u0000\u0000\u0000vp\u0001\u0000"+
+		"\u0000\u0000vs\u0001\u0000\u0000\u0000w\u0007\u0001\u0000\u0000\u0000"+
+		"xy\u0003\f\u0006\u0000yz\u0006\u0004\uffff\uffff\u0000z{\u0003\n\u0005"+
+		"\u0000{|\u0006\u0004\uffff\uffff\u0000|\t\u0001\u0000\u0000\u0000}~\u0003"+
+		"\f\u0006\u0000~\u007f\u0006\u0005\uffff\uffff\u0000\u007f\u0080\u0003"+
+		"\n\u0005\u0000\u0080\u0081\u0006\u0005\uffff\uffff\u0000\u0081\u0084\u0001"+
+		"\u0000\u0000\u0000\u0082\u0084\u0006\u0005\uffff\uffff\u0000\u0083}\u0001"+
+		"\u0000\u0000\u0000\u0083\u0082\u0001\u0000\u0000\u0000\u0084\u000b\u0001"+
+		"\u0000\u0000\u0000\u0085\u0086\u0003,\u0016\u0000\u0086\u0087\u0006\u0006"+
+		"\uffff\uffff\u0000\u0087\u0095\u0001\u0000\u0000\u0000\u0088\u0089\u0003"+
+		".\u0017\u0000\u0089\u008a\u0006\u0006\uffff\uffff\u0000\u008a\u0095\u0001"+
+		"\u0000\u0000\u0000\u008b\u008c\u0003$\u0012\u0000\u008c\u008d\u0006\u0006"+
+		"\uffff\uffff\u0000\u008d\u0095\u0001\u0000\u0000\u0000\u008e\u008f\u0003"+
+		"\u001c\u000e\u0000\u008f\u0090\u0006\u0006\uffff\uffff\u0000\u0090\u0095"+
+		"\u0001\u0000\u0000\u0000\u0091\u0092\u0003\u0018\f\u0000\u0092\u0093\u0006"+
+		"\u0006\uffff\uffff\u0000\u0093\u0095\u0001\u0000\u0000\u0000\u0094\u0085"+
+		"\u0001\u0000\u0000\u0000\u0094\u0088\u0001\u0000\u0000\u0000\u0094\u008b"+
+		"\u0001\u0000\u0000\u0000\u0094\u008e\u0001\u0000\u0000\u0000\u0094\u0091"+
+		"\u0001\u0000\u0000\u0000\u0095\r\u0001\u0000\u0000\u0000\u0096\u0098\u0005"+
+		"\u000b\u0000\u0000\u0097\u0099\u00030\u0018\u0000\u0098\u0097\u0001\u0000"+
+		"\u0000\u0000\u0098\u0099\u0001\u0000\u0000\u0000\u0099\u009a\u0001\u0000"+
+		"\u0000\u0000\u009a\u009b\u0005\u0016\u0000\u0000\u009b\u009c\u0006\u0007"+
+		"\uffff\uffff\u0000\u009c\u000f\u0001\u0000\u0000\u0000\u009d\u009e\u0006"+
+		"\b\uffff\uffff\u0000\u009e\u009f\u0005\'\u0000\u0000\u009f\u00a0\u0005"+
+		"/\u0000\u0000\u00a0\u00a1\u0005\r\u0000\u0000\u00a1\u00a2\u0003\u0012"+
+		"\t\u0000\u00a2\u00a3\u0005\u000e\u0000\u0000\u00a3\u00a4\u0005\u0019\u0000"+
+		"\u0000\u00a4\u00a5\u00034\u001a\u0000\u00a5\u00a6\u0006\b\uffff\uffff"+
+		"\u0000\u00a6\u00a7\u0005\u0011\u0000\u0000\u00a7\u00a8\u0006\b\uffff\uffff"+
+		"\u0000\u00a8\u00a9\u0003\u0014\n\u0000\u00a9\u00aa\u0005\u0012\u0000\u0000"+
+		"\u00aa\u00ab\u0006\b\uffff\uffff\u0000\u00ab\u0011\u0001\u0000\u0000\u0000"+
+		"\u00ac\u00ad\u0005/\u0000\u0000\u00ad\u00ae\u0005\u0019\u0000\u0000\u00ae"+
+		"\u00af\u00034\u001a\u0000\u00af\u00b8\u0006\t\uffff\uffff\u0000\u00b0"+
+		"\u00b1\u0005\f\u0000\u0000\u00b1\u00b2\u0005/\u0000\u0000\u00b2\u00b3"+
+		"\u0005\u0019\u0000\u0000\u00b3\u00b4\u00034\u001a\u0000\u00b4\u00b5\u0006"+
+		"\t\uffff\uffff\u0000\u00b5\u00b7\u0001\u0000\u0000\u0000\u00b6\u00b0\u0001"+
+		"\u0000\u0000\u0000\u00b7\u00ba\u0001\u0000\u0000\u0000\u00b8\u00b6\u0001"+
+		"\u0000\u0000\u0000\u00b8\u00b9\u0001\u0000\u0000\u0000\u00b9\u0013\u0001"+
+		"\u0000\u0000\u0000\u00ba\u00b8\u0001\u0000\u0000\u0000\u00bb\u00bc\u0003"+
+		"\b\u0004\u0000\u00bc\u00bd\u0003\u0016\u000b\u0000\u00bd\u00c2\u0001\u0000"+
+		"\u0000\u0000\u00be\u00bf\u0003\u000e\u0007\u0000\u00bf\u00c0\u0003\u0016"+
+		"\u000b\u0000\u00c0\u00c2\u0001\u0000\u0000\u0000\u00c1\u00bb\u0001\u0000"+
+		"\u0000\u0000\u00c1\u00be\u0001\u0000\u0000\u0000\u00c2\u0015\u0001\u0000"+
+		"\u0000\u0000\u00c3\u00c4\u0003\b\u0004\u0000\u00c4\u00c5\u0003\u0016\u000b"+
+		"\u0000\u00c5\u00cb\u0001\u0000\u0000\u0000\u00c6\u00c7\u0003\u000e\u0007"+
+		"\u0000\u00c7\u00c8\u0003\u0016\u000b\u0000\u00c8\u00cb\u0001\u0000\u0000"+
+		"\u0000\u00c9\u00cb\u0001\u0000\u0000\u0000\u00ca\u00c3\u0001\u0000\u0000"+
+		"\u0000\u00ca\u00c6\u0001\u0000\u0000\u0000\u00ca\u00c9\u0001\u0000\u0000"+
+		"\u0000\u00cb\u0017\u0001\u0000\u0000\u0000\u00cc\u00cd\u0005/\u0000\u0000"+
+		"\u00cd\u00cf\u0005\r\u0000\u0000\u00ce\u00d0\u0003\u001a\r\u0000\u00cf"+
+		"\u00ce\u0001\u0000\u0000\u0000\u00cf\u00d0\u0001\u0000\u0000\u0000\u00d0"+
+		"\u00d1\u0001\u0000\u0000\u0000\u00d1\u00d2\u0005\u000e\u0000\u0000\u00d2"+
+		"\u00d3\u0005\u0016\u0000\u0000\u00d3\u00d4\u0006\f\uffff\uffff\u0000\u00d4"+
+		"\u0019\u0001\u0000\u0000\u0000\u00d5\u00d6\u0006\r\uffff\uffff\u0000\u00d6"+
+		"\u00d7\u00030\u0018\u0000\u00d7\u00de\u0006\r\uffff\uffff\u0000\u00d8"+
+		"\u00d9\u0005\f\u0000\u0000\u00d9\u00da\u00030\u0018\u0000\u00da\u00db"+
+		"\u0006\r\uffff\uffff\u0000\u00db\u00dd\u0001\u0000\u0000\u0000\u00dc\u00d8"+
+		"\u0001\u0000\u0000\u0000\u00dd\u00e0\u0001\u0000\u0000\u0000\u00de\u00dc"+
+		"\u0001\u0000\u0000\u0000\u00de\u00df\u0001\u0000\u0000\u0000\u00df\u001b"+
+		"\u0001\u0000\u0000\u0000\u00e0\u00de\u0001\u0000\u0000\u0000\u00e1\u00e2"+
+		"\u0006\u000e\uffff\uffff\u0000\u00e2\u00e3\u0005\"\u0000\u0000\u00e3\u00e4"+
+		"\u0005\r\u0000\u0000\u00e4\u00e5\u00030\u0018\u0000\u00e5\u00e6\u0006"+
+		"\u000e\uffff\uffff\u0000\u00e6\u00e7\u0005\u000e\u0000\u0000\u00e7\u00e8"+
+		"\u0005\u0011\u0000\u0000\u00e8\u00ea\u0006\u000e\uffff\uffff\u0000\u00e9"+
+		"\u00eb\u0003\u001e\u000f\u0000\u00ea\u00e9\u0001\u0000\u0000\u0000\u00ea"+
+		"\u00eb\u0001\u0000\u0000\u0000\u00eb\u00ec\u0001\u0000\u0000\u0000\u00ec"+
+		"\u00ed\u0005\u0012\u0000\u0000\u00ed\u0100\u0006\u000e\uffff\uffff\u0000"+
+		"\u00ee\u00f6\u0005#\u0000\u0000\u00ef\u00f0\u0005\"\u0000\u0000\u00f0"+
+		"\u00f1\u0005\r\u0000\u0000\u00f1\u00f2\u00030\u0018\u0000\u00f2\u00f3"+
+		"\u0006\u000e\uffff\uffff\u0000\u00f3\u00f4\u0005\u000e\u0000\u0000\u00f4"+
+		"\u00f5\u0006\u000e\uffff\uffff\u0000\u00f5\u00f7\u0001\u0000\u0000\u0000"+
+		"\u00f6\u00ef\u0001\u0000\u0000\u0000\u00f6\u00f7\u0001\u0000\u0000\u0000"+
+		"\u00f7\u00f8\u0001\u0000\u0000\u0000\u00f8\u00f9\u0005\u0011\u0000\u0000"+
+		"\u00f9\u00fa\u0006\u000e\uffff\uffff\u0000\u00fa\u00fc\u0006\u000e\uffff"+
+		"\uffff\u0000\u00fb\u00fd\u0003\u001e\u000f\u0000\u00fc\u00fb\u0001\u0000"+
+		"\u0000\u0000\u00fc\u00fd\u0001\u0000\u0000\u0000\u00fd\u00fe\u0001\u0000"+
+		"\u0000\u0000\u00fe\u00ff\u0005\u0012\u0000\u0000\u00ff\u0101\u0006\u000e"+
+		"\uffff\uffff\u0000\u0100\u00ee\u0001\u0000\u0000\u0000\u0100\u0101\u0001"+
+		"\u0000\u0000\u0000\u0101\u0102\u0001\u0000\u0000\u0000\u0102\u0103\u0006"+
+		"\u000e\uffff\uffff\u0000\u0103\u001d\u0001\u0000\u0000\u0000\u0104\u0105"+
+		"\u0003\b\u0004\u0000\u0105\u0106\u0003 \u0010\u0000\u0106\u010b\u0001"+
+		"\u0000\u0000\u0000\u0107\u0108\u0003\"\u0011\u0000\u0108\u0109\u0003 "+
+		"\u0010\u0000\u0109\u010b\u0001\u0000\u0000\u0000\u010a\u0104\u0001\u0000"+
+		"\u0000\u0000\u010a\u0107\u0001\u0000\u0000\u0000\u010b\u001f\u0001\u0000"+
+		"\u0000\u0000\u010c\u010d\u0003\b\u0004\u0000\u010d\u010e\u0003 \u0010"+
+		"\u0000\u010e\u0114\u0001\u0000\u0000\u0000\u010f\u0110\u0003\"\u0011\u0000"+
+		"\u0110\u0111\u0003 \u0010\u0000\u0111\u0114\u0001\u0000\u0000\u0000\u0112"+
+		"\u0114\u0001\u0000\u0000\u0000\u0113\u010c\u0001\u0000\u0000\u0000\u0113"+
+		"\u010f\u0001\u0000\u0000\u0000\u0113\u0112\u0001\u0000\u0000\u0000\u0114"+
+		"!\u0001\u0000\u0000\u0000\u0115\u0117\u0005\u000b\u0000\u0000\u0116\u0118"+
+		"\u00030\u0018\u0000\u0117\u0116\u0001\u0000\u0000\u0000\u0117\u0118\u0001"+
+		"\u0000\u0000\u0000\u0118\u0119\u0001\u0000\u0000\u0000\u0119\u011a\u0005"+
+		"\u0016\u0000\u0000\u011a\u011b\u0006\u0011\uffff\uffff\u0000\u011b#\u0001"+
+		"\u0000\u0000\u0000\u011c\u011d\u0005%\u0000\u0000\u011d\u011e\u0005\u0001"+
+		"\u0000\u0000\u011e\u011f\u0005&\u0000\u0000\u011f\u0120\u0005\r\u0000"+
+		"\u0000\u0120\u0121\u0003*\u0015\u0000\u0121\u0122\u0003&\u0013\u0000\u0122"+
+		"\u0123\u0005\u000e\u0000\u0000\u0123\u0124\u0005\u0016\u0000\u0000\u0124"+
+		"\u0125\u0006\u0012\uffff\uffff\u0000\u0125\u0130\u0001\u0000\u0000\u0000"+
+		"\u0126\u0127\u0005%\u0000\u0000\u0127\u0128\u0005\u0001\u0000\u0000\u0128"+
+		"\u0129\u0005&\u0000\u0000\u0129\u012a\u0005\r\u0000\u0000\u012a\u012b"+
+		"\u0003*\u0015\u0000\u012b\u012c\u0005\u000e\u0000\u0000\u012c\u012d\u0005"+
+		"\u0016\u0000\u0000\u012d\u012e\u0006\u0012\uffff\uffff\u0000\u012e\u0130"+
+		"\u0001\u0000\u0000\u0000\u012f\u011c\u0001\u0000\u0000\u0000\u012f\u0126"+
+		"\u0001\u0000\u0000\u0000\u0130%\u0001\u0000\u0000\u0000\u0131\u0132\u0003"+
+		"*\u0015\u0000\u0132\u0133\u0003(\u0014\u0000\u0133\u0134\u0006\u0013\uffff"+
+		"\uffff\u0000\u0134\'\u0001\u0000\u0000\u0000\u0135\u0136\u0003*\u0015"+
+		"\u0000\u0136\u0137\u0003(\u0014\u0000\u0137\u0138\u0006\u0014\uffff\uffff"+
+		"\u0000\u0138\u013b\u0001\u0000\u0000\u0000\u0139\u013b\u0001\u0000\u0000"+
+		"\u0000\u013a\u0135\u0001\u0000\u0000\u0000\u013a\u0139\u0001\u0000\u0000"+
+		"\u0000\u013b)\u0001\u0000\u0000\u0000\u013c\u013d\u0005\u001a\u0000\u0000"+
+		"\u013d\u0149\u0006\u0015\uffff\uffff\u0000\u013e\u013f\u0005/\u0000\u0000"+
+		"\u013f\u0149\u0006\u0015\uffff\uffff\u0000\u0140\u0141\u00036\u001b\u0000"+
+		"\u0141\u0142\u0006\u0015\uffff\uffff\u0000\u0142\u0149\u0001\u0000\u0000"+
+		"\u0000\u0143\u0144\u0005*\u0000\u0000\u0144\u0149\u0006\u0015\uffff\uffff"+
+		"\u0000\u0145\u0146\u00032\u0019\u0000\u0146\u0147\u0006\u0015\uffff\uffff"+
+		"\u0000\u0147\u0149\u0001\u0000\u0000\u0000\u0148\u013c\u0001\u0000\u0000"+
+		"\u0000\u0148\u013e\u0001\u0000\u0000\u0000\u0148\u0140\u0001\u0000\u0000"+
+		"\u0000\u0148\u0143\u0001\u0000\u0000\u0000\u0148\u0145\u0001\u0000\u0000"+
+		"\u0000\u0149+\u0001\u0000\u0000\u0000\u014a\u014b\u0005$\u0000\u0000\u014b"+
+		"\u014c\u0005/\u0000\u0000\u014c\u014d\u0005\u0019\u0000\u0000\u014d\u014e"+
+		"\u00034\u001a\u0000\u014e\u014f\u0005\u000f\u0000\u0000\u014f\u0150\u0003"+
+		"0\u0018\u0000\u0150\u0151\u0005\u0016\u0000\u0000\u0151\u0152\u0006\u0016"+
+		"\uffff\uffff\u0000\u0152\u016c\u0001\u0000\u0000\u0000\u0153\u0154\u0005"+
+		"$\u0000\u0000\u0154\u0155\u0005/\u0000\u0000\u0155\u0156\u0005\u0019\u0000"+
+		"\u0000\u0156\u0157\u0005\u000f\u0000\u0000\u0157\u0158\u00030\u0018\u0000"+
+		"\u0158\u0159\u0005\u0016\u0000\u0000\u0159\u015a\u0006\u0016\uffff\uffff"+
+		"\u0000\u015a\u016c\u0001\u0000\u0000\u0000\u015b\u015c\u0005$\u0000\u0000"+
+		"\u015c\u015d\u0005/\u0000\u0000\u015d\u015e\u0005\u0019\u0000\u0000\u015e"+
+		"\u015f\u00034\u001a\u0000\u015f\u0160\u0005\u000f\u0000\u0000\u0160\u0161"+
+		"\u0005\u0016\u0000\u0000\u0161\u0162\u0006\u0016\uffff\uffff\u0000\u0162"+
+		"\u016c\u0001\u0000\u0000\u0000\u0163\u0164\u0005$\u0000\u0000\u0164\u0165"+
+		"\u0005\u0019\u0000\u0000\u0165\u0166\u00034\u001a\u0000\u0166\u0167\u0005"+
+		"\u000f\u0000\u0000\u0167\u0168\u00030\u0018\u0000\u0168\u0169\u0005\u0016"+
+		"\u0000\u0000\u0169\u016a\u0006\u0016\uffff\uffff\u0000\u016a\u016c\u0001"+
+		"\u0000\u0000\u0000\u016b\u014a\u0001\u0000\u0000\u0000\u016b\u0153\u0001"+
+		"\u0000\u0000\u0000\u016b\u015b\u0001\u0000\u0000\u0000\u016b\u0163\u0001"+
+		"\u0000\u0000\u0000\u016c-\u0001\u0000\u0000\u0000\u016d\u016e\u0005/\u0000"+
+		"\u0000\u016e\u016f\u0005\u000f\u0000\u0000\u016f\u0170\u00030\u0018\u0000"+
+		"\u0170\u0171\u0005\u0016\u0000\u0000\u0171\u0172\u0006\u0017\uffff\uffff"+
+		"\u0000\u0172/\u0001\u0000\u0000\u0000\u0173\u0174\u0005\u001a\u0000\u0000"+
+		"\u0174\u0183\u0006\u0018\uffff\uffff\u0000\u0175\u0176\u0005\u001b\u0000"+
+		"\u0000\u0176\u0183\u0006\u0018\uffff\uffff\u0000\u0177\u0178\u00032\u0019"+
+		"\u0000\u0178\u0179\u0006\u0018\uffff\uffff\u0000\u0179\u0183\u0001\u0000"+
+		"\u0000\u0000\u017a\u017b\u0005/\u0000\u0000\u017b\u0183\u0006\u0018\uffff"+
+		"\uffff\u0000\u017c\u017d\u0003\u0018\f\u0000\u017d\u017e\u0006\u0018\uffff"+
+		"\uffff\u0000\u017e\u0183\u0001\u0000\u0000\u0000\u017f\u0180\u00036\u001b"+
+		"\u0000\u0180\u0181\u0006\u0018\uffff\uffff\u0000\u0181\u0183\u0001\u0000"+
+		"\u0000\u0000\u0182\u0173\u0001\u0000\u0000\u0000\u0182\u0175\u0001\u0000"+
+		"\u0000\u0000\u0182\u0177\u0001\u0000\u0000\u0000\u0182\u017a\u0001\u0000"+
+		"\u0000\u0000\u0182\u017c\u0001\u0000\u0000\u0000\u0182\u017f\u0001\u0000"+
+		"\u0000\u0000\u01831\u0001\u0000\u0000\u0000\u0184\u0185\u0007\u0000\u0000"+
+		"\u0000\u01853\u0001\u0000\u0000\u0000\u0186\u0187\u0005(\u0000\u0000\u0187"+
+		"\u0191\u0006\u001a\uffff\uffff\u0000\u0188\u0189\u0005)\u0000\u0000\u0189"+
+		"\u0191\u0006\u001a\uffff\uffff\u0000\u018a\u018b\u0005*\u0000\u0000\u018b"+
+		"\u0191\u0006\u001a\uffff\uffff\u0000\u018c\u018d\u0005+\u0000\u0000\u018d"+
+		"\u0191\u0006\u001a\uffff\uffff\u0000\u018e\u018f\u0005,\u0000\u0000\u018f"+
+		"\u0191\u0006\u001a\uffff\uffff\u0000\u0190\u0186\u0001\u0000\u0000\u0000"+
+		"\u0190\u0188\u0001\u0000\u0000\u0000\u0190\u018a\u0001\u0000\u0000\u0000"+
+		"\u0190\u018c\u0001\u0000\u0000\u0000\u0190\u018e\u0001\u0000\u0000\u0000"+
+		"\u01915\u0001\u0000\u0000\u0000\u0192\u0193\u00038\u001c\u0000\u0193\u019a"+
+		"\u0006\u001b\uffff\uffff\u0000\u0194\u0195\u0005\u0005\u0000\u0000\u0195"+
+		"\u0196\u00038\u001c\u0000\u0196\u0197\u0006\u001b\uffff\uffff\u0000\u0197"+
+		"\u0199\u0001\u0000\u0000\u0000\u0198\u0194\u0001\u0000\u0000\u0000\u0199"+
+		"\u019c\u0001\u0000\u0000\u0000\u019a\u0198\u0001\u0000\u0000\u0000\u019a"+
+		"\u019b\u0001\u0000\u0000\u0000\u019b\u01a9\u0001\u0000\u0000\u0000\u019c"+
+		"\u019a\u0001\u0000\u0000\u0000\u019d\u019e\u00038\u001c\u0000\u019e\u01a5"+
+		"\u0006\u001b\uffff\uffff\u0000\u019f\u01a0\u0005\u0006\u0000\u0000\u01a0"+
+		"\u01a1\u00038\u001c\u0000\u01a1\u01a2\u0006\u001b\uffff\uffff\u0000\u01a2"+
+		"\u01a4\u0001\u0000\u0000\u0000\u01a3\u019f\u0001\u0000\u0000\u0000\u01a4"+
+		"\u01a7\u0001\u0000\u0000\u0000\u01a5\u01a3\u0001\u0000\u0000\u0000\u01a5"+
+		"\u01a6\u0001\u0000\u0000\u0000\u01a6\u01a9\u0001\u0000\u0000\u0000\u01a7"+
+		"\u01a5\u0001\u0000\u0000\u0000\u01a8\u0192\u0001\u0000\u0000\u0000\u01a8"+
+		"\u019d\u0001\u0000\u0000\u0000\u01a97\u0001\u0000\u0000\u0000\u01aa\u01ab"+
+		"\u0003:\u001d\u0000\u01ab\u01b2\u0006\u001c\uffff\uffff\u0000\u01ac\u01ad"+
+		"\u0005\u0007\u0000\u0000\u01ad\u01ae\u0003:\u001d\u0000\u01ae\u01af\u0006"+
+		"\u001c\uffff\uffff\u0000\u01af\u01b1\u0001\u0000\u0000\u0000\u01b0\u01ac"+
+		"\u0001\u0000\u0000\u0000\u01b1\u01b4\u0001\u0000\u0000\u0000\u01b2\u01b0"+
+		"\u0001\u0000\u0000\u0000\u01b2\u01b3\u0001\u0000\u0000\u0000\u01b3\u01c1"+
+		"\u0001\u0000\u0000\u0000\u01b4\u01b2\u0001\u0000\u0000\u0000\u01b5\u01b6"+
+		"\u0003:\u001d\u0000\u01b6\u01bd\u0006\u001c\uffff\uffff\u0000\u01b7\u01b8"+
+		"\u0005\b\u0000\u0000\u01b8\u01b9\u0003:\u001d\u0000\u01b9\u01ba\u0006"+
+		"\u001c\uffff\uffff\u0000\u01ba\u01bc\u0001\u0000\u0000\u0000\u01bb\u01b7"+
+		"\u0001\u0000\u0000\u0000\u01bc\u01bf\u0001\u0000\u0000\u0000\u01bd\u01bb"+
+		"\u0001\u0000\u0000\u0000\u01bd\u01be\u0001\u0000\u0000\u0000\u01be\u01c1"+
+		"\u0001\u0000\u0000\u0000\u01bf\u01bd\u0001\u0000\u0000\u0000\u01c0\u01aa"+
+		"\u0001\u0000\u0000\u0000\u01c0\u01b5\u0001\u0000\u0000\u0000\u01c19\u0001"+
+		"\u0000\u0000\u0000\u01c2\u01c3\u0003<\u001e\u0000\u01c3\u01ca\u0006\u001d"+
+		"\uffff\uffff\u0000\u01c4\u01c5\u0005\t\u0000\u0000\u01c5\u01c6\u0003<"+
+		"\u001e\u0000\u01c6\u01c7\u0006\u001d\uffff\uffff\u0000\u01c7\u01c9\u0001"+
+		"\u0000\u0000\u0000\u01c8\u01c4\u0001\u0000\u0000\u0000\u01c9\u01cc\u0001"+
+		"\u0000\u0000\u0000\u01ca\u01c8\u0001\u0000\u0000\u0000\u01ca\u01cb\u0001"+
+		"\u0000\u0000\u0000\u01cb;\u0001\u0000\u0000\u0000\u01cc\u01ca\u0001\u0000"+
+		"\u0000\u0000\u01cd\u01ce\u0003>\u001f\u0000\u01ce\u01d5\u0006\u001e\uffff"+
+		"\uffff\u0000\u01cf\u01d0\u0005\u0013\u0000\u0000\u01d0\u01d1\u0003>\u001f"+
+		"\u0000\u01d1\u01d2\u0006\u001e\uffff\uffff\u0000\u01d2\u01d4\u0001\u0000"+
+		"\u0000\u0000\u01d3\u01cf\u0001\u0000\u0000\u0000\u01d4\u01d7\u0001\u0000"+
+		"\u0000\u0000\u01d5\u01d3\u0001\u0000\u0000\u0000\u01d5\u01d6\u0001\u0000"+
+		"\u0000\u0000\u01d6\u0212\u0001\u0000\u0000\u0000\u01d7\u01d5\u0001\u0000"+
+		"\u0000\u0000\u01d8\u01d9\u0003>\u001f\u0000\u01d9\u01e0\u0006\u001e\uffff"+
+		"\uffff\u0000\u01da\u01db\u0005\u0014\u0000\u0000\u01db\u01dc\u0003>\u001f"+
+		"\u0000\u01dc\u01dd\u0006\u001e\uffff\uffff\u0000\u01dd\u01df\u0001\u0000"+
+		"\u0000\u0000\u01de\u01da\u0001\u0000\u0000\u0000\u01df\u01e2\u0001\u0000"+
+		"\u0000\u0000\u01e0\u01de\u0001\u0000\u0000\u0000\u01e0\u01e1\u0001\u0000"+
+		"\u0000\u0000\u01e1\u0212\u0001\u0000\u0000\u0000\u01e2\u01e0\u0001\u0000"+
+		"\u0000\u0000\u01e3\u01e4\u0003>\u001f\u0000\u01e4\u01ec\u0006\u001e\uffff"+
+		"\uffff\u0000\u01e5\u01e6\u0005\u0013\u0000\u0000\u01e6\u01e7\u0005\u000f"+
+		"\u0000\u0000\u01e7\u01e8\u0003>\u001f\u0000\u01e8\u01e9\u0006\u001e\uffff"+
+		"\uffff\u0000\u01e9\u01eb\u0001\u0000\u0000\u0000\u01ea\u01e5\u0001\u0000"+
+		"\u0000\u0000\u01eb\u01ee\u0001\u0000\u0000\u0000\u01ec\u01ea\u0001\u0000"+
+		"\u0000\u0000\u01ec\u01ed\u0001\u0000\u0000\u0000\u01ed\u0212\u0001\u0000"+
+		"\u0000\u0000\u01ee\u01ec\u0001\u0000\u0000\u0000\u01ef\u01f0\u0003>\u001f"+
+		"\u0000\u01f0\u01f7\u0006\u001e\uffff\uffff\u0000\u01f1\u01f2\u0005\u0014"+
+		"\u0000\u0000\u01f2\u01f3\u0003>\u001f\u0000\u01f3\u01f4\u0006\u001e\uffff"+
+		"\uffff\u0000\u01f4\u01f6\u0001\u0000\u0000\u0000\u01f5\u01f1\u0001\u0000"+
+		"\u0000\u0000\u01f6\u01f9\u0001\u0000\u0000\u0000\u01f7\u01f5\u0001\u0000"+
+		"\u0000\u0000\u01f7\u01f8\u0001\u0000\u0000\u0000\u01f8\u0212\u0001\u0000"+
+		"\u0000\u0000\u01f9\u01f7\u0001\u0000\u0000\u0000\u01fa\u01fb\u0003>\u001f"+
+		"\u0000\u01fb\u0202\u0006\u001e\uffff\uffff\u0000\u01fc\u01fd\u0005\u0015"+
+		"\u0000\u0000\u01fd\u01fe\u0003>\u001f\u0000\u01fe\u01ff\u0006\u001e\uffff"+
+		"\uffff\u0000\u01ff\u0201\u0001\u0000\u0000\u0000\u0200\u01fc\u0001\u0000"+
+		"\u0000\u0000\u0201\u0204\u0001\u0000\u0000\u0000\u0202\u0200\u0001\u0000"+
+		"\u0000\u0000\u0202\u0203\u0001\u0000\u0000\u0000\u0203\u0212\u0001\u0000"+
+		"\u0000\u0000\u0204\u0202\u0001\u0000\u0000\u0000\u0205\u0206\u0003>\u001f"+
+		"\u0000\u0206\u020e\u0006\u001e\uffff\uffff\u0000\u0207\u0208\u0005\u000f"+
+		"\u0000\u0000\u0208\u0209\u0005\u000f\u0000\u0000\u0209\u020a\u0003>\u001f"+
+		"\u0000\u020a\u020b\u0006\u001e\uffff\uffff\u0000\u020b\u020d\u0001\u0000"+
+		"\u0000\u0000\u020c\u0207\u0001\u0000\u0000\u0000\u020d\u0210\u0001\u0000"+
+		"\u0000\u0000\u020e\u020c\u0001\u0000\u0000\u0000\u020e\u020f\u0001\u0000"+
+		"\u0000\u0000\u020f\u0212\u0001\u0000\u0000\u0000\u0210\u020e\u0001\u0000"+
+		"\u0000\u0000\u0211\u01cd\u0001\u0000\u0000\u0000\u0211\u01d8\u0001\u0000"+
+		"\u0000\u0000\u0211\u01e3\u0001\u0000\u0000\u0000\u0211\u01ef\u0001\u0000"+
+		"\u0000\u0000\u0211\u01fa\u0001\u0000\u0000\u0000\u0211\u0205\u0001\u0000"+
+		"\u0000\u0000\u0212=\u0001\u0000\u0000\u0000\u0213\u0214\u0005\u0018\u0000"+
+		"\u0000\u0214\u0225\u0006\u001f\uffff\uffff\u0000\u0215\u0216\u0005\u0017"+
+		"\u0000\u0000\u0216\u0225\u0006\u001f\uffff\uffff\u0000\u0217\u0218\u0005"+
+		"\r\u0000\u0000\u0218\u0219\u00036\u001b\u0000\u0219\u021a\u0005\u000e"+
+		"\u0000\u0000\u021a\u021b\u0006\u001f\uffff\uffff\u0000\u021b\u0225\u0001"+
+		"\u0000\u0000\u0000\u021c\u021d\u0005/\u0000\u0000\u021d\u0225\u0006\u001f"+
+		"\uffff\uffff\u0000\u021e\u021f\u0005\u0006\u0000\u0000\u021f\u0220\u0003"+
+		">\u001f\u0000\u0220\u0221\u0006\u001f\uffff\uffff\u0000\u0221\u0225\u0001"+
+		"\u0000\u0000\u0000\u0222\u0223\u0007\u0001\u0000\u0000\u0223\u0225\u0006"+
+		"\u001f\uffff\uffff\u0000\u0224\u0213\u0001\u0000\u0000\u0000\u0224\u0215"+
+		"\u0001\u0000\u0000\u0000\u0224\u0217\u0001\u0000\u0000\u0000\u0224\u021c"+
+		"\u0001\u0000\u0000\u0000\u0224\u021e\u0001\u0000\u0000\u0000\u0224\u0222"+
+		"\u0001\u0000\u0000\u0000\u0225?\u0001\u0000\u0000\u0000\u0226\u0227\u0005"+
+		"\u000b\u0000\u0000\u0227\u0228\u0005\r\u0000\u0000\u0228\u0229\u0003B"+
+		"!\u0000\u0229\u022a\u0006 \uffff\uffff\u0000\u022a\u022b\u0005\u000e\u0000"+
+		"\u0000\u022b\u022c\u0005\u0016\u0000\u0000\u022c\u022d\u0006 \uffff\uffff"+
+		"\u0000\u022dA\u0001\u0000\u0000\u0000\u022e\u022f\u0005\u0014\u0000\u0000"+
+		"\u022f\u0230\u0005\u001c\u0000\u0000\u0230\u0231\u0005\u0013\u0000\u0000"+
+		"\u0231\u0232\u0003D\"\u0000\u0232\u0233\u0005\u0002\u0000\u0000\u0233"+
+		"\u0234\u0005\u001c\u0000\u0000\u0234\u0235\u0005\u0013\u0000\u0000\u0235"+
+		"\u0236\u0006!\uffff\uffff\u0000\u0236C\u0001\u0000\u0000\u0000\u0237\u0238"+
+		"\u0003H$\u0000\u0238\u0239\u0003F#\u0000\u0239E\u0001\u0000\u0000\u0000"+
+		"\u023a\u023b\u0003H$\u0000\u023b\u023c\u0003F#\u0000\u023c\u023f\u0001"+
+		"\u0000\u0000\u0000\u023d\u023f\u0001\u0000\u0000\u0000\u023e\u023a\u0001"+
+		"\u0000\u0000\u0000\u023e\u023d\u0001\u0000\u0000\u0000\u023fG\u0001\u0000"+
+		"\u0000\u0000\u0240\u0241\u0003J%\u0000\u0241\u0242\u0006$\uffff\uffff"+
+		"\u0000\u0242\u024d\u0001\u0000\u0000\u0000\u0243\u0244\u0003N\'\u0000"+
+		"\u0244\u0245\u0006$\uffff\uffff\u0000\u0245\u024d\u0001\u0000\u0000\u0000"+
+		"\u0246\u0247\u0003P(\u0000\u0247\u0248\u0006$\uffff\uffff\u0000\u0248"+
+		"\u024d\u0001\u0000\u0000\u0000\u0249\u024a\u0003T*\u0000\u024a\u024b\u0006"+
+		"$\uffff\uffff\u0000\u024b\u024d\u0001\u0000\u0000\u0000\u024c\u0240\u0001"+
+		"\u0000\u0000\u0000\u024c\u0243\u0001\u0000\u0000\u0000\u024c\u0246\u0001"+
+		"\u0000\u0000\u0000\u024c\u0249\u0001\u0000\u0000\u0000\u024dI\u0001\u0000"+
+		"\u0000\u0000\u024e\u024f\u0005\u0014\u0000\u0000\u024f\u0250\u0005\u001d"+
+		"\u0000\u0000\u0250\u0257\u0005\u0013\u0000\u0000\u0251\u0256\u0005\u001a"+
+		"\u0000\u0000\u0252\u0253\u0003L&\u0000\u0253\u0254\u0006%\uffff\uffff"+
+		"\u0000\u0254\u0256\u0001\u0000\u0000\u0000\u0255\u0251\u0001\u0000\u0000"+
+		"\u0000\u0255\u0252\u0001\u0000\u0000\u0000\u0256\u0259\u0001\u0000\u0000"+
+		"\u0000\u0257\u0255\u0001\u0000\u0000\u0000\u0257\u0258\u0001\u0000\u0000"+
+		"\u0000\u0258\u025a\u0001\u0000\u0000\u0000\u0259\u0257\u0001\u0000\u0000"+
+		"\u0000\u025a\u025b\u0005\u0002\u0000\u0000\u025b\u025c\u0005\u001d\u0000"+
+		"\u0000\u025c\u025d\u0005\u0013\u0000\u0000\u025d\u025e\u0006%\uffff\uffff"+
+		"\u0000\u025eK\u0001\u0000\u0000\u0000\u025f\u0260\u0005\u0011\u0000\u0000"+
+		"\u0260\u0261\u0005/\u0000\u0000\u0261\u0262\u0006&\uffff\uffff\u0000\u0262"+
+		"\u0263\u0005\u0012\u0000\u0000\u0263\u0264\u0006&\uffff\uffff\u0000\u0264"+
+		"M\u0001\u0000\u0000\u0000\u0265\u0266\u0005\u0014\u0000\u0000\u0266\u0267"+
+		"\u0005\u001e\u0000\u0000\u0267\u026e\u0005\u0013\u0000\u0000\u0268\u026d"+
+		"\u0005\u001a\u0000\u0000\u0269\u026a\u0003L&\u0000\u026a\u026b\u0006\'"+
+		"\uffff\uffff\u0000\u026b\u026d\u0001\u0000\u0000\u0000\u026c\u0268\u0001"+
+		"\u0000\u0000\u0000\u026c\u0269\u0001\u0000\u0000\u0000\u026d\u0270\u0001"+
+		"\u0000\u0000\u0000\u026e\u026c\u0001\u0000\u0000\u0000\u026e\u026f\u0001"+
+		"\u0000\u0000\u0000\u026f\u0271\u0001\u0000\u0000\u0000\u0270\u026e\u0001"+
+		"\u0000\u0000\u0000\u0271\u0272\u0005\u0002\u0000\u0000\u0272\u0273\u0005"+
+		"\u001e\u0000\u0000\u0273\u0274\u0005\u0013\u0000\u0000\u0274\u0275\u0006"+
+		"\'\uffff\uffff\u0000\u0275O\u0001\u0000\u0000\u0000\u0276\u0277\u0005"+
+		"\u0014\u0000\u0000\u0277\u0279\u0005\u001f\u0000\u0000\u0278\u027a\u0003"+
+		"R)\u0000\u0279\u0278\u0001\u0000\u0000\u0000\u0279\u027a\u0001\u0000\u0000"+
+		"\u0000\u027a\u027b\u0001\u0000\u0000\u0000\u027b\u027c\u0006(\uffff\uffff"+
+		"\u0000\u027c\u0283\u0005\u0013\u0000\u0000\u027d\u0282\u0005\u001a\u0000"+
+		"\u0000\u027e\u027f\u0003L&\u0000\u027f\u0280\u0006(\uffff\uffff\u0000"+
+		"\u0280\u0282\u0001\u0000\u0000\u0000\u0281\u027d\u0001\u0000\u0000\u0000"+
+		"\u0281\u027e\u0001\u0000\u0000\u0000\u0282\u0285\u0001\u0000\u0000\u0000"+
+		"\u0283\u0281\u0001\u0000\u0000\u0000\u0283\u0284\u0001\u0000\u0000\u0000"+
+		"\u0284\u0286\u0001\u0000\u0000\u0000\u0285\u0283\u0001\u0000\u0000\u0000"+
+		"\u0286\u0287\u0005\u0002\u0000\u0000\u0287\u0288\u0005\u001f\u0000\u0000"+
+		"\u0288\u0289\u0005\u0013\u0000\u0000\u0289\u028a\u0006(\uffff\uffff\u0000"+
+		"\u028aQ\u0001\u0000\u0000\u0000\u028b\u028c\u0005 \u0000\u0000\u028c\u028d"+
+		"\u0005\u000f\u0000\u0000\u028d\u028e\u0005\u0011\u0000\u0000\u028e\u028f"+
+		"\u0003\u0018\f\u0000\u028f\u0290\u0006)\uffff\uffff\u0000\u0290\u0291"+
+		"\u0005\u0012\u0000\u0000\u0291\u0292\u0006)\uffff\uffff\u0000\u0292S\u0001"+
+		"\u0000\u0000\u0000\u0293\u0294\u0005\u0014\u0000\u0000\u0294\u029c\u0005"+
+		"!\u0000\u0000\u0295\u0296\u0005\u0003\u0000\u0000\u0296\u0297\u0005\u000f"+
+		"\u0000\u0000\u0297\u0298\u0005\u0011\u0000\u0000\u0298\u0299\u0003L&\u0000"+
+		"\u0299\u029a\u0005\u0012\u0000\u0000\u029a\u029b\u0006*\uffff\uffff\u0000"+
+		"\u029b\u029d\u0001\u0000\u0000\u0000\u029c\u0295\u0001\u0000\u0000\u0000"+
+		"\u029c\u029d\u0001\u0000\u0000\u0000\u029d\u029e\u0001\u0000\u0000\u0000"+
+		"\u029e\u029f\u0005\u0004\u0000\u0000\u029f\u02a0\u0006*\uffff\uffff\u0000"+
+		"\u02a0U\u0001\u0000\u0000\u00002`fnv\u0083\u0094\u0098\u00b8\u00c1\u00ca"+
+		"\u00cf\u00de\u00ea\u00f6\u00fc\u0100\u010a\u0113\u0117\u012f\u013a\u0148"+
+		"\u016b\u0182\u0190\u019a\u01a5\u01a8\u01b2\u01bd\u01c0\u01ca\u01d5\u01e0"+
+		"\u01ec\u01f7\u0202\u020e\u0211\u0224\u023e\u024c\u0255\u0257\u026c\u026e"+
+		"\u0279\u0281\u0283\u029c";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

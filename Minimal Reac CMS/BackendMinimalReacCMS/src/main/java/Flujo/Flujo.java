@@ -10,6 +10,7 @@ import Response.Empaquetado;
  */
 public class Flujo {
 
+    private String empaquetadoJason = "";
     Compilador compilador = new Compilador();
     AnalisisDeAccion analisisDeAccion = new AnalisisDeAccion();
 
@@ -26,8 +27,14 @@ public class Flujo {
     }
 
     public String empaquetado() {
-       
-        return empaquetado.empaqutado(1,analisisDeAccion.getDatos());
+
+        if (!compilador.isPeticionValida() || !compilador.isBodyValido()) {
+            empaquetadoJason = empaquetado.empaqutado(2, analisisDeAccion.getDatos());
+        } else {
+
+            empaquetadoJason = empaquetado.empaqutado(1, analisisDeAccion.getDatos());
+        }
+        return empaquetadoJason;
     }
 
     public void compilar(String mensaje) {
@@ -43,7 +50,8 @@ public class Flujo {
     public void AnalisisAccion(int objetivo_sCL, int accion) {
 
         try {
-
+            analisisDeAccion.setErrorSintasis(compilador.isBodyValido());
+            analisisDeAccion.getModificar().setErrores(compilador.getCompilador_Body().getErrores());
             analisisDeAccion.setAccion(accion);
             analisisDeAccion.setObjetivo(objetivo_sCL);
             analisisDeAccion.setsCL(compilador.getsCl());

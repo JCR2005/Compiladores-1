@@ -14,6 +14,7 @@ public class Metodo {
      private final String PATCH="PATCH";
      
      
+     
     public String metodo(int metodo){
         
         switch (metodo) {

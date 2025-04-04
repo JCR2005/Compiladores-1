@@ -15,16 +15,18 @@ public class PanelEditorPagina extends javax.swing.JPanel {
 
     int ancho;
     int alto;
-    String contenidoEntrada="";
-    String nombre="";
+    String contenidoEntrada = "";
+    String nombre = "";
+    Modificar modificar = new Modificar();
 
     /**
      * Creates new form PanelEditorPagina
      */
     public PanelEditorPagina(int ancho, int alto) {
         this.alto = alto;
+
         this.ancho = ancho;
-        String nombre="";
+        String nombre = "";
         initComponents();
 
         try {
@@ -34,24 +36,27 @@ public class PanelEditorPagina extends javax.swing.JPanel {
             contenedor.setBounds(0, 0, ancho, alto);
 
             jPanel1.setBounds(0, 0, (int) ((ancho * 0.2)), alto);
-            jScrollPane1.setBounds((int) ((ancho * 0.3)), (int) ((alto * 0.05)), (int) ((ancho * 0.6)), (int) ((alto * 0.7)));
+            jScrollPane1.setBounds((int) ((ancho * 0.3)), (int) ((alto * 0.05)), (int) ((ancho * 0.6)), (int) ((alto * 0.6)));
+            jScrollPane2.setBounds((int) ((ancho * 0.3)), (int) ((alto * 0.67)), (int) ((ancho * 0.6)), (int) ((alto * 0.25)));
             jButton1.setBounds(0, (int) ((alto * 0.20)), (int) ((ancho * 0.2)), (int) ((alto * 0.1)));
             jButton2.setBounds(0, (int) ((alto * 0.35)), (int) ((ancho * 0.2)), (int) ((alto * 0.1)));
             jButton3.setBounds((int) ((ancho * 0.05)), (int) ((alto * 0.85)), (int) ((ancho * 0.1)), (int) ((alto * 0.05)));
+
             jLabel1.setBounds(0, 0, (int) ((ancho * 0.2)), (int) ((alto * 0.1)));
-           
+            jLabel2.setBounds((int) ((ancho * 0.9)), (int) ((alto * 0.67)), (int) ((ancho * 0.2)), (int) ((alto * 0.1)));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void obtnerPagina(String nombre) {
-        this.nombre=nombre;
-        Obtener obtener=new Obtener();
-        
-        String contenido="\n"+obtener.obtenerContenidoPagina(nombre);
+        this.nombre = nombre;
+        Obtener obtener = new Obtener();
+
+        String contenido = "\n" + obtener.obtenerContenidoPagina(nombre);
         Editor.setText(contenido);
-        this.contenidoEntrada=contenido;
+        this.contenidoEntrada = contenido;
     }
 
     public void setNombrePagina(String nombrePagina) {
@@ -76,7 +81,6 @@ public class PanelEditorPagina extends javax.swing.JPanel {
             jButton1.setBackground(Color.decode("#2c495b"));
             jButton1.setForeground(Color.decode("#FDF7E7"));
 
-           
         }
 
         if (boton != 2) {
@@ -84,7 +88,6 @@ public class PanelEditorPagina extends javax.swing.JPanel {
             jButton2.setBackground(Color.decode("#2c495b"));
             jButton2.setForeground(Color.decode("#FDF7E7"));
 
-           
         }
 
     }
@@ -99,6 +102,7 @@ public class PanelEditorPagina extends javax.swing.JPanel {
     private void initComponents() {
 
         contenedor = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -106,12 +110,22 @@ public class PanelEditorPagina extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Editor = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Consola = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(253, 247, 231));
         setLayout(null);
 
         contenedor.setBackground(new java.awt.Color(253, 247, 231));
         contenedor.setLayout(null);
+
+        jLabel2.setBackground(new java.awt.Color(42, 76, 86));
+        jLabel2.setFont(new java.awt.Font("P052", 3, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(44, 73, 91));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Consola");
+        contenedor.add(jLabel2);
+        jLabel2.setBounds(860, 500, 170, 45);
 
         jPanel1.setBackground(new java.awt.Color(44, 73, 91));
         jPanel1.setLayout(null);
@@ -158,7 +172,7 @@ public class PanelEditorPagina extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(253, 247, 231));
         jButton3.setFont(new java.awt.Font("Purisa", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(44, 73, 91));
-        jButton3.setText("Cancelar");
+        jButton3.setText("Salir");
         jButton3.setToolTipText("");
         jButton3.setBorderPainted(false);
         jButton3.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
@@ -184,17 +198,38 @@ public class PanelEditorPagina extends javax.swing.JPanel {
         contenedor.add(jScrollPane1);
         jScrollPane1.setBounds(390, 50, 640, 450);
 
+        Consola.setBackground(new java.awt.Color(253, 247, 231));
+        Consola.setColumns(20);
+        Consola.setFont(new java.awt.Font("C059", 2, 18)); // NOI18N
+        Consola.setRows(5);
+        Consola.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(44, 73, 91), 7, true));
+        jScrollPane2.setViewportView(Consola);
+
+        contenedor.add(jScrollPane2);
+        jScrollPane2.setBounds(390, 50, 640, 450);
+
         add(contenedor);
         contenedor.setBounds(0, 0, 1070, 720);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        Modificar modificar=new Modificar();
-        
-        modificar.AnalisarCodigo(nombre, Editor.getText());
-        
-        jButton2.setEnabled(true);
+
+        String errores = modificar.AnalisarCodigo(nombre, Editor.getText());
+
+        if (errores.isEmpty()) {
+            Consola.setText("Analisis Exitoso!!");
+            Consola.setForeground(Color.green);
+            jButton2.setEnabled(true);
+            jButton3.setEnabled(true);
+            this.contenidoEntrada = Editor.getText();
+            JOptionPane.showMessageDialog(null, "Analisis Completado", modificar.response(), JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Se encontraron errore en el analisis", modificar.response(), JOptionPane.INFORMATION_MESSAGE);
+            Consola.setText(errores);
+            Consola.setForeground(Color.red);
+        }
+
         jButton1.setBounds(0, (int) ((alto * 0.20)), (int) ((ancho * 0.2)), (int) ((alto * 0.1)));
         jButton1.setBackground(Color.decode("#FDF7E7"));
         jButton1.setForeground(Color.decode("#2c495b"));
@@ -202,16 +237,17 @@ public class PanelEditorPagina extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+
         if (Editor.getText().equals(this.contenidoEntrada)) {
             System.out.println(this.nombre);
-             
-        }else{
+            modificar.modificarPagina(nombre, Editor.getText());
+             JOptionPane.showMessageDialog(null, "Se guardo correctamente Completado", modificar.response(), JOptionPane.INFORMATION_MESSAGE);
+        } else {
             jButton2.setEnabled(false);
-             JOptionPane.showMessageDialog(null, "Se notaron cambios en el codigo, nesecita analizarlo antes de guardar", "Minimal React", JOptionPane.INFORMATION_MESSAGE);
-             
+            JOptionPane.showMessageDialog(null, "Se notaron cambios en el codigo, nesecita analizarlo antes de guardar", "Minimal React", JOptionPane.INFORMATION_MESSAGE);
+
         }
-        
+
         jButton2.setBounds(0, (int) ((alto * 0.35)), (int) ((ancho * 0.2)), (int) ((alto * 0.1)));
         jButton2.setBackground(Color.decode("#FDF7E7"));
         jButton2.setForeground(Color.decode("#2c495b"));
@@ -219,19 +255,32 @@ public class PanelEditorPagina extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        cambiarEstado();
-        setVisible(false);
+
+        if (Editor.getText().equals(this.contenidoEntrada)) {
+            System.out.println(this.nombre);
+            cambiarEstado();
+            setVisible(false);
+        } else {
+            jButton3.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Se notaron cambios en el codigo, nesecita analizarlo antes de guardar", "Minimal React", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Consola;
     private javax.swing.JTextArea Editor;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

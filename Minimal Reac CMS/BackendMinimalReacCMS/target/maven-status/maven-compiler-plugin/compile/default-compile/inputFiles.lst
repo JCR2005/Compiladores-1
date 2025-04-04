@@ -1,6 +1,7 @@
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/AnalisisInstrucciones/Agregar.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/AnalisisInstrucciones/AnalisisDeAccion.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/AnalisisInstrucciones/Crear.java
+/home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/AnalisisInstrucciones/Modificar.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/AnalisisInstrucciones/Obtener.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/ArchivosMTSX/Creacion.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/Archivos_sCL/analizadorLexico_sCL.java
@@ -17,6 +18,7 @@
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/Compilador/Compilador_sHTTP.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/CustomErrorListener.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/Flujo/Flujo.java
+/home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/RESPONSES/RespuestaErroresDeCompilacion.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/RESPONSES/RespuestaPaginaSitiosDisponibles.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/Response/Body.java
 /home/carlos/NetBeansProjects/BackendMinimalReacCMS/src/main/java/Response/Codigo.java

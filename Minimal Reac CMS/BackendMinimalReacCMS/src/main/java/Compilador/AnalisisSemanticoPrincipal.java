@@ -19,6 +19,9 @@ public class AnalisisSemanticoPrincipal {
         if (metodo == 1 && accion == 2) {
             instruccionValida = true;
         }
+         if (metodo == 1 && accion == 6) {
+            instruccionValida = true;
+        }
 
         if (metodo == 2 && accion == 5) {
             instruccionValida = true;

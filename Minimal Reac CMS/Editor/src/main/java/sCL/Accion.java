@@ -12,6 +12,8 @@ public class Accion {
     private final String OBTENER="obtener";
     private final String ELIMINAR="eliminar";
      private final String AGREGAR="agregar";
+     
+     private final String TRANPILAR="tranpilar";
     private final String MODIFICAR="modificar";
      
     public String accion(int accion){
@@ -31,6 +33,9 @@ public class Accion {
             }
             case 5 -> {
                 return  OBTENER;
+            }
+            case 6 -> {
+                return  TRANPILAR;
             }
             default -> throw new AssertionError();
         }

@@ -6,9 +6,11 @@ Backend/Crear.class
 Fronted/PanelPrincipal$4.class
 Backend/Modificar.class
 sHTTP/Metodo.class
+Fronted/PanelVisualizacion$4.class
 sHTTP/Codigo.class
 Servidor/Enviocosas.class
 Fronted/PanelEdicionSitios$3.class
+Fronted/PanelVisualizacion$1.class
 Fronted/FondosDeEtiquetas.class
 Fronted/PanelCreacion$1.class
 sCL/Objetivo.class
@@ -16,10 +18,13 @@ Fronted/PanelEdicion$3.class
 Servidor/ChatClientEnwdpoint.class
 Fronted/PanelEdicionSitios$1.class
 sHTTP/Response.class
+Fronted/PanelVisualizacion$3.class
+Fronted/PanelVisualizacion.class
 Fronted/PanelPrincipal$2.class
 Fronted/PanelCreacion$2.class
 sCL/Parametro.class
 Fronted/PanelEditorPagina$3.class
+Responses/RespuestaErroresDeCompilacion.class
 Fronted/PanelEdicion$4.class
 Servidor/ChatClient$ChatClientEndpoint.class
 Fronted/PanelEdicionSitios$2.class
@@ -37,6 +42,7 @@ Fronted/PanelCreacion$3.class
 Fronted/PanelEditorPagina.class
 Responses/RespuestaPaginaSitiosDisponibles.class
 sHTTP/Body.class
+Fronted/PanelVisualizacion$2.class
 sHTTP/Objetivo.class
 Fronted/VentanaPrincipal.class
 Servidor/ChatClient.class
@@ -46,4 +52,5 @@ Fronted/PanelEdicion$2.class
 sCL/Accion.class
 Fronted/VentanaPrincipal$2.class
 Backend/Agregar.class
+Fronted/PanelVisualizacion$5.class
 Fronted/PanelEdicion$5.class

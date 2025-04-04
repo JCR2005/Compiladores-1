@@ -6,6 +6,7 @@ import Compilador.CustomListener;
 import Compilador.Funcion;
 import Compilador.TipeScriptLexer;
 import Compilador.TipeScriptParser;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -21,7 +22,8 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
  */
 public class CompiladorBody {
 
-    public  void compilado(String instruccion) {
+     private ArrayList<String> Errores = new ArrayList<>();
+    public  Boolean compilado(String instruccion) {
 
         String imput = "const NombrePagina = ( ) => { \n"
                 + "var texto: string = \"Hola Mundo\";\n"
@@ -70,7 +72,7 @@ public class CompiladorBody {
 
             System.out.println(listener.getIntruccionesValidas().get(i).toString());
         }
-
+        Errores=listener.getErrores();
         System.out.println("ERRORES---------------------------------------------------------------------------------------------------");
         for (int i = 0; i < listener.getErrores().size(); i++) {
 
@@ -99,6 +101,20 @@ public class CompiladorBody {
        
        System.out.println("INSTRUCCIONES_JAVASCRIPT:_______________________________________________________________________________________");
        System.out.println(transpilador.getCodigoTransiladoJavaScript());
+       
+       
+        if (listener.getErrores().size()==0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * @return the Errores
+     */
+    public ArrayList<String> getErrores() {
+        return Errores;
     }
 
 }

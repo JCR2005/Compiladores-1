@@ -9,8 +9,10 @@
 /home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelEdicionSitios.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelEditorPagina.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelPrincipal.java
+/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelVisualizacion.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/Panelnicio.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/VentanaPrincipal.java
+/home/carlos/NetBeansProjects/Editor/src/main/java/Responses/RespuestaErroresDeCompilacion.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Responses/RespuestaPaginaSitiosDisponibles.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Servidor/ChatClient.java
 /home/carlos/NetBeansProjects/Editor/src/main/java/Servidor/ChatClientEnwdpoint.java

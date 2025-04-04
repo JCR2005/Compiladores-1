@@ -1,6 +1,5 @@
 package Traductor;
 
-
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,11 +10,11 @@ import java.util.regex.Pattern;
  */
 public class transpiladorHtml {
 
-     ArrayList<String> instruccionesHTML = new ArrayList<>();
-     ArrayList<String> instruccionesJavaScript = new ArrayList<>();
-     ArrayList<String> instruccionesdeActualizacion = new ArrayList<>();
+    ArrayList<String> instruccionesHTML = new ArrayList<>();
+    ArrayList<String> instruccionesJavaScript = new ArrayList<>();
+    ArrayList<String> instruccionesdeActualizacion = new ArrayList<>();
 
-     int cont1 = 0;
+    int cont1 = 0;
 
     public String getCodigoTransiladoJavaScript() {
 
@@ -40,11 +39,9 @@ public class transpiladorHtml {
     }
 
     public void trampilar(ArrayList<Integer> tipo, ArrayList<String> instrucciones) {
-        
-        
 
         for (int i = 0; i < tipo.size(); i++) {
-
+            System.out.println(instrucciones.get(i) + "WWWWWWWWWWWWWWWWWWW");
             int opcion = tipo.get(i);
 
             switch (opcion) {
@@ -55,6 +52,7 @@ public class transpiladorHtml {
                 case 3 ->
                     transpiladoBoton(instrucciones.get(i));
                 case 4 ->
+
                     transpiladoImput(instrucciones.get(i));
                 case 5 ->
                     transpiladoCreacionVariable(instrucciones.get(i));
@@ -92,7 +90,7 @@ public class transpiladorHtml {
 
     }
 
-    public  void main(String[] args) {
+    public void main(String[] args) {
         transpiladoEncabezadoHtml(" < h1 > { variable } \"Hola mi nombre es\" { variable } \" mi  es\" </ h1 >");
         transpiladoParrafo(" < p > { variable } \"Hola mi nombre es\" { variable } \" mi  es\" </ p >");
         transpiladoBoton("< button onClick = { condicion ( 5 ) ; } > \"Sumar\" </ button >");
@@ -102,7 +100,7 @@ public class transpiladorHtml {
         transpiladoSinCabios("   if(variable>5){");
     }
 
-    public  void transpiladoEncabezadoHtml(String instruccion) {
+    public void transpiladoEncabezadoHtml(String instruccion) {
 
         String intrucion_html = "";
         String id = " id=\"id" + cont1 + "\"";
@@ -139,7 +137,7 @@ public class transpiladorHtml {
         instruccionesHTML.add(intrucion_html);
     }
 
-    public  void transpiladoParrafo(String instruccion) {
+    public void transpiladoParrafo(String instruccion) {
 
         String intrucion_html = "";
         String id = " id=\"id" + cont1 + "\"";
@@ -176,7 +174,7 @@ public class transpiladorHtml {
         instruccionesHTML.add(intrucion_html);
     }
 
-    public  void transpiladoBoton(String instruccion) {
+    public void transpiladoBoton(String instruccion) {
 
         String intrucion_html = "";
         String id = " id=\"id" + cont1 + "\"";
@@ -223,7 +221,7 @@ public class transpiladorHtml {
 
     }
 
-    public  void transpiladoImput(String instruccion) {
+    public void transpiladoImput(String instruccion) {
 
         String intrucion_html = "";
         String id = " id=\"id" + cont1 + "\"";
@@ -262,10 +260,11 @@ public class transpiladorHtml {
 
             instruccionesdeActualizacion.add(js);
         }
+
         instruccionesHTML.add(intrucion_html);
     }
 
-    public  String funcionActualizar() {
+    public String funcionActualizar() {
         String Funciona = "function actulizar () {\n";
 
         for (int i = 0; i < instruccionesdeActualizacion.size(); i++) {
@@ -277,7 +276,7 @@ public class transpiladorHtml {
         return Funciona;
     }
 
-    public  void transpiladoCreacionVariable(String instruccion) {
+    public void transpiladoCreacionVariable(String instruccion) {
         String js = "";
         String regex = ":\\s([^=]+)=";
         String texto = "";
@@ -291,7 +290,7 @@ public class transpiladorHtml {
         instruccionesJavaScript.add(js);
     }
 
-    public  void transpiladoFuncion(String instruccion) {
+    public void transpiladoFuncion(String instruccion) {
 
         String regex = ":\\s([^\\{]+)\\{";
         String regex2 = ":\\s*([^\\)]+)\\)";
@@ -312,10 +311,10 @@ public class transpiladorHtml {
             instruccion = instruccion.replace(texto, ")");
         }
         instruccionesJavaScript.add(instruccion);
-        System.out.println(instruccion);
+
     }
 
-    public  void transpiladoSinCabios(String instruccion) {
+    public void transpiladoSinCabios(String instruccion) {
 
         instruccionesJavaScript.add(instruccion);
         System.out.println(instruccion);

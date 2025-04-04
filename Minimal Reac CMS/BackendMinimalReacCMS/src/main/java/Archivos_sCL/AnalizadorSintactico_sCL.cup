@@ -15,7 +15,7 @@ parser code {:
 action code {:
 :}
 
-terminal String CREAR, OBTENER, SITIO,AGREGAR, PAGINA,PAGINAS,PAGINASITIOS,SITIOS, PARAMETRO, COMA,DELETE, MODIFICAR  ;
+terminal String CREAR, OBTENER, SITIO,AGREGAR, PAGINA,PAGINAS,PAGINASITIOS,SITIOS, PARAMETRO, COMA,DELETE, MODIFICAR , TRANPILAR ;
 
 nonterminal INICIO;
 nonterminal INSTRUCCION, INSTRUCCIONES;
@@ -79,6 +79,17 @@ PARAMETROS::=PARAMETRO COMA PARAMETRO
     accion=3;
     objetivo=1;
     mensaje="✔ COMPILACION EXITOSA: MODIFICAR PAGINA"; 
+  :}
+  ;
+
+  INSTRUCCION ::= TRANPILAR:a PAGINA:s PARAMETROS:pa
+  {:
+    orde = a + s + pa + "\n";
+    instruccionValida = true;
+    instrccion = orde;
+    accion=6;
+    objetivo=1;
+    mensaje="✔ COMPILACION EXITOSA: TRAMPILAR PAGINA"; 
   :}
   ;
 

@@ -1,6 +1,5 @@
 package Compilador;
 
-import AnalisisInstrucciones.AnalisisDeAccion;
 
 /**
  * Clase principal del compilador que gestiona el análisis de Markdown y código.
@@ -8,9 +7,10 @@ import AnalisisInstrucciones.AnalisisDeAccion;
 public class Compilador {
 
     private boolean peticionValida;
+    private boolean bodyValido;
     Compilador_sHTTP compilador_sHTTP = new Compilador_sHTTP();
     Compilador_sCL compilador_sCL = new Compilador_sCL();
-    CompiladorBody compilador_Body=new CompiladorBody();
+    private CompiladorBody compilador_Body=new CompiladorBody();
     AnalisisSemanticoPrincipal analisisSemanticoPrincipal = new AnalisisSemanticoPrincipal();
     private String Request;
     private String sCl;
@@ -46,13 +46,18 @@ public class Compilador {
 
         this.Request = primera_parte[0];
         this.sCl = segunda_parte[0].replace("\n", "");
-        this.body = segunda_parte[1].replace(".", "");
+        segunda_parte[1]="."+segunda_parte[1];
+        this.body = segunda_parte[1].replaceAll("^\\.\\.\\.|\\.\\.\\.$", "").trim();
+        
+        System.out.println(segunda_parte[1]);
+        
+        
     }
 
     public void analisisLexicoSintacitico() {
         this.compilador_sHTTP.compilar(this.Request);
         this.compilador_sCL.compilar(this.sCl);
-        this.compilador_Body.compilado(this.body);
+       this.bodyValido = this.getCompilador_Body().compilado(this.body);
 
     }
 
@@ -114,6 +119,27 @@ public class Compilador {
      */
     public boolean isPeticionValida() {
         return peticionValida;
+    }
+
+    /**
+     * @return the bodyValido
+     */
+    public boolean isBodyValido() {
+        return bodyValido;
+    }
+
+    /**
+     * @param bodyValido the bodyValido to set
+     */
+    public void setBodyValido(boolean bodyValido) {
+        this.bodyValido = bodyValido;
+    }
+
+    /**
+     * @return the compilador_Body
+     */
+    public CompiladorBody getCompilador_Body() {
+        return compilador_Body;
     }
 
 }

@@ -72,8 +72,7 @@ grammar TipeScript;
 
 
 }
-
-        //LEXER/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//LEXER/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         MAS : '+';
         MENOS :'-';
@@ -91,6 +90,7 @@ grammar TipeScript;
         CORCH2:'}';
         MAYOR_QUE:'>';
         MENOR_QUE:'<';
+        DIFERENTE:'!=';
         FINI_NSTRUCCION:';';
         DECIMAL:[0-9]+'.'[0-9]+;
         ENTERO:[0-9]+;
@@ -133,21 +133,20 @@ grammar TipeScript;
 
 
         IDENTIFICADOR:[a-zA-Z]+[\\_a-zA-Z0-9]*;
-
+        
         WS: [ \t\r\n]+ -> skip ; 
-
-//parser
+        ////////////////////////////////////////////////////////////////////////////////////////////////
+      
+//parserTipeScript
 inicio: declaracion_pagina;
 
 declaracion_pagina:CONST IDENTIFICADOR ASIGNACIO PAR1 PAR2 ASIGNACIO_PAGINA CORCH1 bloque_declaracion_pagina? regreso CORCH2| ;
-
 
 bloque_declaracion_pagina: intrucciones_tipe_scrip  bloque_declaracion_pagina_prima
                           | declaracion_funcion  bloque_declaracion_pagina_prima;
 
 bloque_declaracion_pagina_prima: intrucciones_tipe_scrip  bloque_declaracion_pagina_prima
                 | declaracion_funcion  bloque_declaracion_pagina_prima  ;
-
 
 
 intrucciones_tipe_scrip returns[Resultado value]: 
@@ -163,10 +162,8 @@ intrucciones_tipe_scrip returns[Resultado value]:
                                         $value.setBandera0(true);  
                                 }
                         }
-                
                 }  (intrucciones_tipe_scrip_prima  
                         {       
-                                 
                                if($instruccion_tipo_script.value==null)
                                 {       $value = new Resultado();
                                         $value.setBandera0(true);
@@ -177,12 +174,9 @@ intrucciones_tipe_scrip returns[Resultado value]:
                                                 $value.setBandera0(true);  
                                         }
                                 }
-                                
-                
                         } 
                 ) 
 ;
-
 
 intrucciones_tipe_scrip_prima returns[Resultado value]: 
 
@@ -198,10 +192,8 @@ intrucciones_tipe_scrip_prima returns[Resultado value]:
                                         $value.setBandera0(true);  
                                 }
                         }
-                
                 }  (intrucciones_tipe_scrip_prima  
                         {       
-                                
                                if($instruccion_tipo_script.value==null)
                                 {       $value = new Resultado();
                                         $value.setBandera0(true);
@@ -212,8 +204,6 @@ intrucciones_tipe_scrip_prima returns[Resultado value]:
                                                 $value.setBandera0(true);  
                                         }
                                 }
-                                
-                
                         } 
                 ) 
 
@@ -223,36 +213,22 @@ intrucciones_tipe_scrip_prima returns[Resultado value]:
 
 instruccion_tipo_script returns[Resultado value] locals[boolean error=false, String instruccion, boolean funcion=false, boolean if=false] : 
         
-
         creacionVariable 
                 {  
-                        
-                       
                         if($creacionVariable.value==null){
                                 
                                 $value = new Resultado("ss");
                                 $value.setBandera0(true);
 
-                                         errorif=true;
-                                        errorEnFuncion=true;   
-                                      
-                                
-                                 
+                                         errorif=true; errorEnFuncion=true;     
                         }else{
                                
                                 if($creacionVariable.value.isBandera0() )
                                 {      
-                                        $value = new Resultado("ss");
-                                        $value.setBandera0(true);  
-                                       
-                                        errorEnFuncion=true;   
-                                           errorif=true;
-                             
-                                        
+                                        $value = new Resultado("ss"); $value.setBandera0(true);   errorEnFuncion=true;   errorif=true;
+                                 
                                 }else{ $error=true;  $funcion=declaracionFuncionEnCurso;  $if=declaracioniFEnCurso;}
-
                         }
-                         
                         an($creacionVariable.ctx,5);
                 }
 
@@ -260,22 +236,12 @@ instruccion_tipo_script returns[Resultado value] locals[boolean error=false, Str
         {  
                         if($asignacionVariable.value==null){
                                 
-                                $value = new Resultado("ss");
-                                     $value.setBandera0(true);
-                                           errorif=true;
-
-                                        errorEnFuncion=true;   
-                                        
+                                $value = new Resultado("ss"); $value.setBandera0(true);  errorif=true; errorEnFuncion=true;   
                         }
                         else{
-
                                 if($asignacionVariable.value.isBandera0() )
                                 {      
-                                        $value = new Resultado("ss");
-                                        $value.setBandera0(true);  
-                                    
-                                           errorif=true;
-                                        errorEnFuncion=true;   
+                                        $value = new Resultado("ss"); $value.setBandera0(true);  errorif=true; errorEnFuncion=true;   
                                         
                                 }else{ $error=true;  $funcion=declaracionFuncionEnCurso; $if=declaracioniFEnCurso;}
                         }
@@ -283,92 +249,50 @@ instruccion_tipo_script returns[Resultado value] locals[boolean error=false, Str
                 }
         |impresion_consola
                 {  
-
-                       
-                
                         if($impresion_consola.value==null){
                                         
-                                $value = new Resultado("ss");
-                                    $value.setBandera0(true);
-                                           errorif=true;
-                                        errorEnFuncion=true;   
-                                      
+                                $value = new Resultado("ss"); $value.setBandera0(true);errorif=true;  errorEnFuncion=true;   
                         }else{
                                 if($impresion_consola.value.isBandera1() ||$impresion_consola.value.isBandera2() )
                                 {      
-                                        $value = new Resultado("ss");
-                                             $value.setBandera0(true);  
-                                              errorif=true;
-                                        errorEnFuncion=true;   
+                                        $value = new Resultado("ss");$value.setBandera0(true);   errorif=true; errorEnFuncion=true;   
                                       
-                                        
-                                }else{ $error=true;  $funcion=declaracionFuncionEnCurso; $if=declaracioniFEnCurso;}
-                                        
+                                }else{ $error=true;  $funcion=declaracionFuncionEnCurso; $if=declaracioniFEnCurso;}                                       
                         }
                         an($impresion_consola.ctx,7);
                 }
          |condicional {  
                          $error=false; 
-                                  System.out.println("0");
                         if($condicional.value==null){
-                                         System.out.println("1");
-                                $value = new Resultado("ss");
-                                    $value.setBandera0(true);
-                                  
-                                        errorif=true;
-                                        errorEnFuncion=true;   
+                                       
+                                $value = new Resultado("ss");$value.setBandera0(true);  errorif=true; errorEnFuncion=true;   
                                        
                         }else{   System.out.println("3");
                                 
                                 if(errorif )
-                                {       System.out.println("2");
-                                        $value = new Resultado("ss");
-                                        $value.setBandera0(true);  
-                                         errorif=true;
-                                        errorEnFuncion=true;   
-
-                             
-                                        
+                                {      
+                                        $value = new Resultado("ss"); $value.setBandera0(true); errorif=true;errorEnFuncion=true;         
                                 }else{ 
-                                         System.out.println("6");$error=true;  $funcion=declaracionFuncionEnCurso; $if=declaracioniFEnCurso;
+                                       $error=true;  $funcion=declaracionFuncionEnCurso; $if=declaracioniFEnCurso;
                                 }
-                                
                         }
-                      
-        
-        
           }
         
         |llamada_funcion
 
                 {  
-                
                         if($llamada_funcion.value==null){
                                         
-                                $value = new Resultado("ss");
-                                    $value.setBandera0(true);
-                                  
-
-                                        errorEnFuncion=true;   
+                                $value = new Resultado("ss"); $value.setBandera0(true); errorEnFuncion=true;   
                                        
                         }else{  if($llamada_funcion.value.isBandera0() )
                                 {      
-                                        $value = new Resultado("ss");
-                                        $value.setBandera0(true);  
-                                       
-                                        errorEnFuncion=true;   
+                                        $value = new Resultado("ss"); $value.setBandera0(true);   errorEnFuncion=true;   
 
-                             
-                                        
                                 }else{ $error=true;  $funcion=declaracionFuncionEnCurso; $if=declaracioniFEnCurso;
                                 }
-                                
                         }
-
-                        
         }
-       
-        
 ;
 
 
@@ -383,51 +307,29 @@ regreso_funcion  locals[boolean error1=false, boolean error2=false]: REGRESO  ti
                                         if($tipoAsignacionVariable.value!=null){
                                                 if($tipoAsignacionVariable.value.value!=null)
                                                 {
-                                                       
-                                                        
                                                                 if (!tablaSimbolosLocales.get($REGRESO.text).getClass().getSimpleName().equals($tipoAsignacionVariable.value.value.getClass().getSimpleName()) ){
                                                                 
                                                                 valor=$tipoAsignacionVariable.value.value.getClass().getSimpleName()+" no compatible con "+tablaSimbolosLocales.get($REGRESO.text).getClass().getSimpleName();
-                                                                errorEnFuncion=true;      
-                                                          
-                                                                String mensaje =  $REGRESO.text + " " 
-                                                                + $tipoAsignacionVariable.value.value + " " +
-                                                                $FINI_NSTRUCCION.text; 
+                                                                errorEnFuncion=true;  String mensaje =  $REGRESO.text + " "   + $tipoAsignacionVariable.value.value + " " + $FINI_NSTRUCCION.text; 
 
-                                                               
-                                                        
-                                                        
                                                                 }else{
                                                                 
                                                                         valor="Guardando en tabla: " + $REGRESO.text + " -> " + $tipoAsignacionVariable.value.value;
                                                                         tablaSimbolosLocales.put($REGRESO.text, $tipoAsignacionVariable.value.value);
-                                                                         String returnn=$REGRESO.text+" "+$tipoAsignacionVariable.text+" ;";
-                                                                        instrucciones.add(returnn);
-                                                                        tipoInstruccion.add(0);
-                                                                        returnFuncion=true;
+                                                                        String returnn=$REGRESO.text+" "+$tipoAsignacionVariable.text+" ;";
+                                                                        instrucciones.add(returnn); tipoInstruccion.add(0); returnFuncion=true;
                                                                 }
-                                                
-                                                
                                                 }
                                         }
                                 }else{
                                         if ($tipoAsignacionVariable.ctx != null) {
-                                                   errorEnFuncion=true;
-                                                   $error2=true;
+                                                   errorEnFuncion=true;  $error2=true;
                                         }else{
-                                                        String returnn=$REGRESO.text+" ;";
-                                                        instrucciones.add(returnn);
-                                                        tipoInstruccion.add(0);
-                                                        returnFuncion=true;
-
+                                                        String returnn=$REGRESO.text+" ;"; instrucciones.add(returnn); tipoInstruccion.add(0); returnFuncion=true;
                                         }
-                                        
                                 }
                 } else{
-                        errorEnFuncion=true;
-                        $error1=true;
-                      
-
+                        errorEnFuncion=true;  $error1=true;
                 }
         }
 ;
@@ -435,95 +337,58 @@ regreso_funcion  locals[boolean error1=false, boolean error2=false]: REGRESO  ti
 declaracion_funcion  locals[boolean error=false]: 
           {
                         tablaSimbolosLocales=new HashMap<String,Object>();
-                                instruccionesFuncion = new ArrayList<>();
-                                tipoInstruccionFuncion= new ArrayList<>();
-                        errorEnFuncion=false;
-                        returnFuncion=false;
+                        instruccionesFuncion = new ArrayList<>();
+                        tipoInstruccionFuncion= new ArrayList<>();
+                        errorEnFuncion=false; returnFuncion=false;
                         declaracionFuncionEnCurso=true;
 
                 } 
                 f=FUNCTION id=IDENTIFICADOR p1=PAR1 parametros_funcion
               
-                
                 p2=PAR2 dp=DOS_PUNTOS tipo{                 
                       
-                        
                          Object valor=null;
                           
                         switch ($tipo.value.toString()) {
-                                case "String" -> {
-                                        valor="a";
-                                }
-                                case "Character" -> {
-                                         valor='a';
-                                }
-                                case "Boolean" -> {
-                                        valor=false;
-                                }
-                                case "Double" -> {
-                                       valor=0.0;
-                                }
-                                case "void" -> {
-                                       valor=null;
-                                }
-                               
-                               
+                                case "String" -> {  valor="a"; }
+                                case "Character" -> {valor='a'; }
+                                case "Boolean" -> {valor=false; }
+                                case "Double" -> {valor=0.0; }
+                                case "void" -> { valor=null; }
                         }     
                           tablaSimbolosLocales.put("return", valor );
                           
-                        
                         } CORCH1{
                                 
                                 String encabezadoFucion=$f.text+" "+$id.text+" ("+$parametros_funcion.text+") : "+$tipo.text+" {";
-                                instrucciones.add(encabezadoFucion);
-                                tipoInstruccion.add(8);
-                                } bloque_instrucciones   CORCH2{
+                                instrucciones.add(encabezadoFucion); tipoInstruccion.add(8);
+                                } bloque_instrucciones  CORCH2{
                         
+                                        if(errorEnFuncion){ 
+                                                $error=true;
+                                        }else{ 
+                                                        Object tipoRetorno=null;
+                                                        if(tablaSimbolosLocales.get("return")!=null){
+                                                        tipoRetorno = tablaSimbolosLocales.get("return");
 
-                        if(errorEnFuncion){ 
-                                $error=true;
-                                     
-
-                        }else{ 
-                                        Object tipoRetorno=null;
-                                        if(tablaSimbolosLocales.get("return")!=null){
-                                              tipoRetorno = tablaSimbolosLocales.get("return");
-
+                                                        }
+                                                        List<Token> tokens = ((CommonTokenStream)_input)
+                                                                .getTokens($bloque_instrucciones.start.getTokenIndex(), 
+                                                                        $bloque_instrucciones.stop.getTokenIndex());
+                                                       
+                                                     
+                                                        Funcion miFuncion =new Funcion($id.text,$parametros_funcion.parametros,tablaSimbolosLocales,$bloque_instrucciones.ctx,tipoRetorno,tokens);
+                                                        miFuncion.setInstrucciones(instruccionesFuncion);
+                                                        miFuncion.setTipoInstruccion(tipoInstruccionFuncion);
+                                                        tablaFunciones.put($id.text,miFuncion );  
                                         }
-
-                                   
-                                                
-                                        List<Token> tokens = ((CommonTokenStream)_input)
-                                                .getTokens($bloque_instrucciones.start.getTokenIndex(), 
-                                                        $bloque_instrucciones.stop.getTokenIndex());
-                                        for (Token t : tokens) {
-                                           
-                                        }
-                                         System.out.println("1");
-                                        Funcion miFuncion =new Funcion($id.text,$parametros_funcion.parametros,tablaSimbolosLocales,$bloque_instrucciones.ctx,tipoRetorno,tokens);
-                                         System.out.println("2");
-                                        miFuncion.setInstrucciones(instruccionesFuncion);
-                                          System.out.println("3");
-                                        miFuncion.setTipoInstruccion(tipoInstruccionFuncion);
-                                         System.out.println("5");
-                                        tablaFunciones.put($id.text,miFuncion );
-                                         System.out.println("4");
-                                       
-
-
-
-                                
-                        }
-                       errorEnFuncion=false;
-                        tablaSimbolosLocales=null;
-                        instruccionesFuncion = null;
-                                tipoInstruccionFuncion= null;
-                         declaracionFuncionEnCurso=false;
-                         instrucciones.add("}");
-                                tipoInstruccion.add(0);
-                         
-
-                }
+                                        errorEnFuncion=false;
+                                        tablaSimbolosLocales=null;
+                                        instruccionesFuncion = null;
+                                        tipoInstruccionFuncion= null;
+                                        declaracionFuncionEnCurso=false;
+                                        instrucciones.add("}"); tipoInstruccion.add(0);
+                                }
                 
 ;
 
@@ -532,67 +397,37 @@ parametros_funcion returns[Map<String, String> parametros]:
                 {
                         $parametros = new HashMap<String, String>(); 
                         Object valor=null;
-                    
 
                         switch ($t.value.toString()) {
-                                case "String" -> {
-                                        valor="a";
-                                }
-                                case "Character" -> {
-                                         valor='a';
-                                }
-                                case "Boolean" -> {
-                                        valor=false;
-                                }
-                                case "Double" -> {
-                                       valor=0.0;
-                                }
-                               
-                               
+                                case "String" -> {valor="a"; }
+                                case "Character" -> { valor='a';}
+                                case "Boolean" -> {valor=false; }
+                                case "Double" -> {valor=0.0; }
                         }      
 
-                        
                         $parametros.put($id.getText(), $t.value.toString());
                         tablaSimbolosLocales.put($id.getText(), valor);
-
                 }
         ( COMA id2=IDENTIFICADOR DOS_PUNTOS t2=tipo
                 {
                     if($parametros!=null){
-
-                       
                         switch ($t.value.toString()) {
-                                case "String" -> {
-                                        valor="a";
-                                }
-                                case "Character" -> {
-                                         valor='a';
-                                }
-                                case "Boolean" -> {
-                                        valor=false;
-                                }
-                                case "Double" -> {
-                                       valor=0.0;
-                                }
-                               
-                               
+                                case "String" -> { valor="a";   }
+                                case "Character" -> { valor='a';  }
+                                case "Boolean" -> {  valor=false;}
+                                case "Double" -> { valor=0.0; }
                         }      
 
                         $parametros.put($id2.getText(), $t2.value.toString());   
                         tablaSimbolosLocales.put($id2.getText(), valor);
                     }
-                     
                 }
         )* 
-
 ;
-
-        
+       
 bloque_instrucciones returns []
     : instr=intrucciones_tipe_scrip  intr2=bloque_instrucciones_prima
-    
       |instr2=regreso_funcion bloque_instrucciones_prima
-     
     ;
 
 bloque_instrucciones_prima : intrucciones_tipe_scrip  bloque_instrucciones_prima | regreso_funcion  bloque_instrucciones_prima| ;
@@ -610,36 +445,26 @@ llamada_funcion returns[Resultado value, boolean exito=true, Object retorno] loc
 
                 Funcion funcion=(Funcion)tablaFunciones.get($IDENTIFICADOR.text);
                
-                
-            
                 $retorno=funcion.getTipoRetorno();
                 if(funcion.getParametros()!=null){
-                          $parametros=funcion.getParametros().size();
-                           $tiposParama=funcion.getParametros().values().toString();
+                          $parametros=funcion.getParametros().size();  $tiposParama=funcion.getParametros().values().toString();
                 }
               
-               
                 if(_localctx.llamada_parametros_funcion!=null){
                         if(funcion.getParametros().size()==$llamada_parametros_funcion.parametros.size()){
                                 
-                                        List<String> listaKeysParametros = new ArrayList<>(funcion.getParametros().keySet());
+                                List<String> listaKeysParametros = new ArrayList<>(funcion.getParametros().keySet());
                                 List<String> listaValoresParametros = new ArrayList<>(funcion.getParametros().values());
-
                                 List<Object> listaValoresParametrosFuncion = $llamada_parametros_funcion.parametros;
                                         
                                 for (int i = 0; i < listaValoresParametros.size(); i++) {
                                         
                                         if(listaValoresParametros.get(i).equals(listaValoresParametrosFuncion.get(i).getClass().getSimpleName())){
-
                                                 if(tablaEnTurno.containsKey($IDENTIFICADOR.text)){
                                                          funcion.getVariables().put(listaKeysParametros.get(i),listaValoresParametrosFuncion.get(i));
-
-                                                }
-                                                               
-                                                        
-                                                        
+                                                }             
                                         }else{
-                ///posible erro
+              
                                                 $value = new Resultado(null, ""); 
                                                 $value.setBandera0(true);
                                                 $tiposParamalos+= listaValoresParametrosFuncion.get(i).toString();
@@ -647,31 +472,27 @@ llamada_funcion returns[Resultado value, boolean exito=true, Object retorno] loc
                                                     $exito=false;
                                         }
                                 }
-                                
-
                                 $value = new Resultado(null, "ss");
                         }else{
                                 if(funcion.getParametros().size()==0){
-                                        $error2=true;
-                                         $exito=false;
+                                        $error2=true;  $exito=false;
                                 }else{
-                                        $error3=true;
-                                         $exito=false;
+                                        $error3=true;   $exito=false;
                                         
-                                }
-                                                
+                                }                  
                         }
-                }else{  $error3=true; $exito=false;}
+                }else{ 
+                        if(funcion.getParametros()!=null){
 
-             
+                                if(funcion.getParametros().size()!=0){
+                                          $error3=true; $exito=false;
+                                }   
+                        }   
+                }
         }else{
-
-                $error1=true; 
-                $exito=false;
+                $error1=true; $exito=false;
+        }   
         }
-               
-        }
-
 ;
 
 llamada_parametros_funcion returns[ArrayList<Object> parametros]:  
@@ -681,15 +502,10 @@ llamada_parametros_funcion returns[ArrayList<Object> parametros]:
         tv1=tipoAsignacionVariable 
         {
                 if($tv1.value!=null){
-
                            if($tv1.value.value!=null){
                                 $parametros.add($tv1.value.value);
                          }
-
-                }
-
-                
-                
+                }   
         }
         ( COMA   tv2=tipoAsignacionVariable
                 {
@@ -700,7 +516,6 @@ llamada_parametros_funcion returns[ArrayList<Object> parametros]:
                      }
                 }
         )* 
-
 ;
 
 //********************************************************************************************************************************************************************************************************************************
@@ -712,21 +527,11 @@ condicional returns[Resultado value] locals[boolean error1=false, boolean error2
                  if($t2.value.value!=null)
                         {
                                 if (!($t2.value.value instanceof Boolean)) {
-                                      
-                                        $error3=true;
-                                        $value.setBandera0(true);
-                                        $Instvalido=$t2.text;
-                                }
-
-                                
+                                        $error3=true; $value.setBandera0(true);  $Instvalido=$t2.text;
+                                }            
                 }
-        
         }else{
-               
-                $error2=true;
-                $value.setBandera0(true);
-                $Instvalido=$t2.text;
-
+                $error2=true; $value.setBandera0(true); $Instvalido=$t2.text;
         }
     }
      PAR2 CORCH1 {String encabezado=$IF.text+"("+$t2.text+"){";  instrucciones.add(encabezado);  tipoInstruccion.add(9);} 
@@ -734,23 +539,13 @@ condicional returns[Resultado value] locals[boolean error1=false, boolean error2
         if($t.value!=null){ 
                  if($t.value.value!=null)
                         {
-                                if (!($t.value.value instanceof Boolean)) {
-                                        
-                                        $error3=true;
-                                        $value.setBandera0(true);
-                                        $Instvalido=$t.text;
-                                }
-
-                                
-                }
-        
+                                if (!($t.value.value instanceof Boolean)) {      
+                                        $error3=true; $value.setBandera0(true);  $Instvalido=$t.text;
+                                }}
         }else{
-               
                 $error2=true;
                 $value.setBandera0(true);
                 $Instvalido=$t.text;
-               
-
         }
     } PAR2 {$elseIf=$IF.text+"("+$t.text+")";})? CORCH1 {String encabezadoElse=$ELSE.text+" "+$elseIf+"{";  instrucciones.add(encabezadoElse);  tipoInstruccion.add(10);}
     {
@@ -767,123 +562,72 @@ condicional returns[Resultado value] locals[boolean error1=false, boolean error2
         }
     ;
 
-
 bloque_instrucciones_condicional returns[Resultado value]
     : instr=intrucciones_tipe_scrip  intr2=bloque_instrucciones_condicional_prima
     
       |instr2=regreso_if bloque_instrucciones_condicional_prima
-     
     ;
 
 bloque_instrucciones_condicional_prima : intrucciones_tipe_scrip  bloque_instrucciones_condicional_prima | regreso_if  bloque_instrucciones_condicional_prima| ;
- 
-
- 
 
 regreso_if  locals[boolean error1=false, boolean error2=false,boolean error3=false]: REGRESO  tipoAsignacionVariable?  FINI_NSTRUCCION
 
         { 
                 Object valor=null;
-                 
                  if(tablaSimbolosLocales!=null)
                 {  
-
                         if(!returnif)
                         { 
-                                   
                                 if(tablaSimbolosLocales.get($REGRESO.text)!=null){
-
-                                        
                                         if($tipoAsignacionVariable.value!=null){
                                                 if($tipoAsignacionVariable.value.value!=null)
                                                 {
-                                                
-                                                        
                                                                 if (!tablaSimbolosLocales.get($REGRESO.text).getClass().getSimpleName().equals($tipoAsignacionVariable.value.value.getClass().getSimpleName()) ){
-                                                                
                                                                 valor=$tipoAsignacionVariable.value.value.getClass().getSimpleName()+" no compatible con "+tablaSimbolosLocales.get($REGRESO.text).getClass().getSimpleName();
                                                                 errorif=true;      
-                                                        
-                                                                String mensaje =  $REGRESO.text + " " 
-                                                                + $tipoAsignacionVariable.value.value + " " +
-                                                                $FINI_NSTRUCCION.text; 
-
-                                                        
-                                                        
-                                                        
+                                                                String mensaje =  $REGRESO.text + " "  + $tipoAsignacionVariable.value.value + " " +$FINI_NSTRUCCION.text; 
                                                                 }else{
-                                                                
                                                                         valor="Guardando en tabla: " + $REGRESO.text + " -> " + $tipoAsignacionVariable.value.value;
                                                                         tablaSimbolosLocales.put($REGRESO.text, $tipoAsignacionVariable.value.value);
                                                                         String returnn=$REGRESO.text+" "+$tipoAsignacionVariable.text+" ;";
-                                                                        instrucciones.add(returnn);
-                                                                        tipoInstruccion.add(0);
-                                                                        returnif=true;
+                                                                        instrucciones.add(returnn); tipoInstruccion.add(0); returnif=true;
                                                                 }
-                                                
-                                                
                                                 }
                                         }
                                 }else{
-                                        
                                         if ($tipoAsignacionVariable.ctx != null) {
-                                                errorif=true;
-                                                $error2=true;
-                                                
+                                                errorif=true;$error2=true;
                                         }else{
-                                                returnif=true;
-                                                 String returnn=$REGRESO.text+";";
-                                                instrucciones.add(returnn);
-                                                tipoInstruccion.add(0);
-
-                                        }
-                                        
+                                                returnif=true;  String returnn=$REGRESO.text+";"; instrucciones.add(returnn); tipoInstruccion.add(0);
+                                        }    
                                 }
                         } else{
-                                
-                                errorif=true;
-                                $error1=true;
-                        
-                            
+                                errorif=true; $error1=true;   
                         }
-
                 }else{
-                          
-
-                        $error3=true;
-                        errorif=true;
-                             
-                }
-                             
-               
+                        $error3=true;errorif=true;          
+                }    
         }
 ;
 //********************************************************************************************************************************************************************************************************************************
 
 
-
 impresion_consola returns[Resultado value]:
  CONSOLE '.' LOG PAR1 t1=tipo_impresion t2=tipos_impresion PAR2 FINI_NSTRUCCION
-
-{ 
-        
+{   
         Object valor = $t1.text+" "+$t2.value ;
         $value = new Resultado(valor, "ss");
         $value.setBandera2(true);
  }  
-
  |CONSOLE '.' LOG PAR1 tipo_impresion PAR2 FINI_NSTRUCCION 
 { 
-         
     if($tipo_impresion.value != null && $tipo_impresion.value.value != null){
          Object valor = null;
          $value = new Resultado(valor, "ss");
         if($tipo_impresion.value.isBandera1()){
                   $value.setBandera1(true);
         }
-        
     } else{
-
          Object valor = null;
          $value = new Resultado(valor, "ss");
           $value.setBandera1(true);
@@ -1025,9 +769,7 @@ creacionVariable returns[Resultado value]:
                                         }
                                 }
                         }
-
-                
-                       
+   
                 }
         | VAR IDENTIFICADOR DOS_PUNTOS  ASIGNACIO tipoAsignacionVariable FINI_NSTRUCCION 
                 {     
@@ -1051,25 +793,16 @@ creacionVariable returns[Resultado value]:
                         $ASIGNACIO.text +  " " + $FINI_NSTRUCCION.text; 
 
                         Object valor="nada asignado no reconocido";
-                        $value = new Resultado(valor, mensaje); 
-                        $value.setBandera3(true);
-                        $value.setBandera0(true);
+                        $value = new Resultado(valor, mensaje);  $value.setBandera3(true); $value.setBandera0(true);
                 }
         | VAR DOS_PUNTOS tipo ASIGNACIO tipoAsignacionVariable FINI_NSTRUCCION 
                 {     
                         
-                        String mensaje = $VAR.text + " " + $DOS_PUNTOS.text + " " + $tipo.value + " " + 
-                        $ASIGNACIO.text + " " + $tipoAsignacionVariable.value.value + " " +
-                        $FINI_NSTRUCCION.text; 
-                        Object valor="ID no reconocido";
-                        $value = new Resultado(valor, mensaje); 
-                        $value.setBandera4(true);
-                        $value.setBandera0(true);
+                        String mensaje = $VAR.text + " " + $DOS_PUNTOS.text + " " + $tipo.value + " " +  $ASIGNACIO.text + " " + $tipoAsignacionVariable.value.value + " " +$FINI_NSTRUCCION.text; 
+                        Object valor="ID no reconocido"; $value = new Resultado(valor, mensaje);  $value.setBandera4(true); $value.setBandera0(true);
                 }     
         
 ;
-
-
 
 asignacionVariable returns[Resultado value]: 
         
@@ -1080,30 +813,19 @@ asignacionVariable returns[Resultado value]:
                         Map <String,Object> tablaEnTurno=null;
                         
                         if(tablaSimbolosLocales!=null)
-                        {   
-                               
+                        {     
                                 tablaEnTurno=tablaSimbolosLocales;
                                  if (!tablaEnTurno.containsKey($IDENTIFICADOR.text)) {
-                                        String mensaje= $IDENTIFICADOR.text;
-                                        $value = new Resultado(mensaje); 
-                                        $value.setBandera0(true);
-                                        $value.setBandera2(true);
-                                        tablaEnTurno=tablaSimbolos;
+                                        String mensaje= $IDENTIFICADOR.text; $value = new Resultado(mensaje);   $value.setBandera0(true); $value.setBandera2(true);  tablaEnTurno=tablaSimbolos;
                                 }
-                               
                         }else
-                        {  
-                               
+                        { 
                                 tablaEnTurno=tablaSimbolos;
                         }
                 
                         if (!tablaEnTurno.containsKey($IDENTIFICADOR.text)) {
-                                String mensaje= $IDENTIFICADOR.text;
-                                 $value = new Resultado(mensaje); 
-                                 $value.setBandera0(true);
-                                 $value.setBandera2(true);
+                                String mensaje= $IDENTIFICADOR.text;  $value = new Resultado(mensaje);  $value.setBandera0(true);$value.setBandera2(true);
                         } else {
-                               
                                         String valor = null;
                                 if($tipoAsignacionVariable.value!=null){
 
@@ -1118,16 +840,11 @@ asignacionVariable returns[Resultado value]:
                                                 $FINI_NSTRUCCION.text; 
 
 
-                                                $value = new Resultado(mensaje); 
-                                                $value.añadirMensaje(valor);        
-                                                $value.setBandera1(true);
-                                                $value.setBandera0(true);
+                                                $value = new Resultado(mensaje);  $value.añadirMensaje(valor);   $value.setBandera1(true); $value.setBandera0(true);
                                                 }else{
-                                                
                                                         valor="Guardando en tabla: " + $IDENTIFICADOR.text + " -> " + $tipoAsignacionVariable.value.value;
                                                         tablaEnTurno.put($IDENTIFICADOR.text, $tipoAsignacionVariable.value.value);
                                                         $value = new Resultado(valor, ""); 
-                                                        
                                                 }
                                         }
 
@@ -1135,11 +852,8 @@ asignacionVariable returns[Resultado value]:
                                         $value = new Resultado();   
                                         $value.setBandera3(true);
                                         $value.setBandera0(true);
-                                }
-                                
+                                } 
                         }
-
-        
                 };
 
 tipoAsignacionVariable  returns[Resultado value] locals[boolean errorId=false]: 
@@ -1148,7 +862,6 @@ tipoAsignacionVariable  returns[Resultado value] locals[boolean errorId=false]:
                 { 
                         Object valor = null;
                         valor=(String)$CADENA.text ;  
-                      
                         $value = new Resultado(valor, ""); 
                 }
                                                 
@@ -1166,21 +879,16 @@ tipoAsignacionVariable  returns[Resultado value] locals[boolean errorId=false]:
         |IDENTIFICADOR
         {
 
-
    System.out.println("ingrse se algo"+$IDENTIFICADOR.text);
                  Map <String,Object> tablaEnTurno=null;
                         
                 if(tablaSimbolosLocales!=null)
                 {   
-                        System.out.println("1");
-                      
                         tablaEnTurno=tablaSimbolosLocales;
                                 if (!tablaEnTurno.containsKey($IDENTIFICADOR.text)) {
-                              
-                               System.out.println("2");
+                
                                 tablaEnTurno=tablaSimbolos;
                         }
-                        
                 }else
                 {  
                         tablaEnTurno=tablaSimbolos;
@@ -1188,25 +896,18 @@ tipoAsignacionVariable  returns[Resultado value] locals[boolean errorId=false]:
                 }
                         Object valor = null;
                         if (tablaEnTurno.containsKey($IDENTIFICADOR.text)) {
-                                valor = tablaEnTurno.get($IDENTIFICADOR.text);
-                                  $value = new Resultado(valor, "");
-                                    System.out.println("4");
+                                valor = tablaEnTurno.get($IDENTIFICADOR.text); $value = new Resultado(valor, "");   
                         } else{
-                                $errorId=true;
-                                  System.out.println("5");
+                                $errorId=true;    System.out.println("5");
                         }
                        
-
         }
         |llamada_funcion{
                 
                 Object valor = null;
-
                 if($llamada_funcion.exito){
                         if($llamada_funcion.retorno!=null){
-                                valor=$llamada_funcion.retorno;  
-                                $value = new Resultado(valor, "");          
-
+                                valor=$llamada_funcion.retorno;  $value = new Resultado(valor, "");          
                         }
                 }
         }
@@ -1216,17 +917,11 @@ tipoAsignacionVariable  returns[Resultado value] locals[boolean errorId=false]:
 
                         if($expresion.value!=null){
                                 if($expresion.value.value!=null){
-                                        valor=$expresion.value.value ;  
-                                         $value = new Resultado(valor, "");          
-
+                                        valor=$expresion.value.value ;    $value = new Resultado(valor, "");          
                                 }
                         }
-                      
                 }
-                                                ;
-
-
-
+;
 
 tipoBoleano : TRUE|FALSE;
 
@@ -1246,47 +941,30 @@ expresion returns [ Resultado value ]:
                                   valort1  = $t1.value.value;
                                   $value = new Resultado(valort1, ""); 
                         }      
-                
-                        
-                         $value = new Resultado(valort1, ""); 
-                        
-                        
+                         $value = new Resultado(valort1, "");   
                 } 
         (MAS t2=terminoN2  
                 { Object valor = null;
                         if($t2.value.value!=null && $value.value!=null){
-                                  valor  = (Double)$value.value+ (Double)$t2.value.value;
-                                  $value = new Resultado(valor, ""); 
+                                  valor  = (Double)$value.value+ (Double)$t2.value.value; $value = new Resultado(valor, ""); 
                         }      
-                
-                     
                          $value = new Resultado(valor, ""); 
-                        
                 }
         )*
         |t1=terminoN2  
                {
                          Object valort1 = null;
                         if($t1.value.value!=null){
-                                  valort1  = $t1.value.value;
-                                  $value = new Resultado(valort1, ""); 
+                                  valort1  = $t1.value.value;   $value = new Resultado(valort1, ""); 
                         }      
-                
-                        
                          $value = new Resultado(valort1, ""); 
-                        
-                        
                 } 
         (MENOS t2=terminoN2  
                 { Object valor = null;
                         if($t2.value.value!=null && $value.value!=null){
-                                  valor  = (Double)$value.value- (Double)$t2.value.value;
-                                  $value = new Resultado(valor, ""); 
+                                  valor  = (Double)$value.value- (Double)$t2.value.value;   $value = new Resultado(valor, ""); 
                         }      
-                
-                     
-                         $value = new Resultado(valor, ""); 
-                        
+                         $value = new Resultado(valor, "");  
                 }
         )*
 ;
@@ -1297,25 +975,16 @@ terminoN2 returns [ Resultado value ]:
                {
                          Object valort1 = null;
                         if($t1.value.value!=null ){
-                                  valort1  = $t1.value.value;
-                                  $value = new Resultado(valort1, ""); 
+                                  valort1  = $t1.value.value;  $value = new Resultado(valort1, ""); 
                         }      
-                
-                        
                          $value = new Resultado(valort1, ""); 
-                        
-                        
                 } 
         (MUL t2=terminoN3  
                 { Object valor = null;
                         if($t2.value.value!=null && $value.value!=null){
-                                  valor  = (Double)$value.value* (Double)$t2.value.value;
-                                  $value = new Resultado(valor, ""); 
+                                  valor  = (Double)$value.value* (Double)$t2.value.value;$value = new Resultado(valor, ""); 
                         }      
-                
-                     
-                         $value = new Resultado(valor, ""); 
-                        
+                         $value = new Resultado(valor, "");   
                 }
         )*
         | t1=terminoN3  
@@ -1323,25 +992,17 @@ terminoN2 returns [ Resultado value ]:
                         if($t1.value.value!=null ){
                                    valort1  =  $t1.value.value;
                         }     
-                
-                         $value = new Resultado(valort1, ""); 
-                        
-                        
+                         $value = new Resultado(valort1, "");   
                 }
         (DIV t2=terminoN3 
                 { Object valor = null;
                         if($t2.value.value!=null && $value.value!=null){
-                                  valor  = (Double)$value.value / (Double)$t2.value.value;
-                                  $value = new Resultado(valor, ""); 
-                    
+                                  valor  = (Double)$value.value / (Double)$t2.value.value; $value = new Resultado(valor, ""); 
                         }
-                    
                          $value = new Resultado(valor, ""); 
-                       
                 }
         )*
 ;
-
 
 terminoN3 returns [ Resultado value ]: 
         
@@ -1349,10 +1010,8 @@ terminoN3 returns [ Resultado value ]:
                 {
                          Object valorn1 = null;
                         if($n1.value.value!=null){
-                                valorn1 = $n1.value.value;
-                                 $value = new Resultado(valorn1, ""); 
-                        }      
-                
+                                valorn1 = $n1.value.value; $value = new Resultado(valorn1, ""); 
+                        }     
                          $value = new Resultado(valorn1, ""); 
                         
                         
@@ -1360,18 +1019,12 @@ terminoN3 returns [ Resultado value ]:
         (POT n2=terminoN4  
                 {  Object valor = null;
                         if($n2.value.value!=null && $value.value!=null ){  
-                               valor= Math.pow((Double)$value.value, (Double)$n2.value.value);
-                                 $value = new Resultado(valor, ""); 
+                               valor= Math.pow((Double)$value.value, (Double)$n2.value.value);    $value = new Resultado(valor, ""); 
                         }      
-                                
-                        
                          $value = new Resultado(valor, ""); 
-                        
-                              
                 }
         )* 
 ;
-
 
 terminoN4 returns [ Resultado value ]: 
         
@@ -1379,10 +1032,8 @@ terminoN4 returns [ Resultado value ]:
                 {
                          Object valorn1 = null;
                         if($n1.value.value!=null){
-                                valorn1 = (Double)$n1.value.value;
-                                 $value = new Resultado(valorn1, ""); 
+                                valorn1 = (Double)$n1.value.value;  $value = new Resultado(valorn1, ""); 
                         }      
-                
                          $value = new Resultado(valorn1, ""); 
                         
                         
@@ -1390,39 +1041,25 @@ terminoN4 returns [ Resultado value ]:
         (MAYOR_QUE n2=numero  
                 {  Object valor = null;
                         if($n2.value.value!=null && $value.value!=null ){  
-                                valor  = (Double)$value.value > (Double)$n2.value.value;
-                                 $value = new Resultado(valor, ""); 
-                        }      
-                                
-                        
-                         $value = new Resultado(valor, ""); 
-                        
-                              
+                                valor  = (Double)$value.value > (Double)$n2.value.value; $value = new Resultado(valor, ""); 
+                        }       $value = new Resultado(valor, "");             
                 }
         )* 
         | n1=numero   
                 {
                          Object valorn1 = null;
                         if($n1.value.value!=null){
-                                valorn1 = (Double)$n1.value.value;
-                                 $value = new Resultado(valorn1, ""); 
+                                valorn1 = (Double)$n1.value.value;  $value = new Resultado(valorn1, ""); 
                         }      
-                
                          $value = new Resultado(valorn1, ""); 
-                        
-                        
                 } 
         (MENOR_QUE n2=numero  
                 {  Object valor = null;
                         if($n2.value.value!=null && $value.value!=null ){  
                                 valor  = (Double)$value.value <  (Double)$n2.value.value;
                                  $value = new Resultado(valor, ""); 
-                        }      
-                                
-                        
-                         $value = new Resultado(valor, ""); 
-                        
-                              
+                        }    
+                         $value = new Resultado(valor, "");            
                 }
         )* 
 
@@ -1432,8 +1069,7 @@ terminoN4 returns [ Resultado value ]:
                         if($n1.value.value!=null){
                                 valorn1 = (Double)$n1.value.value;
                                  $value = new Resultado(valorn1, ""); 
-                        }      
-                
+                        }     
                          $value = new Resultado(valorn1, ""); 
                         
                         
@@ -1444,11 +1080,7 @@ terminoN4 returns [ Resultado value ]:
                                 valor  = (Double)$value.value  >=  (Double)$n2.value.value;
                                  $value = new Resultado(valor, ""); 
                         }      
-                                
-                        
-                         $value = new Resultado(valor, ""); 
-                        
-                              
+                         $value = new Resultado(valor, "");             
                 }
         )* 
         | n1=numero   
@@ -1458,10 +1090,8 @@ terminoN4 returns [ Resultado value ]:
                                 valorn1 = (Double)$n1.value.value;
                                  $value = new Resultado(valorn1, ""); 
                         }      
-                
                          $value = new Resultado(valorn1, ""); 
-                        
-                        
+                           
                 } 
         (MENOR_QUE n2=numero  
                 {  Object valor = null;
@@ -1469,11 +1099,42 @@ terminoN4 returns [ Resultado value ]:
                                 valor  = (Double)$value.value <=  (Double)$n2.value.value;
                                  $value = new Resultado(valor, ""); 
                         }      
-                                
-                        
+                         $value = new Resultado(valor, "");       
+                }
+        )* 
+        | n1=numero   
+                {
+                         Object valorn1 = null;
+                        if($n1.value.value!=null){
+                                valorn1 = (Double)$n1.value.value;  $value = new Resultado(valorn1, ""); 
+                        }      
+                
+                         $value = new Resultado(valorn1, ""); 
+                } 
+        (DIFERENTE n2=numero  
+                {  Object valor = null;
+                        if($n2.value.value!=null && $value.value!=null ){  
+                                valor  = $value.value !=  $n2.value.value; $value = new Resultado(valor, ""); 
+                        }      
                          $value = new Resultado(valor, ""); 
+                }
+        )* 
+        |n1=numero   
+                {
+                         Object valorn1 = null;
+                        if($n1.value.value!=null){
+                                valorn1 = (Double)$n1.value.value; $value = new Resultado(valorn1, ""); 
+                        }      
+                         $value = new Resultado(valorn1, ""); 
+                } 
+        (ASIGNACIO ASIGNACIO n2=numero  
+                {  Object valor = null;
+                        if($n2.value.value!=null && $value.value!=null ){  
+                                valor  = $value.value ==  $n2.value.value;
+                                 $value = new Resultado(valor, ""); 
+                        }      
                         
-                              
+                         $value = new Resultado(valor, "");        
                 }
         )* 
 ;
@@ -1499,35 +1160,25 @@ numero returns [Resultado value]
                  Map <String,Object> tablaEnTurno=null;
 
                 if(tablaSimbolosLocales!=null)
-                {   
-                      
+                {     
                         tablaEnTurno=tablaSimbolosLocales;
                                 if (!tablaEnTurno.containsKey($IDENTIFICADOR.text)) {
                                 tablaEnTurno=tablaSimbolos;
                         }
-                        
-                
-                        
                 }else
-                {  
-                     
+                {    
                         tablaEnTurno=tablaSimbolos;
                 }
-                boolean ban1 = false;
-                boolean ban2 = false;
-                Object valor = null;
+                boolean ban1 = false;boolean ban2 = false;   Object valor = null;
                 
                 if (!tablaEnTurno.containsKey($IDENTIFICADOR.text)) {
-                        valor = null; 
-                        ban1=true;
+                        valor = null;  ban1=true;
                 } else {
 
                         if(tablaEnTurno.get($IDENTIFICADOR.text) instanceof Double){
                                 valor = tablaEnTurno.get($IDENTIFICADOR.text);
-
                         } else{
-                                ban2=true;
-                                 valor= null;
+                                ban2=true; valor= null;
                         }
                 }
 
@@ -1542,13 +1193,11 @@ numero returns [Resultado value]
              $value = new Resultado(valor, "");
         }
     | (CADENA|CARACTER|BOOLEAN)
-        {       
-                
+        {            
              Object valor= null; 
              $value = new Resultado(valor, "");
         }
     ;
-
 
 regreso  returns[boolean exito=false]  locals[boolean errorInterno=false, boolean errorBloque=false]: 
 
@@ -1576,11 +1225,9 @@ bloque_main returns[boolean exito=false]:
         }
 ;
 
-
 bloque_instrucciones_html:
 
         instruccion_html bloque_instrucciones_html_prima
-
 ;
 
 bloque_instrucciones_html_prima:
@@ -1596,23 +1243,19 @@ instruccion_html:
         | etiquetaInput {an($etiquetaInput.ctx,4);}
 ;
 
-
 etiquetaEncabezado returns[boolean exito=false] locals[ boolean errorId=false,boolean errorTipo=false,boolean errorInterno=false, String ids=""]:
 
         '<' h1=HEADERS '>' (CADENA|variableTipeScript
                                 { 
                                         if(!$variableTipeScript.exito){
-                                                $errorId=true; $errorInterno=true;
-                                                $ids+=$variableTipeScript.text+" ";
+                                                $errorId=true; $errorInterno=true; $ids+=$variableTipeScript.text+" ";
                                         } 
-                                
                                 }
                         )* '</' h2=HEADERS '>'    
                                         { 
                                                 if(!$h1.text.equals($h2.text))
                                                 {
-                                                        $errorTipo=true;
-                                                         $errorInterno=true;
+                                                        $errorTipo=true;   $errorInterno=true;
                                                 }
                                                 if(!$errorInterno){
                                                         $exito=true;
@@ -1626,8 +1269,7 @@ variableTipeScript returns[boolean exito=false] locals[ boolean errorId=false,bo
         {
                 if (!tablaSimbolos.containsKey($IDENTIFICADOR.text)) 
                 {
-                        $errorId=true;
-                        $errorInterno=true;
+                        $errorId=true;$errorInterno=true;
                 }
         } CORCH2 
         {
@@ -1636,8 +1278,6 @@ variableTipeScript returns[boolean exito=false] locals[ boolean errorId=false,bo
                 } 
         }
 ;
-
-
 
 etiquetaParrafo returns[boolean exito=false] locals[ boolean errorId=false,boolean errorTipo=true,boolean errorInterno=false, String ids=""]:
 
@@ -1649,8 +1289,7 @@ etiquetaParrafo returns[boolean exito=false] locals[ boolean errorId=false,boole
                                         } 
                                 }
                         )* '</'p2=PARRAFO'>'   
-                                        { 
-                                                
+                                        {   
                                                 if(!$errorInterno){
                                                         $errorTipo=false;
                                                         $exito=true;
@@ -1669,7 +1308,6 @@ etiquetaBoton returns[boolean exito=false] locals[ boolean errorId=false,boolean
                                                 $errorOnClock=true; $errorInterno=true;
                                                
                                         } 
-
                                 }
                                 
                         }
@@ -1682,8 +1320,7 @@ etiquetaBoton returns[boolean exito=false] locals[ boolean errorId=false,boolean
                                         } 
                                 }
                         )* '</'BOTON'>'   
-                                        { 
-                                                
+                                        {      
                                                 if(!$errorInterno){
                                                         $errorTipo=false;
                                                         $exito=true;
@@ -1694,16 +1331,13 @@ etiquetaBoton returns[boolean exito=false] locals[ boolean errorId=false,boolean
 onclick  returns[boolean exito=false] locals[boolean errorInterno=false,boolean errorLlamadaFuncion=false]:
 
         ONCLICK ASIGNACIO CORCH1 llamada_funcion
-        
-        { if(!$llamada_funcion.exito){  $errorInterno=true;  $errorLlamadaFuncion= true;}  
-        
+        {
+         if(!$llamada_funcion.exito){  $errorInterno=true;  $errorLlamadaFuncion= true;}  
         } CORCH2
         { 
-                if(!$errorInterno){
-                      
+                if(!$errorInterno){      
                         $exito=true;
                 } 
-        
         }
 
 ;
@@ -1711,22 +1345,16 @@ onclick  returns[boolean exito=false] locals[boolean errorInterno=false,boolean 
 
 etiquetaInput returns[boolean exito=false] locals[ boolean errorId=false,boolean errorTipo=true,boolean errorInterno=false, String ids=""]:
 
-        '<'INPUT    
-                        
-                        
-                        ('value' ASIGNACIO CORCH1 variableTipeScript CORCH2 
+        '<'INPUT ('value' ASIGNACIO CORCH1 variableTipeScript CORCH2 
                                 { 
                                         if(!$variableTipeScript.exito){
-                                                $errorId=true; $errorInterno=true;
-                                                $ids+=$variableTipeScript.text+" ";
+                                                $errorId=true; $errorInterno=true; $ids+=$variableTipeScript.text+" ";
                                         } 
                                 }
                         )? '/>'  
                                         { 
-                                                
                                                 if(!$errorInterno){
-                                                        $errorTipo=false;
-                                                        $exito=true;
+                                                        $errorTipo=false; $exito=true;
                                                 } 
                                         }
 ;

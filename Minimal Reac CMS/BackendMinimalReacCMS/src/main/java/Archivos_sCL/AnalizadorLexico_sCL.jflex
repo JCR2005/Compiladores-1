@@ -35,6 +35,7 @@ OBTENER="obtener"
 DELETE="eliminar"
 AGREGAR="agregar"
 SITIOS="sitios"
+TRANPILAR="tranpilar"
 PAGINAS="paginas"
 PAGINASITIOS="paginasitios"
 COMA=","
@@ -54,6 +55,9 @@ PARAMETRO=[a-zA-Z0-9]+[\_a-zA-Z0-9]*
   return new java_cup.runtime.Symbol(sym.PAGINA, yyline, yycolumn, yytext().trim());
 }
 
+<YYINITIAL> {TRANPILAR} {
+  return new java_cup.runtime.Symbol(sym.TRANPILAR, yyline, yycolumn, yytext().trim());
+}
 <YYINITIAL> {MODIFICAR} {
   return new java_cup.runtime.Symbol(sym.MODIFICAR, yyline, yycolumn, yytext().trim());
 }
