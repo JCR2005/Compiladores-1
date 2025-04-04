@@ -5,6 +5,8 @@
 
 package com.compiladores_1.notebookmovil.Backend.ArchivoTexto;
 
+import com.compiladores_1.notebookmovil.Backend.ArchivoCodigo.sym;
+
 import java_cup.runtime.Symbol;
 import java_cup.runtime.XMLElement;
 
@@ -137,18 +139,9 @@ public class parser extends java_cup.runtime.lr_parser {
 public class CUP$parser$actions {
 
 
-    public void reestablecerBanderas() {
-        instruccionValida = false;
-        encabezado = false;
-        lista_numerica = false;
-        parrafo = false;
-        lista = false;
-        tipoFormsto = false;
-        mensaje = "";
-        instruccion = "";
+    public void reestablecerBanderas(){
+
     }
-
-
     public  boolean instruccionValida = false;
     public  boolean encabezado= false;
     public  boolean lista_numerica = false;
@@ -241,7 +234,7 @@ public class CUP$parser$actions {
 		String e2 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                     instruccion= E+e2;
-                    mensaje="✔ COMPILACION EXITOSA: ENCABEZADO EJECUTADO";
+                    mensaje=" COMPILACION EXITOSA: ENCABEZADO EJECUTADO";
                     System.out.println("✔ Instrucción reconocida: "+instruccion+"\n");
                     instruccionValida=true;
                     encabezado = true;
@@ -259,8 +252,8 @@ public class CUP$parser$actions {
 		int Eright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String E = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		  System.out.println("❌ Error de sintaxis se esperaba un header");
-                    mensaje="❌ ERROR DE SINTAXIS";
-                    instruccion="❌ Header no definido "+E+" ^^^^^^^^^^^ ";
+                    mensaje=" ERROR DE SINTAXIS";
+                    instruccion=" Header no definido "+E+" ^^^^^^^^^^^ ";
                     instruccionValida=false;
                     encabezado = false;
                     RESULT = null;
@@ -299,7 +292,7 @@ public class CUP$parser$actions {
 		String c = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                     instruccion = i + c+" ";
-                   mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
+                   mensaje="COMPILACION EXITOSA: lISTA EJECUTADA";
                     System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
                     instruccionValida=true;
                     lista_numerica =true;
@@ -324,8 +317,8 @@ public class CUP$parser$actions {
 		String ed = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                      instruccion = i + c +" "+ ed;
-                     mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
-                     System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                     mensaje=" COMPILACION EXITOSA: lISTA EJECUTADA";
+                     System.out.println(" Instrucción reconocida: " + instruccion + "\n");
                      instruccionValida=true;
                      lista_numerica =true;
                      RESULT = instruccion;
@@ -345,8 +338,8 @@ public class CUP$parser$actions {
 		int i2right = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i2 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                      mensaje="❌ ERROR DE SINTAXIS";
-                      instruccion="❌ Elemento de lista no definido: "+i1+" ^^^^^^^^^^^ "+i2+"^^^^^^^^^^";
+                      mensaje=" ERROR DE SINTAXIS";
+                      instruccion=" Elemento de lista no definido: "+i1+" ^^^^^^^^^^^ "+i2+"^^^^^^^^^^";
                       instruccionValida=false;
                       lista_numerica =false;
                       RESULT = instruccion;
@@ -363,8 +356,8 @@ public class CUP$parser$actions {
 		int iright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                      mensaje="❌ ERROR DE SINTAXIS";
-                      instruccion="❌ Elemento de lista no definido: "+i+" ^^^^^^^^^^^";
+                      mensaje=" ERROR DE SINTAXIS";
+                      instruccion=" Elemento de lista no definido: "+i+" ^^^^^^^^^^^";
                       instruccionValida=false;
                       lista_numerica =false;
                       RESULT = instruccion;
@@ -385,7 +378,7 @@ public class CUP$parser$actions {
 		String c = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                     instruccion = i + c+" ";
-                    mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
+                    mensaje=" COMPILACION EXITOSA: lISTA EJECUTADA";
                     System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
                     instruccionValida=true;
                     lista =true;
@@ -411,8 +404,8 @@ public class CUP$parser$actions {
 		
                      instruccion = i + c +" "+ ed;
 
-                     mensaje="✔ COMPILACION EXITOSA: lISTA EJECUTADA";
-                     System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                     mensaje=" COMPILACION EXITOSA: lISTA EJECUTADA";
+                     System.out.println(" Instrucción reconocida: " + instruccion + "\n");
                      instruccionValida=true;
                     lista =true;
                      RESULT = instruccion;
@@ -432,8 +425,8 @@ public class CUP$parser$actions {
 		int i2right = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i2 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                      mensaje="❌ ERROR DE SINTAXIS";
-                      instruccion="❌ Elemento de lista no definido: "+i1+" ^^^^^^^^^^^ "+i2+"^^^^^^^^^^";
+                      mensaje="ERROR DE SINTAXIS";
+                      instruccion=" Elemento de lista no definido: "+i1+" ^^^^^^^^^^^ "+i2+"^^^^^^^^^^";
                       instruccionValida=false;
                       lista =false;
                       RESULT = instruccion;
@@ -450,8 +443,8 @@ public class CUP$parser$actions {
 		int iright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                      mensaje="❌ ERROR DE SINTAXIS";
-                      instruccion="❌ Elemento de lista no definido: "+i+" ^^^^^^^^^^^";
+                      mensaje=" ERROR DE SINTAXIS";
+                      instruccion=" Elemento de lista no definido: "+i+" ^^^^^^^^^^^";
                       instruccionValida=false;
                       lista =false;
                       RESULT = instruccion;
@@ -528,8 +521,8 @@ public class CUP$parser$actions {
             {
               Object RESULT =null;
 		
-                mensaje="❌ ERROR DE SINTAXIS";
-               instruccion="❌ Error de sintaxis es una instrccion imvalida";
+                mensaje=" ERROR DE SINTAXIS";
+               instruccion="Error de sintaxis es una instrccion imvalida";
                   instruccionValida=false;
 
                RESULT = null;
@@ -554,15 +547,15 @@ public class CUP$parser$actions {
 		String tf2 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                  if (!tf1.equals(tf2)) {
-                     mensaje="❌ ERROR DE SINTAXIS";
-                     instruccion="❌ Cierre no coicide: "+tf1+" "+t+" →"+ tf2+"←, esperado: "+ tf1;
+                     mensaje=" ERROR DE SINTAXIS";
+                     instruccion=" Cierre no coicide: "+tf1+" "+t+" →"+ tf2+"←, esperado: "+ tf1;
                      instruccionValida=false;
                      tipoFormsto = false;
                      RESULT = null;
                  }else{
                     instruccion=tf1+t+tf2;
-                    mensaje="✔ COMPILACION EXITOSA: TEXTO CON FORMATO EJECUTADO";
-                    System.out.println("✔ Instrucción reconocida: "+instruccion+"\n");
+                    mensaje=" COMPILACION EXITOSA: TEXTO CON FORMATO EJECUTADO";
+                    System.out.println(" Instrucción reconocida: "+instruccion+"\n");
                     instruccionValida=true;
                     tipoFormsto = true;
                     RESULT = instruccion;
@@ -584,8 +577,8 @@ public class CUP$parser$actions {
 		int tright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String t = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                      mensaje="❌ ERROR DE SINTAXIS";
-                      instruccion="❌ Cierre no presente: "+tf1+" "+t+" →^^^←"+", esperado: →"+ tf1;
+                      mensaje=" ERROR DE SINTAXIS";
+                      instruccion=" Cierre no presente: "+tf1+" "+t+" →^^^←"+", esperado: →"+ tf1;
                       instruccionValida=false;
                       tipoFormsto = false;
                      RESULT = null;
@@ -605,8 +598,8 @@ public class CUP$parser$actions {
 		int tf1right = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String tf1 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                   mensaje="❌ ERROR DE SINTAXIS";
-                   instruccion="❌ Inicio no presente: "+" →^^^←"+" "+t+tf1+", esperado: →"+ tf1;
+                   mensaje="ERROR DE SINTAXIS";
+                   instruccion=" Inicio no presente: "+" →^^^←"+" "+t+tf1+", esperado: →"+ tf1;
                   instruccionValida=false;
                   tipoFormsto = false;
                    RESULT = null;
@@ -623,8 +616,8 @@ public class CUP$parser$actions {
 		int tf1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		String tf1 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		
-                      mensaje="❌ ERROR DE SINTAXIS";
-                      instruccion="❌ Texto no definido, Cierre no definido: "+tf1+" →^^^^^^^^^^^^^^← →^^^←, cierre esperado: "+tf1;
+                      mensaje=" ERROR DE SINTAXIS";
+                      instruccion=" Texto no definido, Cierre no definido: "+tf1+" →^^^^^^^^^^^^^^← →^^^←, cierre esperado: "+tf1;
                       instruccionValida=false;
                       tipoFormsto = false;
                      RESULT = null;
@@ -642,8 +635,8 @@ public class CUP$parser$actions {
 		String p = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                     instruccion = p;
-                      mensaje="✔ COMPILACION EXITOSA: PARRAFO EJECUTADO";
-                    System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                      mensaje=" COMPILACION EXITOSA: PARRAFO EJECUTADO";
+                    System.out.println(" Instrucción reconocida: " + instruccion + "\n");
                      instruccionValida=true;
                       parrafo = true;
                     RESULT = instruccion;
@@ -661,8 +654,8 @@ public class CUP$parser$actions {
 		String t = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                       instruccion+= t;
-                      mensaje="✔ COMPILACION EXITOSA: PARRAFO EJECUTADO";
-                      System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                      mensaje="COMPILACION EXITOSA: PARRAFO EJECUTADO";
+                      System.out.println(" Instrucción reconocida: " + instruccion + "\n");
                        instruccionValida=true;
                        parrafo = true;
                       RESULT = instruccion;
@@ -683,8 +676,8 @@ public class CUP$parser$actions {
 		String n2 = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                   instruccion=n1+n2;
-                  mensaje="✔ COMPILACION EXITOSA: PARRAFO EJECUTADO";
-                  System.out.println("✔ Instrucción reconocida: " + instruccion + "\n");
+                  mensaje=" COMPILACION EXITOSA: PARRAFO EJECUTADO";
+                  System.out.println(" Instrucción reconocida: " + instruccion + "\n");
                    instruccionValida=true;
                    parrafo = true;
                   RESULT = instruccion;
