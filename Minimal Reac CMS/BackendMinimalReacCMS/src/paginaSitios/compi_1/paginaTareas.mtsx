@@ -1,0 +1,23 @@
+const PaginaTareaUnica = () => {
+  var tarea: string = "Tarea Inicial";
+  
+  var nuevaTarea: string = "";
+  
+  function actualizarTarea(): void {
+    if (3 > 2) {
+      tarea = nuevaTarea;
+      nuevaTarea = "";
+      console.log("Tarea actualizada: " );
+console.log( tarea);
+    }
+  }
+  
+  return (
+    <main>
+      <h1>"Página de Tarea Única"</h1>
+      <p>"Tarea: {tarea}"</p>
+      <input value={nuevaTarea} />
+      <button onClick={actualizarTarea();}>"Actualizar Tarea"</button>
+    </main>
+  );
+}

@@ -1,0 +1,10 @@
+const PaginaSimple = () => {
+  var mensaje: string = "Hola Mundo";
+
+  return (
+    <main>
+      <h1>{mensaje}</h1>
+      <p>"Bienvenido a una página web simple desarrollada con Minimal React."</p>
+    </main>
+  );
+}

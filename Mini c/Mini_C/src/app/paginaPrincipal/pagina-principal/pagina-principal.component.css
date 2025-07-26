@@ -1,0 +1,188 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    background-color: #162c5e;
+  }
+
+  .contenedor {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(26, 29, 34); 
+    justify-content: center;
+    align-items: center;
+  }
+  
+h1{
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    color: rgb(60, 61, 61);
+    font-size: 900%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+
+.label1{
+    top: 65%;
+    color: rgb(60, 61, 61);
+    font-size: 500%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 7%;
+    background-color: #000000;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-size: 45px;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    font-size: 25px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 25px;
+    margin-left: 20px;
+    position: relative; 
+}
+
+.navbar-link {
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-link:hover {
+    background-color: rgb(37, 41, 48); 
+    color: #ffffff;
+    border-radius: 25px;
+}
+
+.navbar-item:hover  {
+    display: block;
+}
+
+.panelElevado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 20, 32, 0.795); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .panelCrearProyecto {
+    justify-content: center;
+    display: flex;
+    position: relative;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 50vh;
+    border-radius: 25px;
+    width: 50vw;
+    background-color: rgb(26, 29, 34); 
+    color: #ffffff;
+  }
+  
+  .botonCerrar{
+    font-weight:900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    width:4%;
+    right: 0%;
+    height: 6%;
+    padding: 3px 3px;
+    background-color: rgb(26, 29, 34); 
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 110%;
+    border: none;
+  }
+  .botonCerrar:hover{
+    background-color:  rgb(37, 41, 48); 
+  
+  }
+
+  .form-nombre-proyecto {
+    display: flex;
+    position: absolute;
+    top: 25%;
+    flex-direction: column;
+    align-items: center;       
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  
+  .form-nombre-proyecto label {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .form-nombre-proyecto input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s ease;
+  }
+  
+  .form-nombre-proyecto input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  }
+  
+   
+  .botonCrear{
+    font-weight:900;
+    font-style: italic;
+    position:absolute;
+    bottom: 40%;
+    width:30%;
+    right: 35%;
+    height: 7%;
+    padding: 3px 3px;
+    background-color: rgb(26, 29, 34); 
+    color: #ffffff;
+    font-size: 110%;
+    border: none;
+  }
+  .botonCrear:hover{
+    background-color: rgb(37, 41, 48); 
+  
+  }

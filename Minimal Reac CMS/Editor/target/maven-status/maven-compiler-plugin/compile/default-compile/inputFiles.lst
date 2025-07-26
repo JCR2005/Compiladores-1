@@ -1,29 +1,29 @@
-/home/carlos/NetBeansProjects/Editor/src/main/java/Backend/Agregar.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Backend/Crear.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Backend/Modificar.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Backend/Obtener.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Empaquetado/Empaquetado.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/FondosDeEtiquetas.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelCreacion.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelEdicion.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelEdicionSitios.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelEditorPagina.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelPrincipal.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/PanelVisualizacion.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/Panelnicio.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Fronted/VentanaPrincipal.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Responses/RespuestaErroresDeCompilacion.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Responses/RespuestaPaginaSitiosDisponibles.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Servidor/ChatClient.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Servidor/ChatClientEnwdpoint.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/Servidor/Enviocosas.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sCL/Accion.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sCL/Instruccion.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sCL/Objetivo.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sCL/Parametro.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sHTTP/Body.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sHTTP/Codigo.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sHTTP/Metodo.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sHTTP/Objetivo.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sHTTP/Request.java
-/home/carlos/NetBeansProjects/Editor/src/main/java/sHTTP/Response.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Backend/Agregar.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Backend/Crear.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Backend/Modificar.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Backend/Obtener.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Empaquetado/Empaquetado.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/FondosDeEtiquetas.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/PanelCreacion.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/PanelEdicion.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/PanelEdicionSitios.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/PanelEditorPagina.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/PanelPrincipal.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/PanelVisualizacion.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/Panelnicio.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Fronted/VentanaPrincipal.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Responses/RespuestaErroresDeCompilacion.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Responses/RespuestaPaginaSitiosDisponibles.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Servidor/ChatClient.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Servidor/ChatClientEnwdpoint.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/Servidor/Enviocosas.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sCL/Accion.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sCL/Instruccion.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sCL/Objetivo.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sCL/Parametro.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sHTTP/Body.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sHTTP/Codigo.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sHTTP/Metodo.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sHTTP/Objetivo.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sHTTP/Request.java
+/home/carlos/Documentos/Compiladores-1/Minimal Reac CMS/Editor/src/main/java/sHTTP/Response.java

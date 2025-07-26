@@ -1,0 +1,20 @@
+/* 🔥 ESTO ES GLOBAL Y OBLIGATORIO 🔥 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; 
+    background-color: #142130;
+  }
+  
+  app-root {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  

@@ -18,3 +18,31 @@ path: "src/paginaSitios/mi_sitio_1/mi_pagina_1.mtsx"
 nombre: "pagina 1"
 tipo: paginaSitio
 path: "src/paginaSitios/mi_sitio_1/pagina_1.mtsx"
+[compi_1]
+nombre: "compi 1"
+tipo: sitio
+path: "src/paginaSitios/compi_1"
+[compi_1.pagina1]
+nombre: "pagina1"
+tipo: paginaSitio
+path: "src/paginaSitios/compi_1/pagina1.mtsx"
+[compi_1.pagina2]
+nombre: "pagina2"
+tipo: paginaSitio
+path: "src/paginaSitios/compi_1/pagina2.mtsx"
+[compi_1.pagina3]
+nombre: "pagina3"
+tipo: paginaSitio
+path: "src/paginaSitios/compi_1/pagina3.mtsx"
+[compi_1.paginaSimple]
+nombre: "paginaSimple"
+tipo: paginaSitio
+path: "src/paginaSitios/compi_1/paginaSimple.mtsx"
+[compi_1.paginaTareas]
+nombre: "paginaTareas"
+tipo: paginaSitio
+path: "src/paginaSitios/compi_1/paginaTareas.mtsx"
+[compi_1.PaginaContador]
+nombre: "PaginaContador"
+tipo: paginaSitio
+path: "src/paginaSitios/compi_1/PaginaContador.mtsx"

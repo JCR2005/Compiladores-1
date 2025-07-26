@@ -1,0 +1,412 @@
+.TituloExplorador{
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+
+
+.TituloProyecto{
+    position: absolute;
+    top: 6%;
+    left: 13%;
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+
+.TituloArchivo{
+  position: absolute;
+  top: 1%;
+  left: 2%;
+  color: rgb(105, 134, 86);
+  font-size: 1.2rem;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+}
+
+.btn_Analizar{
+  position: fixed;
+  top: 1%;
+  right: 2%;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  color:  rgb(255, 255, 255);
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 8px;
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    
+    gap: 3px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color:#252526; 
+    cursor: pointer;
+    font-size: 80%;
+  }
+  
+  button:hover {
+    background-color:  rgb(46, 50, 58); 
+  }
+  
+  .btn-directorio {
+
+    color: #2a5d9f;
+  }
+  
+  .btn-archivo {
+    text-align: left;
+    color: #ffffff;
+  }
+  .btn-opcioneArchivo {
+    text-align: left;
+    color: #ffffff;
+    width: 2vw;
+    height: 2vh;
+  }
+
+.panelArchivos {
+    position: fixed;
+    top: 15%;
+    left: 0;
+    width: 20vw;
+    height: 90vh;
+    background-color: #252526;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    padding: 1rem;
+}
+  
+.panelEditor {
+    position: fixed;
+    top: 6%;
+    left: 20vw;
+    width: 80vw;
+    height: 94vh;
+    background-color:  #1e1e1e;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
+    overflow: hidden; 
+
+}
+
+.editorScrollContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+  }
+  
+.editorTexto {
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    position: absolute;
+    left: 4%;
+    top: 5%;
+    width: 100%;
+    height: 95%;
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 14px;
+    resize: none;
+  }
+
+  .numeros-linea {
+    padding: 1rem 0.5rem;
+    background-color: #2d2d2d;
+    color: #858585;
+    text-align: right;
+    user-select: none;
+  }
+  .nombreArchivo {
+    color: rgb(131, 212, 138);
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .contenedorCarpeta{
+    
+    position: relative;
+    left: 5%;
+  }
+  .nombreArchivoYaml{
+    top: 1%;
+    left: 0%;
+    color: #FFC107;
+    font-size: 100%;
+    font-weight: 500;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+  }
+  .nombreModulo{
+    top: 1%;
+    left: 1%;
+    color: #90CAF9;
+    font-size: 100%;
+    font-weight: 900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+  }
+  
+  .panelnumerosLinea {
+    position: absolute;
+    left: 0;
+    top: 5%;
+    bottom: 0;
+    width: 4%;
+    background-color:  #1e1e1e;
+    color: #858585;
+    text-align: right;
+    user-select: none;
+    padding: 0rem 1rem;
+    overflow: hidden;
+    font-size: 14px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+  }
+
+
+
+  .btn_guardarArchivo{
+    font-weight:900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    width:5%;
+    top: 0%;
+    right: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    padding: 0px 0px;
+    background-color: rgba(30,30,30,255);
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 110%;
+  }
+
+  .btn_eliminarArchivo{
+    font-weight:900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    width:5%;
+    top: 0%;
+    right: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    padding: 0px 0px;
+    background-color: rgba(30,30,30,255);
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 110%;
+  }
+
+
+
+  .botonCrear{
+    font-weight: 900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    width:10%;
+    height: 10%;
+    top: 50%;
+    background-color: rgba(30,30,30,255);
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+  }
+  .botonCrear:hover{
+    background-color:  rgb(37, 41, 48); 
+  
+  }
+
+  .botonCrearmodulo{
+    font-weight: 900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    width:30%;
+    top: 5%;
+    right: 1%;
+    height: 4%;
+    background-color: rgba(30,30,30,255);
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+  }
+  .botonCrearmodulo:hover{
+    background-color:  rgb(37, 41, 48); 
+  
+  }
+
+
+.panelElevado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 20, 32, 0.795); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .panelCrearProyecto {
+    justify-content: center;
+    display: flex;
+    position: relative;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 50vh;
+    border-radius: 25px;
+    width: 50vw;
+    background-color: rgb(26, 29, 34); 
+    color: #ffffff;
+  }
+  
+  .botonCerrar{
+    font-weight:900;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:4%;
+    right: 0%;
+    height: 6%;
+    padding: 3px 3px;
+    background-color: rgb(26, 29, 34); 
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 110%;
+    border: none;
+  }
+  .botonCerrar:hover{
+    background-color:  rgb(37, 41, 48); 
+  
+  }
+
+  .form-nombre-proyecto {
+    display: flex;
+    position: absolute;
+    top: 25%;
+    flex-direction: column;
+    align-items: center;       
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  
+  .form-nombre-proyecto label {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .form-nombre-proyecto input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s ease;
+  }
+  
+  .form-nombre-proyecto input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  }
+  .botonCrearCmm {
+    font-weight: 700;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px; 
+    border-radius: 25px;
+    background-color:#1f3a56;
+    color: #ffffff;
+
+    font-size: 0.8rem;  
+    border: none;
+}
+
+.botonCrearCmm:hover {
+    background-color:#5a7d9b;
+}
+
+.panelBotonesModulo {
+    position: relative;
+    display: flex; 
+    gap: 5px; 
+    justify-content: flex-start;
+    flex-wrap: wrap; 
+    width: 100%; 
+    align-items: center; 
+}
+
+.eliminarCmm1 {
+  font-weight: 700;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px; 
+  border-radius: 5px;
+  background-color:#42464b;
+  color: #ffffff;
+
+  font-size: 0.8rem;  
+  border: none;
+}
+
+.eliminarCmm1:hover {
+  background-color:#113758;
+}
+
+
+
+.cambios{
+  position: absolute;
+  width:5%;
+  top: 0%;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5%;
+}

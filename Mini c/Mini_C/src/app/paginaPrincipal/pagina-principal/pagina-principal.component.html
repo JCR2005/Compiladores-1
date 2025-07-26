@@ -1,0 +1,30 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <a class="navbar-logo">Mini C</a>
+      <ul class="navbar-menu">
+        <li class="navbar-item">
+          <a class="navbar-link" (click)="abrirPanelCrear()">Crear proyecto</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link"  (click)="abrirProyecto()">Abrir proyecto</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<div class="panelElevado"  *ngIf="panelCrear" >
+<div class="panelCrearProyecto">
+    <button class="botonCerrar" (click)="cerrarPanelCrear()" >X</button>
+    <div class="form-nombre-proyecto">
+        <label for="nombreProyecto">Ingresar el nombre del proyecto:</label>
+        <input id="nombreProyecto" type="text" [(ngModel)]="nombreProyecto" placeholder="Escribe el nombre de tu poryecto">
+    </div>
+    <button class="botonCrear" (click)="crearProyecto()">Crear</button>
+</div>
+</div>
+
+<div class="contenedor">
+    <h1>Mini C</h1>
+    <h1 class="label1">Página principal</h1>
+</div>
+
+  

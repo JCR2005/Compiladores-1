@@ -1,0 +1,13 @@
+<div *ngIf="cargando" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>...Cargando...</p>
+</div>
+
+<div class="contenedor">
+    <button class="botonCerrar"><- Cerrar el proyecto</button>
+    <div  class="panelArchivos">
+        <app-panel-archivos *ngIf="carpetaRuta" [carpeta]="carpetaRuta"></app-panel-archivos>
+      
+    </div>
+</div>
+

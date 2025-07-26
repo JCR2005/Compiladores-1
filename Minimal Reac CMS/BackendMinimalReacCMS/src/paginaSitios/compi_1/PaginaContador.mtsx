@@ -1,0 +1,19 @@
+const PaginaContador = () => {
+  var nombre: string = "Usuario";
+  var contador: number = 0;
+
+  function incrementar(): void {
+    contador = contador + 1;
+    console.log("Contador incrementado: ");
+console.log(contador);
+  }
+
+  return (
+    <main>
+      <h1>"Contador y Saludo"</h1>
+      <p>"Hola, "{nombre}</p>
+      <button onClick={incrementar();}>"Saludar e Incrementar"</button>
+      <p>"Has presionado el botón "{contador}" veces."</p>
+    </main>
+  );
+}

@@ -1,0 +1,92 @@
+
+<button class="btn_Analizar"  *ngIf="archivoTieneMain()">▶ ANALIZAR</button>
+<h2 class="TituloExplorador">Explorador</h2>
+<button class="botonCrearmodulo"  (click)="abrirPanelCrearModulo()">➕ modulo</button>
+<h1 class="TituloProyecto">Proyecto: {{ carpeta.name }}</h1>
+
+<div class="panelArchivos">
+
+  <ul>
+    
+    <ul>
+      <li *ngFor="let e of entradasPricipales; let i = index">
+
+        <div class="contenedorCarpeta" *ngIf="e.kind==='directory'">
+          <div class="panelBotonesModulo">
+            <br><br><br>
+            <button class="botonCrearCmm" (click)="abrirPanelCrearArchivo(e)">➕ agregar .cmm</button>  
+            <button class="botonCrearCmm" (click)="eliminarModulos(e)">✖️ eliminar modulo</button> 
+          </div>
+         
+          <label class="nombreModulo" >
+            | 🗂️ {{ e.name }} 
+           </label>
+          
+          <ul >
+             <br>
+            <li *ngFor="let q of entradasSecundarias[i]">
+              <div class="panelBotonesModulo">
+              <button class="nombreArchivo"  *ngIf=" q.handle.name.endsWith('.cmm')" (click)="abrirArchivo(q.handle)">| {{q.nombre}}</button>
+              <button class="eliminarCmm1" (click)="eliminarArchivos(q.handle)">✖️ eliminar </button>
+            </div>
+            </li>
+         
+          </ul>
+          <br>
+        </div>
+       
+        
+        <button class="nombreArchivoYaml" *ngIf="e.kind==='file'  && e.name.endsWith('.yml')" (click)="abrirArchivo(e)"> | {{ e.name }}  </button>
+      </li>
+    </ul>
+    
+    
+  </ul>
+  
+ 
+</div>
+<div class="panelEditor" *ngIf="archivoActual"  (keydown)="manejarCtrlS($event)">
+
+    <div class="editorScrollContainer">
+      <h1 class="TituloArchivo" *ngIf="archivoActual">{{ archivoActual.name }}</h1>
+
+      <label class="cambios" *ngIf="canbios">🟡</label >
+        <button class="btn_guardarArchivo" (click)="guardarCambiosArchivo()" >💾</button>
+        
+        <div class="panelnumerosLinea">
+            <div *ngFor="let n of lineas">{{ n }}</div>
+          </div>
+          
+        <h1 class="nombreArchivo">{{nombreArchivo}}</h1>
+        <textarea class="editorTexto"
+                  [(ngModel)]="contenido"
+                  (input)="actualizarLineas(); verificarCambios()"
+                  (keydown)="manejarTab($event)"  
+                  placeholder="Escribe tu código aquí...">
+        </textarea>
+    </div>
+   
+</div>
+
+<div class="panelElevado"  *ngIf="panelCrearModulo">
+    <div class="panelCrearProyecto" >
+        <button class="botonCerrar"   (click)="cerrarPanelCrearModulo()" >X</button>
+        <div class="form-nombre-proyecto">
+            <label for="nombreProyecto">Ingresar el nombre del modulo nuevo:</label>
+            <input id="nombreProyecto" type="text" [(ngModel)]="nombreModuloCrear" placeholder="Escribe el nombre de tu poryecto">
+        </div>
+        <button class="botonCrear" (click)="crearModulo()" >Crear</button>
+    </div>
+ </div>
+  
+
+ <div class="panelElevado"  *ngIf="panelCrearArchivo">
+  <div class="panelCrearProyecto" >
+      <button class="botonCerrar"   (click)="cerrarPanelCrearArchivo()" >X</button>
+      <div class="form-nombre-proyecto">
+          <label for="nombreProyecto">Ingresar el nombre del .ccm nuevo:</label>
+          <input id="nombreProyecto" type="text" [(ngModel)]="nombreArchivoACrear" placeholder="Escribe el nombre de tu poryecto">
+      </div>
+      <button class="botonCrear" (click)="crearArchivo()" >Crear</button>
+  </div>
+</div>
